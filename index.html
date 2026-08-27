@@ -4,37 +4,1327 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Grade 9 Science Lab</title>
+<title>Earth & Universe Science - Week 1</title>
 
 <style>
 
+:root {
+    --red: #b91c1c;
+    --dark-red: #7f1d1d;
+    --light-red: #fee2e2;
+    --white: #ffffff;
+    --gray: #f3f4f6;
+    --dark: #1f2937;
+    --green: #166534;
+    --yellow: #fef3c7;
+    --blue: #1d4ed8;
+}
+
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f5f5;
-  color: #222;
-  line-height: 1.6;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    color: var(--dark);
 }
 
 header {
-  background: #a6192e;
-  color: white;
-  padding: 22px;
-  text-align: center;
-  border-bottom: 6px solid #7d1021;
+    background: var(--red);
+    color: white;
+    padding: 18px;
+    text-align: center;
 }
 
 header h1 {
-  margin: 0;
-  font-size: 34px;
+    margin: 0;
+    font-size: 28px;
 }
 
 header p {
-  margin: 5px 0 0;
+    margin: 6px 0 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+h2 {
+    color: var(--red);
+}
+
+h3 {
+    color: var(--dark-red);
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.primary {
+    background: var(--red);
+    color: white;
+}
+
+.secondary {
+    background: #374151;
+    color: white;
+}
+
+.help {
+    background: #f59e0b;
+    color: white;
+}
+
+.challenge {
+    background: #7c3aed;
+    color: white;
+}
+
+.success {
+    background: var(--green);
+    color: white;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background: var(--red);
+    color: white;
+    padding: 10px;
+}
+
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+td input {
+    margin: 0;
+    text-align: center;
+}
+
+.info-box {
+    background: var(--light-red);
+    border-left: 5px solid var(--red);
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.help-box {
+    background: var(--yellow);
+    border-left: 5px solid #f59e0b;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.challenge-box {
+    background: #ede9fe;
+    border-left: 5px solid #7c3aed;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.skill {
+    display: inline-block;
+    background: #e5e7eb;
+    padding: 6px 10px;
+    margin: 4px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.progress {
+    height: 12px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--red);
+    width: 0%;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.notice {
+    font-size: 14px;
+    color: #555;
+}
+
+.answer {
+    font-weight: bold;
+    color: var(--green);
+}
+
+.visual {
+    text-align: center;
+    font-size: 60px;
+    padding: 15px;
+}
+
+.choice {
+    background: #f3f4f6;
+    border: 2px solid transparent;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.choice:hover {
+    border-color: var(--red);
+}
+
+.choice.selected {
+    border-color: var(--red);
+    background: var(--light-red);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔬 Earth & Universe Science</h1>
+    <p>Grade 9 • Week 1: Where Did the Water Go?</p>
+</header>
+
+<div class="container">
+
+<!-- PROGRESS -->
+
+<div class="card">
+
+    <strong>Your Progress</strong>
+
+    <div class="progress">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <span id="progressText">Page 1 of 7</span>
+
+</div>
+
+
+<!-- PAGE 1 -->
+
+<section class="page active" id="page1">
+
+<div class="card">
+
+<h2>💧 Where Did the Water Go?</h2>
+
+<div class="visual">💧 → ☁️</div>
+
+<h3>Essential Question</h3>
+
+<p>
+How do scientists use observations, measurements, mathematics,
+and evidence to explain changes in the natural world?
+</p>
+
+<div class="info-box">
+
+<strong>Scientists don't just guess.</strong>
+
+<p>
+Scientists observe, measure, record data, look for patterns,
+and use evidence to explain what happened.
+</p>
+
+</div>
+
+<h3>Our Mystery</h3>
+
+<p>
+A container begins with <strong>100 mL</strong> of water.
+Later, only <strong>77 mL</strong> remains.
+</p>
+
+<p><strong>Where did the missing water go?</strong></p>
+
+<label>Your prediction:</label>
+
+<textarea
+id="prediction"
+placeholder="I predict that..."
+oninput="saveData()"></textarea>
+
+</div>
+
+<div class="card">
+
+<h3>🎯 Skills We Are Practicing</h3>
+
+<span class="skill">Observation</span>
+<span class="skill">Measurement</span>
+<span class="skill">Data Analysis</span>
+<span class="skill">Mathematics</span>
+<span class="skill">Scientific Writing</span>
+<span class="skill">CER</span>
+
+</div>
+
+<div class="nav">
+<button class="secondary" disabled>◀ Back</button>
+<button class="primary" onclick="nextPage()">Next ▶</button>
+</div>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section class="page" id="page2">
+
+<div class="card">
+
+<h2>📖 Read Like a Scientist</h2>
+
+<p>
+Your teacher will give you a printed scientific reading about
+evaporation and the water cycle.
+</p>
+
+<a
+href="https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle?page=1"
+target="_blank">
+
+<button class="primary">
+📄 Open USGS Reading
+</button>
+
+</a>
+
+<p class="notice">
+The reading will be printed for you. Use the questions below
+while you read.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Vocabulary</h3>
+
+<p><strong>Evaporation:</strong> liquid water changing into water vapor.</p>
+
+<p><strong>Water vapor:</strong> water in its gas state.</p>
+
+<p><strong>Condensation:</strong> water vapor changing into liquid water.</p>
+
+<p><strong>Energy:</strong> the ability to cause change or do work.</p>
+
+<p><strong>Evidence:</strong> information used to support a scientific claim.</p>
+
+</div>
+
+<div class="card">
+
+<h3>🧠 Reading Check</h3>
+
+<p><strong>What is the main idea of the reading?</strong></p>
+
+<div class="choice" onclick="selectChoice(this,'B')">
+A. Water disappears when it gets hot.
+</div>
+
+<div class="choice" onclick="selectChoice(this,'B')">
+B. Evaporation moves water from Earth's surface into the atmosphere.
+</div>
+
+<div class="choice" onclick="selectChoice(this,'B')">
+C. Water only evaporates at 100°C.
+</div>
+
+<div class="choice" onclick="selectChoice(this,'B')">
+D. Condensation causes water to disappear.
+</div>
+
+<p id="readingFeedback"></p>
+
+<label>What is one piece of evidence from the reading?</label>
+
+<textarea
+id="readingEvidence"
+oninput="saveData()"></textarea>
+
+</div>
+
+<div class="nav">
+<button class="secondary" onclick="previousPage()">◀ Back</button>
+<button class="primary" onclick="nextPage()">Next ▶</button>
+</div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section class="page" id="page3">
+
+<div class="card">
+
+<h2>🔬 Virtual Investigation</h2>
+
+<h3>Investigation Question</h3>
+
+<p>
+<strong>
+How does temperature affect the amount of water that evaporates?
+</strong>
+</p>
+
+<div class="visual">🌡️ 💧</div>
+
+<h3>Prediction</h3>
+
+<p>Which temperature will cause the most water loss?</p>
+
+<select id="temperaturePrediction" onchange="saveData()">
+
+<option value="">Choose one</option>
+<option>15°C</option>
+<option>25°C</option>
+<option>35°C</option>
+
+</select>
+
+<h3>Before You Begin</h3>
+
+<p>
+Each trial begins with <strong>100 mL</strong> of water.
+Run each temperature and carefully record the ending amount.
+</p>
+
+<div class="info-box">
+
+<strong>Important:</strong>
+
+You are responsible for entering the data.
+The computer will calculate the amount of water lost.
+
+</div>
+
+</div>
+
+<div class="nav">
+<button class="secondary" onclick="previousPage()">◀ Back</button>
+<button class="primary" onclick="nextPage()">Start Investigation ▶</button>
+</div>
+
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section class="page" id="page4">
+
+<div class="card">
+
+<h2>📊 Collect Your Data</h2>
+
+<p>
+Enter the amount of water remaining after each virtual trial.
+</p>
+
+<table>
+
+<tr>
+<th>Temperature</th>
+<th>Starting Water</th>
+<th>Ending Water</th>
+<th>Water Lost</th>
+</tr>
+
+<tr>
+<td>15°C</td>
+<td>100 mL</td>
+<td>
+<input
+type="number"
+id="end15"
+min="0"
+max="100"
+step="0.1"
+oninput="calculateData()">
+</td>
+<td>
+<span id="lost15">—</span>
+</td>
+</tr>
+
+<tr>
+<td>25°C</td>
+<td>100 mL</td>
+<td>
+<input
+type="number"
+id="end25"
+min="0"
+max="100"
+step="0.1"
+oninput="calculateData()">
+</td>
+<td>
+<span id="lost25">—</span>
+</td>
+</tr>
+
+<tr>
+<td>35°C</td>
+<td>100 mL</td>
+<td>
+<input
+type="number"
+id="end35"
+min="0"
+max="100"
+step="0.1"
+oninput="calculateData()">
+</td>
+<td>
+<span id="lost35">—</span>
+</td>
+</tr>
+
+</table>
+
+<div class="info-box">
+
+<strong>Formula:</strong>
+
+<p>
+Starting water − Ending water = Water lost
+</p>
+
+</div>
+
+<p id="dataMessage"></p>
+
+</div>
+
+<div class="card">
+
+<h3>🧮 Math Check</h3>
+
+<p>
+How much more water was lost at 35°C than at 15°C?
+</p>
+
+<p>
+<strong>35°C water lost − 15°C water lost =</strong>
+</p>
+
+<input
+type="number"
+id="difference"
+placeholder="Your answer"
+oninput="checkDifference()">
+
+<p id="differenceFeedback"></p>
+
+</div>
+
+<button class="help" onclick="showHelp('mathHelp')">
+🧠 I Need Help
+</button>
+
+<div id="mathHelp" class="help-box" style="display:none;">
+
+<strong>Try this:</strong>
+
+<p>
+First find the water lost at 35°C.
+</p>
+
+<p>
+Then find the water lost at 15°C.
+</p>
+
+<p>
+Finally subtract the smaller amount from the larger amount.
+</p>
+
+</div>
+
+<div class="nav">
+<button class="secondary" onclick="previousPage()">◀ Back</button>
+<button class="primary" onclick="nextPage()">Analyze Data ▶</button>
+</div>
+
+</section>
+
+
+<!-- PAGE 5 -->
+
+<section class="page" id="page5">
+
+<div class="card">
+
+<h2>📈 Analyze Your Data</h2>
+
+<h3>Your Pattern</h3>
+
+<p>
+Complete the sentence:
+</p>
+
+<textarea
+id="pattern"
+placeholder="As temperature increased..."
+oninput="saveData()"></textarea>
+
+<h3>Observation or Inference?</h3>
+
+<p>
+<strong>
+"The thermometer reads 35°C."
+</strong>
+</p>
+
+<div class="choice" onclick="observationAnswer('observation')">
+Observation
+</div>
+
+<div class="choice" onclick="observationAnswer('inference')">
+Inference
+</div>
+
+<p id="observationFeedback"></p>
+
+<hr>
+
+<h3>New Data</h3>
+
+<p>
+Scientists collected another set of data.
+</p>
+
+<table>
+
+<tr>
+<th>Location</th>
+<th>Starting</th>
+<th>Ending</th>
+<th>Water Lost</th>
+</tr>
+
+<tr>
+<td>☀️ Sunny Window</td>
+<td>100 mL</td>
+<td>72 mL</td>
+<td>28 mL</td>
+</tr>
+
+<tr>
+<td>🗄️ Cabinet</td>
+<td>100 mL</td>
+<td>91 mL</td>
+<td>9 mL</td>
+</tr>
+
+</table>
+
+<label>
+How much more water was lost in the sunny window?
+</label>
+
+<input
+type="number"
+id="newDataMath"
+oninput="checkNewData()">
+
+<p id="newDataFeedback"></p>
+
+<label>
+What pattern do you notice?
+</label>
+
+<textarea
+id="newPattern"
+oninput="saveData()"></textarea>
+
+</div>
+
+<div class="nav">
+<button class="secondary" onclick="previousPage()">◀ Back</button>
+<button class="primary" onclick="nextPage()">Write CER ▶</button>
+</div>
+
+</section>
+
+
+<!-- PAGE 6 -->
+
+<section class="page" id="page6">
+
+<div class="card">
+
+<h2>✍️ Construct a CER</h2>
+
+<h3>Question</h3>
+
+<p>
+<strong>
+How does temperature affect the amount of water that evaporates?
+</strong>
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🟥 CLAIM</h3>
+
+<p>
+Make a clear statement that answers the question.
+</p>
+
+<p>
+<strong>Sentence starter:</strong>
+</p>
+
+<p>
+As temperature increases, the amount of water lost...
+</p>
+
+<textarea
+id="claim"
+oninput="saveData()"></textarea>
+
+</div>
+
+<div class="card">
+
+<h3>⬜ EVIDENCE</h3>
+
+<p>
+Use at least <strong>two pieces of evidence</strong>.
+</p>
+
+<p>
+<strong>Evidence from my data:</strong>
+</p>
+
+<textarea
+id="evidenceData"
+oninput="saveData()"></textarea>
+
+<p>
+<strong>Evidence from the reading:</strong>
+</p>
+
+<textarea
+id="evidenceReading"
+oninput="saveData()"></textarea>
+
+</div>
+
+<div class="card">
+
+<h3>🟨 REASONING</h3>
+
+<p>
+Explain why your evidence supports your claim.
+</p>
+
+<p>
+<strong>Sentence starter:</strong>
+</p>
+
+<p>
+This evidence supports my claim because...
+</p>
+
+<textarea
+id="reasoning"
+oninput="saveData()"></textarea>
+
+<div class="info-box">
+
+<strong>Think about:</strong>
+
+<p>
+temperature → heat energy → evaporation → water vapor
+</p>
+
+</div>
+
+</div>
+
+<button class="help" onclick="showHelp('cerHelp')">
+🧠 I Need Help
+</button>
+
+<div id="cerHelp" class="help-box" style="display:none;">
+
+<h3>Build Your CER</h3>
+
+<p>
+<strong>Claim:</strong> Answer the question.
+</p>
+
+<p>
+<strong>Evidence:</strong> Use numbers from your data.
+</p>
+
+<p>
+<strong>Reasoning:</strong> Explain the science behind the pattern.
+</p>
+
+</div>
+
+<button class="challenge" onclick="showHelp('challengeBox')">
+⭐ I Got It! Give Me a Challenge
+</button>
+
+<div id="challengeBox" class="challenge-box" style="display:none;">
+
+<strong>Challenge:</strong>
+
+<p>
+Why can water evaporate even when the water is not boiling?
+</p>
+
+<textarea
+id="challengeAnswer"
+oninput="saveData()"></textarea>
+
+</div>
+
+<div class="nav">
+<button class="secondary" onclick="previousPage()">◀ Back</button>
+<button class="success" onclick="nextPage()">Save & Finish ▶</button>
+</div>
+
+</section>
+
+
+<!-- PAGE 7 -->
+
+<section class="page" id="page7">
+
+<div class="card">
+
+<h2>📓 Your Science Notebook</h2>
+
+<p>
+Your responses have been saved on this device.
+</p>
+
+<div class="info-box">
+
+<strong>Important:</strong>
+
+<p>
+Your teacher may ask you to show your digital notebook
+when you finish.
+</p>
+
+</div>
+
+<h3>Week 1 Summary</h3>
+
+<p><strong>Prediction:</strong></p>
+<p id="summaryPrediction"></p>
+
+<p><strong>Claim:</strong></p>
+<p id="summaryClaim"></p>
+
+<p><strong>Evidence:</strong></p>
+<p id="summaryEvidence"></p>
+
+<p><strong>Reasoning:</strong></p>
+<p id="summaryReasoning"></p>
+
+</div>
+
+<div class="card">
+
+<h2>🎫 Exit Ticket</h2>
+
+<p>
+What did you learn about temperature and evaporation?
+</p>
+
+<textarea
+id="exitTicket"
+oninput="saveData()"></textarea>
+
+<button class="success" onclick="saveData(); alert('Your work has been saved!')">
+💾 Save My Work
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🎯 Skills Practiced</h3>
+
+<span class="skill">Reading</span>
+<span class="skill">Measurement</span>
+<span class="skill">Mathematics</span>
+<span class="skill">Data Analysis</span>
+<span class="skill">Scientific Reasoning</span>
+<span class="skill">CER Writing</span>
+
+</div>
+
+</section>
+
+</div>
+
+<footer>
+Grade 9 Earth & Universe Science • Week 1
+</footer>
+
+
+<script>
+
+let currentPage = 1;
+const totalPages = 7;
+
+
+/* PAGE NAVIGATION */
+
+function showPage(page) {
+
+    document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+    });
+
+    document.getElementById('page' + page).classList.add('active');
+
+    currentPage = page;
+
+    updateProgress();
+
+    if (page === 7) {
+        updateSummary();
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+function nextPage() {
+
+    if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+    }
+
+}
+
+
+function previousPage() {
+
+    if (currentPage > 1) {
+        showPage(currentPage - 1);
+    }
+
+}
+
+
+/* PROGRESS */
+
+function updateProgress() {
+
+    let percent =
+        ((currentPage - 1) / (totalPages - 1)) * 100;
+
+    document.getElementById('progressBar').style.width =
+        percent + '%';
+
+    document.getElementById('progressText').textContent =
+        'Page ' + currentPage + ' of ' + totalPages;
+
+}
+
+
+/* SAVE DATA */
+
+function saveData() {
+
+    const ids = [
+
+        'prediction',
+        'readingEvidence',
+        'temperaturePrediction',
+
+        'end15',
+        'end25',
+        'end35',
+
+        'pattern',
+        'newPattern',
+
+        'claim',
+        'evidenceData',
+        'evidenceReading',
+        'reasoning',
+
+        'challengeAnswer',
+        'exitTicket'
+
+    ];
+
+    ids.forEach(id => {
+
+        const element = document.getElementById(id);
+
+        if (element) {
+
+            localStorage.setItem(
+                'science_' + id,
+                element.value
+            );
+
+        }
+
+    });
+
+}
+
+
+/* LOAD DATA */
+
+function loadData() {
+
+    const ids = [
+
+        'prediction',
+        'readingEvidence',
+        'temperaturePrediction',
+
+        'end15',
+        'end25',
+        'end35',
+
+        'pattern',
+        'newPattern',
+
+        'claim',
+        'evidenceData',
+        'evidenceReading',
+        'reasoning',
+
+        'challengeAnswer',
+        'exitTicket'
+
+    ];
+
+    ids.forEach(id => {
+
+        const saved =
+            localStorage.getItem('science_' + id);
+
+        const element =
+            document.getElementById(id);
+
+        if (saved !== null && element) {
+
+            element.value = saved;
+
+        }
+
+    });
+
+    calculateData();
+
+}
+
+
+/* DATA CALCULATIONS */
+
+function calculateData() {
+
+    const temperatures = [
+        ['end15','lost15'],
+        ['end25','lost25'],
+        ['end35','lost35']
+    ];
+
+    temperatures.forEach(pair => {
+
+        const ending =
+            parseFloat(
+                document.getElementById(pair[0]).value
+            );
+
+        const output =
+            document.getElementById(pair[1]);
+
+        if (!isNaN(ending)) {
+
+            const lost = 100 - ending;
+
+            output.textContent =
+                lost.toFixed(1) + ' mL';
+
+        } else {
+
+            output.textContent = '—';
+
+        }
+
+    });
+
+    saveData();
+
+}
+
+
+/* MATH CHECK */
+
+function checkDifference() {
+
+    const e15 =
+        parseFloat(document.getElementById('end15').value);
+
+    const e35 =
+        parseFloat(document.getElementById('end35').value);
+
+    const answer =
+        parseFloat(document.getElementById('difference').value);
+
+    const feedback =
+        document.getElementById('differenceFeedback');
+
+    if (isNaN(e15) || isNaN(e35) || isNaN(answer)) {
+
+        feedback.textContent = '';
+
+        return;
+
+    }
+
+    const lost15 = 100 - e15;
+    const lost35 = 100 - e35;
+
+    const correct =
+        lost35 - lost15;
+
+    if (Math.abs(answer - correct) < 0.01) {
+
+        feedback.innerHTML =
+            '<span class="answer">✓ Correct! You calculated the difference between the two water-loss values.</span>';
+
+    } else {
+
+        feedback.innerHTML =
+            'Not quite. Find water lost at each temperature first, then subtract.';
+
+    }
+
+}
+
+
+/* READING ANSWER */
+
+function selectChoice(element, answer) {
+
+    document.querySelectorAll('.choice').forEach(choice => {
+
+        choice.classList.remove('selected');
+
+    });
+
+    element.classList.add('selected');
+
+    if (element.textContent.trim().startsWith(answer)) {
+
+        document.getElementById('readingFeedback').innerHTML =
+            '<span class="answer">✓ Correct!</span>';
+
+    } else {
+
+        document.getElementById('readingFeedback').innerHTML =
+            'Try again. Look for the main idea of the reading.';
+
+    }
+
+}
+
+
+/* OBSERVATION */
+
+function observationAnswer(answer) {
+
+    const feedback =
+        document.getElementById('observationFeedback');
+
+    if (answer === 'observation') {
+
+        feedback.innerHTML =
+            '<span class="answer">✓ Correct! This is something you can directly measure or observe.</span>';
+
+    } else {
+
+        feedback.textContent =
+            'Try again. An inference is an explanation based on evidence.';
+
+    }
+
+}
+
+
+/* NEW DATA */
+
+function checkNewData() {
+
+    const value =
+        parseFloat(
+            document.getElementById('newDataMath').value
+        );
+
+    const feedback =
+        document.getElementById('newDataFeedback');
+
+    if (isNaN(value)) {
+
+        feedback.textContent = '';
+
+        return;
+
+    }
+
+    if (value === 19) {
+
+        feedback.innerHTML =
+            '<span class="answer">✓ Correct! 28 − 9 = 19 mL.</span>';
+
+    } else {
+
+        feedback.textContent =
+            'Try again: 28 mL − 9 mL.';
+
+    }
+
+}
+
+
+/* HELP */
+
+function showHelp(id) {
+
+    const box =
+        document.getElementById(id);
+
+    if (box.style.display === 'none') {
+
+        box.style.display = 'block';
+
+    } else {
+
+        box.style.display = 'none';
+
+    }
+
+}
+
+
+/* SUMMARY */
+
+function updateSummary() {
+
+    const get = id =>
+        localStorage.getItem('science_' + id) || '';
+
+    document.getElementById('summaryPrediction').textContent =
+        get('prediction');
+
+    document.getElementById('summaryClaim').textContent =
+        get('claim');
+
+    document.getElementById('summaryEvidence').textContent =
+        get('evidenceData') +
+        ' ' +
+        get('evidenceReading');
+
+    document.getElementById('summaryReasoning').textContent =
+        get('reasoning');
+
+}
+
+
+/* START */
+
+window.onload = function() {
+
+    loadData();
+
+    updateProgress();
+
+};
+
+</script>
+
+</body>
+</html>  margin: 5px 0 0;
 }
 
 .container {
