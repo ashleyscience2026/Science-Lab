@@ -607,6 +607,55 @@ select:focus{
   border-radius:7px;
 }
 
+.metric-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:18px 0;
+}
+
+.metric-box{
+  background:#fff;
+  border:2px solid var(--border);
+  border-radius:12px;
+  padding:15px;
+  text-align:center;
+}
+
+.metric-box strong{
+  display:block;
+  color:var(--dark-red);
+  font-size:22px;
+}
+
+.conversion-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.data-question{
+  background:#fafafa;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:15px;
+  margin:12px 0;
+}
+
+.metric-line{
+  font-size:20px;
+  font-weight:bold;
+  text-align:center;
+  margin:20px 0;
+}
+
+@media(max-width:750px){
+  .metric-grid,
+  .conversion-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 /* DATA TABLE */
 
 .table-wrap{
@@ -788,6 +837,10 @@ Week 1
 Week 2
 </button>
 
+<button class="white-button" onclick="showPage('week3')">
+Week 3
+</button>
+
 </div>
 
 </div>
@@ -884,6 +937,32 @@ thermometers, and balances to collect reliable measurements.
 
 <button class="red" onclick="showPage('week2')">
 Enter Week 2 →
+</button>
+
+</div>
+
+<div class="week-card">
+
+<div class="week-number">WEEK 3</div>
+
+<h2>📏 The Metric Mission</h2>
+
+<p>
+Use the metric system to convert measurements, estimate sensible values,
+analyze scientific data, and explain why units matter.
+</p>
+
+<div class="skills">
+
+<span class="skill">Metric System</span>
+<span class="skill">Conversions</span>
+<span class="skill">Data</span>
+<span class="skill">Math</span>
+
+</div>
+
+<button class="red" onclick="showPage('week3')">
+Enter Week 3 →
 </button>
 
 </div>
@@ -2935,6 +3014,459 @@ Finish Week 2 🎉
 
 </section>
 
+
+<!-- =========================
+WEEK 3
+========================= -->
+
+<section id="week3" class="page">
+
+<div class="hero">
+
+<span class="badge">WEEK 3 • METRIC SYSTEM & DATA</span>
+
+<h2>📏 The Metric Mission</h2>
+
+<p>
+Scientists need a common measurement system so people can compare data,
+communicate results, and make sense of the world. This week you will use
+the metric system, convert measurements, estimate sensible values, and analyze data.
+</p>
+
+</div>
+
+<div class="progress-card">
+
+<div class="progress-top">
+<span id="week3ProgressText">Step 1 of 8</span>
+<span id="week3ProgressPercent">0%</span>
+</div>
+
+<div class="progress-track">
+<div id="week3ProgressFill" class="progress-fill"></div>
+</div>
+
+</div>
+
+<!-- W3 PAGE 1 -->
+<div id="w3p1" class="week3page">
+
+<div class="card">
+<h2>🕵️ Engage: The Metric Mystery</h2>
+
+<p>A scientist records the length of a rock as:</p>
+
+<div class="info">
+<strong>12</strong>
+</div>
+
+<p>Another scientist asks, "12 what?"</p>
+
+<p>
+Why is the unit just as important as the number?
+</p>
+
+<div class="choice" onclick="w3Choice(this,false,'w3MysteryFeedback')">
+A. Units are only used to make measurements look more scientific.
+</div>
+
+<div class="choice" onclick="w3Choice(this,true,'w3MysteryFeedback')">
+B. Units tell scientists what the number represents and allow measurements to be compared.
+</div>
+
+<div class="choice" onclick="w3Choice(this,false,'w3MysteryFeedback')">
+C. Units are unnecessary when everyone knows what was measured.
+</div>
+
+<p id="w3MysteryFeedback"></p>
+
+<label>Make a Prediction</label>
+<textarea id="w3Prediction" placeholder="I think scientists use a common measurement system because..." oninput="saveData()"></textarea>
+
+</div>
+
+<div class="card">
+<h2>🎯 Essential Question</h2>
+<div class="bluebox">
+<strong>How does using the metric system help scientists communicate and analyze measurements?</strong>
+</div>
+</div>
+
+<div class="navigation">
+<button class="dark" onclick="showPage('home')">🏠 Home</button>
+<button class="red" onclick="week3Next()">Learn the Metric System ▶</button>
+</div>
+
+</div>
+
+<!-- W3 PAGE 2 -->
+<div id="w3p2" class="week3page" style="display:none">
+
+<div class="card">
+<h2>📐 The Metric System</h2>
+
+<p>
+The metric system is a decimal-based measurement system. Scientists use it because measurements can be converted by multiplying or dividing by powers of 10.
+</p>
+
+<div class="card">
+<h2>📖 Read Like a Scientist</h2>
+<p>
+Read the NIST education resource about the International System of Units (SI). Focus on how SI units and prefixes help scientists communicate measurements.
+</p>
+<a href="https://www.nist.gov/pml/owm/education-resources-metric-system-si" target="_blank" rel="noopener">
+<button class="red">📄 Open NIST Metric System Reading</button>
+</a>
+<div class="info">
+<strong>Reading strategy:</strong> Find one idea that explains why scientists need a common measurement system. Write it in your notebook.
+</div>
+<textarea id="w3ReadingEvidence" placeholder="The reading explains that..." oninput="saveData()"></textarea>
+</div>
+
+<div class="metric-grid">
+<div class="metric-box"><strong>meter (m)</strong>Length</div>
+<div class="metric-box"><strong>liter (L)</strong>Volume</div>
+<div class="metric-box"><strong>gram (g)</strong>Mass</div>
+</div>
+
+<h3>Common Prefixes</h3>
+
+<div class="metric-grid">
+<div class="metric-box"><strong>kilo-</strong>1,000 units</div>
+<div class="metric-box"><strong>centi-</strong>0.01 unit</div>
+<div class="metric-box"><strong>milli-</strong>0.001 unit</div>
+</div>
+
+<div class="info">
+<strong>Key idea:</strong> Moving to a smaller metric unit means there are more units. Moving to a larger metric unit means there are fewer units.
+</div>
+
+</div>
+
+<div class="card">
+<h2>🔢 Metric Relationships</h2>
+
+<div class="metric-line">1 meter = 100 centimeters</div>
+<div class="metric-line">1 meter = 1,000 millimeters</div>
+<div class="metric-line">1 liter = 1,000 milliliters</div>
+<div class="metric-line">1 kilogram = 1,000 grams</div>
+
+<div class="help">
+<strong>Need help?</strong>
+<p>When converting to a smaller unit, multiply. When converting to a larger unit, divide. Count how many times you move by a factor of 10.</p>
+</div>
+
+</div>
+
+<div class="navigation">
+<button class="dark" onclick="week3Previous()">◀ Back</button>
+<button class="red" onclick="week3Next()">Practice Conversions ▶</button>
+</div>
+
+</div>
+
+<!-- W3 PAGE 3 -->
+<div id="w3p3" class="week3page" style="display:none">
+
+<div class="card">
+<h2>🧮 Practice 1: Convert the Measurement</h2>
+<p>Show that you can move between common metric units.</p>
+
+<div class="data-question">
+<strong>1. 3.5 m = ? cm</strong>
+<input id="w3conv1" type="number" step="0.1" placeholder="cm">
+</div>
+
+<div class="data-question">
+<strong>2. 2.4 L = ? mL</strong>
+<input id="w3conv2" type="number" step="0.1" placeholder="mL">
+</div>
+
+<div class="data-question">
+<strong>3. 750 g = ? kg</strong>
+<input id="w3conv3" type="number" step="0.001" placeholder="kg">
+</div>
+
+<div class="data-question">
+<strong>4. 420 cm = ? m</strong>
+<input id="w3conv4" type="number" step="0.01" placeholder="m">
+</div>
+
+<button class="blue" onclick="checkW3Conversions()">Check My Conversions</button>
+<p id="w3ConversionFeedback"></p>
+
+<div class="help">
+<strong>Remember:</strong>
+<p>1 m = 100 cm. 1 L = 1,000 mL. 1 kg = 1,000 g.</p>
+</div>
+
+</div>
+
+<div class="card">
+<h2>⭐ Challenge</h2>
+<p>A student says that 0.65 kg is greater than 650 g because 0.65 is a smaller-looking number. Is the student correct? Explain.</p>
+<textarea id="w3Challenge1" placeholder="The student is/is not correct because..."></textarea>
+</div>
+
+<div class="navigation">
+<button class="dark" onclick="week3Previous()">◀ Back</button>
+<button class="red" onclick="week3Next()">Estimate Like a Scientist ▶</button>
+</div>
+
+</div>
+
+<!-- W3 PAGE 4 -->
+<div id="w3p4" class="week3page" style="display:none">
+
+<div class="card">
+<h2>🎯 Practice 2: Does the Measurement Make Sense?</h2>
+
+<p>
+Scientists do not just calculate. They also ask whether an answer is reasonable.
+Choose the measurement that makes the most sense for each situation.
+</p>
+
+<div class="data-question">
+<strong>1. The length of a pencil is most likely:</strong>
+<select id="w3Estimate1">
+<option value="">Choose</option><option>15 cm</option><option>15 m</option><option>15 km</option>
+</select>
+</div>
+
+<div class="data-question">
+<strong>2. A classroom water bottle might hold:</strong>
+<select id="w3Estimate2">
+<option value="">Choose</option><option>750 mL</option><option>750 L</option><option>750 kg</option>
+</select>
+</div>
+
+<div class="data-question">
+<strong>3. The mass of a paper clip is most reasonably:</strong>
+<select id="w3Estimate3">
+<option value="">Choose</option><option>1 g</option><option>1 kg</option><option>1,000 kg</option>
+</select>
+</div>
+
+<button class="green" onclick="checkW3Estimates()">Check My Estimates</button>
+<p id="w3EstimateFeedback"></p>
+
+<div class="bluebox">
+<strong>Scientific habit:</strong> Before accepting a calculated answer, ask: "Does this value make sense for the object or situation?"
+</div>
+
+</div>
+
+<div class="card">
+<h2>🧠 Think About It</h2>
+<p>Why could using the wrong unit cause a serious problem in science, engineering, medicine, or everyday life?</p>
+<textarea id="w3UnitImportance" placeholder="Using the wrong unit could..."></textarea>
+</div>
+
+<div class="navigation">
+<button class="dark" onclick="week3Previous()">◀ Back</button>
+<button class="red" onclick="week3Next()">Analyze Scientific Data ▶</button>
+</div>
+
+</div>
+
+<!-- W3 PAGE 5 -->
+<div id="w3p5" class="week3page" style="display:none">
+
+<div class="card">
+<h2>📊 Data Investigation: Plant Growth</h2>
+
+<p>
+A class measured the height of a plant over four weeks. Use the data to calculate change and identify patterns.
+</p>
+
+<table>
+<thead><tr><th>Week</th><th>Plant Height</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>12.0 cm</td></tr>
+<tr><td>2</td><td>14.5 cm</td></tr>
+<tr><td>3</td><td>17.0 cm</td></tr>
+<tr><td>4</td><td>18.5 cm</td></tr>
+</tbody>
+</table>
+
+<div class="data-question">
+<strong>1. How much did the plant grow from Week 1 to Week 4?</strong>
+<input id="w3Data1" type="number" step="0.1" placeholder="cm">
+<button class="blue" onclick="checkSimpleAnswer('w3Data1',6.5,'w3Data1Feedback')">Check</button>
+<p id="w3Data1Feedback"></p>
+</div>
+
+<div class="data-question">
+<strong>2. What was the average plant height across the four measurements?</strong>
+<input id="w3Data2" type="number" step="0.1" placeholder="cm">
+<button class="blue" onclick="checkSimpleAnswer('w3Data2',15.5,'w3Data2Feedback')">Check</button>
+<p id="w3Data2Feedback"></p>
+</div>
+
+<div class="data-question">
+<strong>3. What pattern do you notice?</strong>
+<textarea id="w3DataPattern" placeholder="The plant height..."></textarea>
+</div>
+
+</div>
+
+<div class="card">
+<h2>📈 Data Reasoning</h2>
+<p>Why is it useful to keep measurements in a table before making a graph or drawing a conclusion?</p>
+<textarea id="w3DataReasoning" placeholder="A data table is useful because..."></textarea>
+</div>
+
+<div class="navigation">
+<button class="dark" onclick="week3Previous()">◀ Back</button>
+<button class="red" onclick="week3Next()">Metric Data Challenge ▶</button>
+</div>
+
+</div>
+
+<!-- W3 PAGE 6 -->
+<div id="w3p6" class="week3page" style="display:none">
+
+<div class="card">
+<h2>🔬 Metric Data Challenge</h2>
+
+<p>A scientist measures three samples:</p>
+
+<div class="info">
+Sample A = 0.45 kg &nbsp;&nbsp; Sample B = 520 g &nbsp;&nbsp; Sample C = 0.38 kg
+</div>
+
+<p>Convert all three measurements to grams.</p>
+
+<label>Sample A</label>
+<input id="w3SampleA" type="number" placeholder="g">
+
+<label>Sample B</label>
+<input id="w3SampleB" type="number" placeholder="g">
+
+<label>Sample C</label>
+<input id="w3SampleC" type="number" placeholder="g">
+
+<button class="green" onclick="checkW3Samples()">Check Samples</button>
+<p id="w3SampleFeedback"></p>
+
+</div>
+
+<div class="card">
+<h2>🏆 Rank the Samples</h2>
+<p>Which sample has the greatest mass?</p>
+<select id="w3GreatestSample">
+<option value="">Choose</option>
+<option>Sample A</option>
+<option>Sample B</option>
+<option>Sample C</option>
+</select>
+<button class="purple" onclick="checkSimpleSelect('w3GreatestSample','Sample B','w3GreatestFeedback')">Check</button>
+<p id="w3GreatestFeedback"></p>
+
+<div class="challenge">
+<h3>⭐ Extension</h3>
+<p>How much greater is Sample B than Sample C? Give your answer in grams.</p>
+<input id="w3Difference" type="number" placeholder="g">
+<button class="purple" onclick="checkSimpleAnswer('w3Difference',140,'w3DifferenceFeedback')">Check Answer</button>
+<p id="w3DifferenceFeedback"></p>
+</div>
+
+</div>
+
+<div class="navigation">
+<button class="dark" onclick="week3Previous()">◀ Back</button>
+<button class="red" onclick="week3Next()">Build My Scientific Explanation ▶</button>
+</div>
+
+</div>
+
+<!-- W3 PAGE 7 -->
+<div id="w3p7" class="week3page" style="display:none">
+
+<div class="card">
+<h2>📓 Week 3 Scientific Notebook</h2>
+
+<div class="success">
+Your Week 3 thinking is saved on this device. Use your answers and calculations as evidence for your final explanation.
+</div>
+
+<div class="notebook">
+<label>What metric conversion skill did you improve?</label>
+<textarea id="w3NotebookSkill" placeholder="I improved at..."></textarea>
+
+<label>What is one measurement you converted?</label>
+<textarea id="w3NotebookConversion" placeholder="For example..."></textarea>
+
+<label>What did the plant data show?</label>
+<textarea id="w3NotebookData" placeholder="The data showed..."></textarea>
+
+<label>Why are units important when scientists communicate data?</label>
+<textarea id="w3NotebookUnits" placeholder="Units are important because..."></textarea>
+
+<button class="green" onclick="saveData();alert('Week 3 notebook saved!')">💾 Save Notebook</button>
+</div>
+</div>
+
+<div class="card">
+<h2>✍️ Scientific Explanation</h2>
+
+<p>Answer the essential question:</p>
+
+<div class="bluebox">
+<strong>How does using the metric system help scientists communicate and analyze measurements?</strong>
+</div>
+
+<textarea id="w3Explanation" placeholder="Using the metric system helps scientists because..."></textarea>
+
+</div>
+
+<div class="navigation">
+<button class="dark" onclick="week3Previous()">◀ Back</button>
+<button class="red" onclick="week3Next()">Exit Ticket ▶</button>
+</div>
+
+</div>
+
+<!-- W3 PAGE 8 -->
+<div id="w3p8" class="week3page" style="display:none">
+
+<div class="card">
+<h2>🎫 Exit Ticket</h2>
+
+<p>1. What is one metric conversion you can now do confidently?</p>
+<textarea id="w3Exit1" placeholder="I can convert..."></textarea>
+
+<p>2. Why should scientists always include units with measurements?</p>
+<textarea id="w3Exit2" placeholder="Scientists should include units because..."></textarea>
+
+<p>3. What is one thing you should check before trusting a scientific calculation?</p>
+<textarea id="w3Exit3" placeholder="Before trusting a calculation, I should..."></textarea>
+
+<button class="green" onclick="saveData();alert('🎉 Week 3 work saved on this device!')">💾 Save My Work</button>
+</div>
+
+<div class="card">
+<h2>⭐ Final Challenge</h2>
+<p>
+A student records the mass of a sample as 2.5 kg. Another student records the same sample as 2,500 g. Are the measurements different, or could they represent the same amount of mass? Explain using a conversion.
+</p>
+<textarea id="w3FinalChallenge" placeholder="They could/could not represent the same mass because..."></textarea>
+</div>
+
+<div class="success">
+<strong>Scientist Skill Unlocked:</strong> You can now convert, compare, and communicate measurements using metric units.
+</div>
+
+<div class="navigation">
+<button class="dark" onclick="week3Previous()">◀ Back</button>
+<button class="green" onclick="finishWeek3()">Finish Week 3 🎉</button>
+</div>
+
+</div>
+
+</section>
+
+
 </main>
 
 
@@ -2978,6 +3510,10 @@ function showPage(page){
 
   if(page==="week2"){
     updateWeek2Progress();
+  }
+
+  if(page==="week3"){
+    updateWeek3Progress();
   }
 
 }
@@ -3181,7 +3717,37 @@ const fieldIDs=[
 "averageChallenge",
 "measurementSkill",
 "measurementImportance",
-"outsideScience"
+"outsideScience",
+
+"w3Prediction",
+"w3ReadingEvidence",
+"w3conv1",
+"w3conv2",
+"w3conv3",
+"w3conv4",
+"w3Challenge1",
+"w3Estimate1",
+"w3Estimate2",
+"w3Estimate3",
+"w3UnitImportance",
+"w3Data1",
+"w3Data2",
+"w3DataPattern",
+"w3DataReasoning",
+"w3SampleA",
+"w3SampleB",
+"w3SampleC",
+"w3GreatestSample",
+"w3Difference",
+"w3NotebookSkill",
+"w3NotebookConversion",
+"w3NotebookData",
+"w3NotebookUnits",
+"w3Explanation",
+"w3Exit1",
+"w3Exit2",
+"w3Exit3",
+"w3FinalChallenge"
 
 ];
 
@@ -3972,6 +4538,167 @@ function updateNotebookSummary(){
 }
 
 
+
+/* ==================================================
+   WEEK 3
+================================================== */
+
+let week3Step=1;
+
+function week3Show(step){
+  document.querySelectorAll(".week3page").forEach(function(p){
+    p.style.display="none";
+  });
+
+  const page=document.getElementById("w3p"+step);
+  if(page){
+    page.style.display="block";
+  }
+
+  week3Step=step;
+  updateWeek3Progress();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function week3Next(){
+  if(week3Step<8){
+    week3Show(week3Step+1);
+  }
+}
+
+function week3Previous(){
+  if(week3Step>1){
+    week3Show(week3Step-1);
+  }else{
+    showPage("home");
+  }
+}
+
+function updateWeek3Progress(){
+  const percent=Math.round(((week3Step-1)/7)*100);
+
+  const fill=document.getElementById("week3ProgressFill");
+  if(fill){ fill.style.width=percent+"%"; }
+
+  const text=document.getElementById("week3ProgressText");
+  if(text){ text.textContent="Step "+week3Step+" of 8"; }
+
+  const percentText=document.getElementById("week3ProgressPercent");
+  if(percentText){ percentText.textContent=percent+"%"; }
+}
+
+function w3Choice(element,correct,feedbackID){
+  const parent=element.parentElement;
+  parent.querySelectorAll(".choice").forEach(function(choice){
+    choice.classList.remove("correct");
+    choice.classList.remove("incorrect");
+  });
+
+  const feedback=document.getElementById(feedbackID);
+
+  if(correct){
+    element.classList.add("correct");
+    feedback.innerHTML='<span style="color:#15803d;font-weight:bold;">✓ Correct! Units make measurements meaningful and allow scientists to compare results.</span>';
+  }else{
+    element.classList.add("incorrect");
+    feedback.innerHTML='<span style="color:#b91c1c;">Not quite. Think about what the unit tells another scientist.</span>';
+  }
+}
+
+function checkW3Conversions(){
+  const answers={
+    w3conv1:350,
+    w3conv2:2400,
+    w3conv3:0.75,
+    w3conv4:4.2
+  };
+
+  let correct=0;
+  Object.keys(answers).forEach(function(id){
+    const value=parseFloat(document.getElementById(id).value);
+    if(!isNaN(value) && Math.abs(value-answers[id])<0.011){
+      correct++;
+    }
+  });
+
+  const feedback=document.getElementById("w3ConversionFeedback");
+
+  if(correct===4){
+    feedback.innerHTML='<span style="color:#15803d;font-weight:bold;">✓ 4 of 4 correct! You can convert between common metric units.</span>';
+  }else{
+    feedback.innerHTML='<span style="color:#b91c1c;">You have '+correct+' of 4 correct. Recheck whether you should multiply or divide.</span>';
+  }
+
+  saveData();
+}
+
+function checkW3Estimates(){
+  const answers={
+    w3Estimate1:"15 cm",
+    w3Estimate2:"750 mL",
+    w3Estimate3:"1 g"
+  };
+
+  let correct=0;
+  Object.keys(answers).forEach(function(id){
+    const el=document.getElementById(id);
+    if(el && el.value===answers[id]) correct++;
+  });
+
+  const feedback=document.getElementById("w3EstimateFeedback");
+
+  if(correct===3){
+    feedback.innerHTML='<span style="color:#15803d;font-weight:bold;">✓ Excellent! All three estimates are reasonable.</span>';
+  }else{
+    feedback.innerHTML='<span style="color:#b91c1c;">You got '+correct+' of 3 correct. Think about the typical size or mass of each object.</span>';
+  }
+
+  saveData();
+}
+
+function checkW3Samples(){
+  const answers={w3SampleA:450,w3SampleB:520,w3SampleC:380};
+  let correct=0;
+
+  Object.keys(answers).forEach(function(id){
+    const value=parseFloat(document.getElementById(id).value);
+    if(!isNaN(value) && Math.abs(value-answers[id])<0.011) correct++;
+  });
+
+  const feedback=document.getElementById("w3SampleFeedback");
+
+  if(correct===3){
+    feedback.innerHTML='<span style="color:#15803d;font-weight:bold;">✓ Excellent! All three masses are correctly converted to grams.</span>';
+  }else{
+    feedback.innerHTML='<span style="color:#b91c1c;">You have '+correct+' of 3 correct. Remember: kilograms to grams means multiplying by 1,000.</span>';
+  }
+
+  saveData();
+}
+
+function checkSimpleSelect(inputID,correct,feedbackID){
+  const answer=document.getElementById(inputID).value;
+  const feedback=document.getElementById(feedbackID);
+
+  if(answer===correct){
+    feedback.innerHTML='<span style="color:#15803d;font-weight:bold;">✓ Correct!</span>';
+  }else{
+    feedback.innerHTML='<span style="color:#b91c1c;">Not quite. Convert all measurements to the same unit before comparing them.</span>';
+  }
+
+  saveData();
+}
+
+function finishWeek3(){
+  saveData();
+  alert("🎉 Great work, scientist! Your Week 3 work has been saved on this device.");
+  showPage("home");
+}
+
 /* ==================================================
    FINISH WEEK 2
 ================================================== */
@@ -3999,6 +4726,7 @@ window.addEventListener("load",function(){
 
   updateWeek1Progress();
   updateWeek2Progress();
+  updateWeek3Progress();
 
 });
 </script>
