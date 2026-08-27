@@ -6,528 +6,498 @@
 <title>Science Lab | Grade 9</title>
 
 <style>
-:root {
-  --red: #b91c1c;
-  --dark-red: #7f1d1d;
-  --bright-red: #dc2626;
-  --light-red: #fee2e2;
-  --pale-red: #fff7f7;
-  --white: #ffffff;
-  --black: #1f2937;
-  --gray: #6b7280;
-  --light-gray: #f3f4f6;
-  --border: #e5e7eb;
-  --green: #15803d;
-  --light-green: #dcfce7;
-  --blue: #1d4ed8;
-  --light-blue: #dbeafe;
-  --purple: #7c3aed;
-  --light-purple: #ede9fe;
-  --yellow: #f59e0b;
-  --light-yellow: #fef3c7;
+:root{
+  --red:#b91c1c;
+  --dark-red:#7f1d1d;
+  --bright-red:#dc2626;
+  --light-red:#fee2e2;
+  --pale-red:#fff7f7;
+  --white:#ffffff;
+  --black:#1f2937;
+  --gray:#6b7280;
+  --light-gray:#f3f4f6;
+  --border:#e5e7eb;
+  --green:#15803d;
+  --light-green:#dcfce7;
+  --blue:#1d4ed8;
+  --light-blue:#dbeafe;
+  --purple:#7c3aed;
+  --light-purple:#ede9fe;
+  --yellow:#d97706;
+  --light-yellow:#fef3c7;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f6f6f6;
+  color:var(--black);
+  line-height:1.6;
+}
+
+header{
+  background:var(--red);
+  color:white;
+  padding:15px 20px;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f7f7f7;
-  color: var(--black);
-  line-height: 1.6;
-}
-
-/* HEADER */
-
-.topbar {
-  background: var(--red);
-  color: white;
-  padding: 16px 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.15);
-}
-
-.topbar-inner {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.logo-icon{
+  width:45px;
+  height:45px;
+  background:white;
+  color:var(--red);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
 }
 
-.brand-icon {
-  background: white;
-  color: var(--red);
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
+.logo h1{
+  margin:0;
+  font-size:23px;
 }
-
-.brand h1 {
-  margin: 0;
-  font-size: 23px;
-}
-
-.brand p {
-  margin: 0;
-  font-size: 13px;
-  opacity: .9;
-}
-
-/* MAIN */
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 25px 18px 50px;
-}
-
-/* HERO */
-
-.hero {
-  background: linear-gradient(135deg, #991b1b, #dc2626);
-  color: white;
-  border-radius: 18px;
-  padding: 35px;
-  margin-bottom: 22px;
-  box-shadow: 0 5px 18px rgba(0,0,0,.12);
+
+.logo p{
+  margin:0;
+  font-size:13px;
 }
 
-.hero h2 {
-  margin: 0 0 8px;
-  font-size: 34px;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 18px 50px;
 }
 
-.hero p {
-  margin: 6px 0;
-  font-size: 17px;
+.hero{
+  background:linear-gradient(135deg,#991b1b,#dc2626);
+  color:white;
+  border-radius:18px;
+  padding:32px;
+  margin-bottom:20px;
 }
 
-.week-badge {
-  display: inline-block;
-  background: white;
-  color: var(--red);
-  padding: 7px 12px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 13px;
-  margin-bottom: 15px;
+.hero h2{
+  margin:5px 0;
+  font-size:34px;
 }
 
-/* PROGRESS */
-
-.progress-card {
-  background: white;
-  border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 22px;
-  border: 1px solid var(--border);
+.badge{
+  background:white;
+  color:var(--red);
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:13px;
 }
 
-.progress-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.progress-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:17px;
+  margin-bottom:20px;
 }
 
-.progress-track {
-  width: 100%;
-  height: 10px;
-  background: #e5e7eb;
-  border-radius: 20px;
-  overflow: hidden;
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
 }
 
-.progress-fill {
-  height: 100%;
-  background: var(--red);
-  width: 0%;
-  transition: width .3s ease;
+.progress-track{
+  height:10px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:8px;
 }
-
-/* CARDS */
 
-.card {
-  background: white;
-  border-radius: 14px;
-  padding: 24px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 7px rgba(0,0,0,.04);
+.progress-fill{
+  height:100%;
+  width:0;
+  background:var(--red);
+  transition:.3s;
 }
 
-.card h2 {
-  margin-top: 0;
-  color: var(--dark-red);
-}
+.page{display:none}
+.page.active{display:block}
 
-.card h3 {
-  color: var(--dark-red);
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:20px;
+  box-shadow:0 2px 7px rgba(0,0,0,.04);
 }
-
-/* VISUAL */
 
-.visual-box {
-  background: var(--pale-red);
-  border: 1px solid #fecaca;
-  border-radius: 14px;
-  padding: 25px;
-  text-align: center;
-  margin: 18px 0;
+.card h2{
+  margin-top:0;
+  color:var(--dark-red);
 }
 
-.water-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+.card h3{
+  color:var(--dark-red);
 }
 
-.beaker {
-  width: 120px;
-  height: 140px;
-  border: 5px solid #6b7280;
-  border-top: none;
-  border-radius: 0 0 20px 20px;
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-  background: white;
+.visual{
+  background:var(--pale-red);
+  border:1px solid #fecaca;
+  border-radius:14px;
+  padding:25px;
+  text-align:center;
+  margin:18px 0;
 }
 
-.water {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 65%;
-  background: #60a5fa;
+button{
+  border:0;
+  border-radius:9px;
+  padding:11px 17px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.arrow {
-  font-size: 40px;
-  color: var(--red);
-  font-weight: bold;
+button:hover{
+  opacity:.92;
+  transform:translateY(-1px);
 }
 
-.cloud {
-  font-size: 70px;
+button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
 }
 
-/* BUTTONS */
+.red{background:var(--red);color:white}
+.dark{background:#374151;color:white}
+.green{background:var(--green);color:white}
+.yellow{background:var(--yellow);color:white}
+.purple{background:var(--purple);color:white}
+.blue{background:var(--blue);color:white}
 
-button {
-  border: none;
-  border-radius: 9px;
-  padding: 11px 17px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .2s;
+.navigation{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:20px;
 }
 
-button:hover {
-  transform: translateY(-1px);
-  opacity: .93;
+.info{
+  background:var(--light-red);
+  border-left:5px solid var(--red);
+  padding:13px 16px;
+  border-radius:6px;
+  margin:15px 0;
 }
 
-.btn-red {
-  background: var(--red);
-  color: white;
+.help{
+  background:var(--light-yellow);
+  border-left:5px solid var(--yellow);
+  padding:15px;
+  border-radius:6px;
+  margin-top:15px;
 }
 
-.btn-dark {
-  background: #374151;
-  color: white;
+.challenge{
+  background:var(--light-purple);
+  border-left:5px solid var(--purple);
+  padding:15px;
+  border-radius:6px;
+  margin-top:15px;
 }
 
-.btn-green {
-  background: var(--green);
-  color: white;
+.success{
+  background:var(--light-green);
+  border-left:5px solid var(--green);
+  padding:15px;
+  border-radius:6px;
+  margin:15px 0;
 }
 
-.btn-yellow {
-  background: var(--yellow);
-  color: white;
+.bluebox{
+  background:var(--light-blue);
+  border-left:5px solid var(--blue);
+  padding:15px;
+  border-radius:6px;
+  margin:15px 0;
 }
 
-.btn-purple {
-  background: var(--purple);
-  color: white;
+label{
+  display:block;
+  font-weight:bold;
+  margin-top:15px;
 }
 
-.btn-blue {
-  background: var(--blue);
-  color: white;
+textarea,input,select{
+  width:100%;
+  padding:11px;
+  margin-top:6px;
+  border:1px solid #cbd5e1;
+  border-radius:8px;
+  font-size:16px;
+  font-family:inherit;
 }
 
-button:disabled {
-  opacity: .45;
-  cursor: not-allowed;
-  transform: none;
+textarea{
+  min-height:100px;
+  resize:vertical;
 }
 
-/* NAVIGATION */
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 20px;
+input:focus,textarea:focus,select:focus{
+  outline:3px solid var(--light-red);
+  border-color:var(--red);
 }
-
-/* FORM */
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-top: 15px;
+.table-wrap{
+  overflow-x:auto;
 }
 
-input,
-textarea,
-select {
-  width: 100%;
-  padding: 11px;
-  margin-top: 6px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  font-size: 16px;
-  font-family: inherit;
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:15px 0;
 }
 
-textarea {
-  min-height: 105px;
-  resize: vertical;
+th{
+  background:var(--red);
+  color:white;
+  padding:10px;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 3px solid #fee2e2;
-  border-color: var(--red);
+td{
+  border:1px solid #d1d5db;
+  padding:9px;
+  text-align:center;
 }
 
-/* INFO BOXES */
-
-.info {
-  background: var(--light-red);
-  border-left: 5px solid var(--red);
-  padding: 14px 16px;
-  border-radius: 6px;
-  margin: 15px 0;
+td input{
+  margin:0;
+  text-align:center;
+  min-width:95px;
 }
 
-.help-box {
-  background: var(--light-yellow);
-  border-left: 5px solid var(--yellow);
-  padding: 15px;
-  border-radius: 6px;
-  margin-top: 15px;
+.choice{
+  border:2px solid #e5e7eb;
+  background:#fafafa;
+  border-radius:9px;
+  padding:12px;
+  margin:8px 0;
+  cursor:pointer;
 }
 
-.extension-box {
-  background: var(--light-purple);
-  border-left: 5px solid var(--purple);
-  padding: 15px;
-  border-radius: 6px;
-  margin-top: 15px;
+.choice:hover{
+  border-color:var(--red);
 }
 
-.success-box {
-  background: var(--light-green);
-  border-left: 5px solid var(--green);
-  padding: 15px;
-  border-radius: 6px;
-  margin: 15px 0;
+.choice.correct{
+  background:var(--light-green);
+  border-color:var(--green);
 }
 
-.blue-box {
-  background: var(--light-blue);
-  border-left: 5px solid var(--blue);
-  padding: 15px;
-  border-radius: 6px;
-  margin: 15px 0;
+.choice.incorrect{
+  background:var(--light-red);
+  border-color:var(--red);
 }
-
-/* SKILLS */
 
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
 }
 
-.skill {
-  background: var(--light-gray);
-  border: 1px solid var(--border);
-  padding: 6px 10px;
-  border-radius: 30px;
-  font-size: 13px;
+.skill{
+  background:var(--light-gray);
+  border:1px solid var(--border);
+  padding:6px 10px;
+  border-radius:30px;
+  font-size:13px;
 }
 
-/* DATA TABLE */
-
-.table-wrap {
-  overflow-x: auto;
+.lab-controls{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:15px 0;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 15px 0;
+.lab-controls button{
+  min-width:100px;
 }
 
-th {
-  background: var(--red);
-  color: white;
-  padding: 11px;
-}
+.temp15{background:#2563eb;color:white}
+.temp25{background:#f59e0b;color:white}
+.temp35{background:#dc2626;color:white}
 
-td {
-  border: 1px solid #d1d5db;
-  padding: 9px;
-  text-align: center;
+.beaker-area{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:35px;
+  flex-wrap:wrap;
+  min-height:280px;
 }
 
-td input {
-  margin: 0;
-  min-width: 90px;
-  text-align: center;
+.beaker{
+  width:150px;
+  height:190px;
+  border:6px solid #6b7280;
+  border-top:0;
+  border-radius:0 0 24px 24px;
+  position:relative;
+  overflow:hidden;
+  background:rgba(255,255,255,.7);
 }
 
-/* CHOICES */
-
-.choice {
-  border: 2px solid #e5e7eb;
-  background: #fafafa;
-  border-radius: 9px;
-  padding: 12px;
-  margin: 8px 0;
-  cursor: pointer;
+.water{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#60a5fa;
+  transition:height 1s;
 }
 
-.choice:hover {
-  border-color: var(--red);
-  background: var(--pale-red);
+.measure{
+  font-size:23px;
+  font-weight:bold;
+  color:var(--blue);
 }
 
-.choice.correct {
-  border-color: var(--green);
-  background: var(--light-green);
+.lab-result{
+  font-size:25px;
+  font-weight:bold;
+  color:var(--dark-red);
+  margin-top:15px;
 }
 
-.choice.incorrect {
-  border-color: var(--red);
-  background: var(--light-red);
+.notebook{
+  border:3px solid var(--red);
+  border-radius:12px;
+  padding:18px;
+  background:#fffdfd;
 }
-
-/* CER */
 
-.cer-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.notebook-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.cer-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
+.notebook-line{
+  border-bottom:1px dashed #d1d5db;
+  min-height:45px;
+  margin-bottom:10px;
 }
 
-.claim {
-  background: var(--red);
+.cer{
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:15px;
 }
 
-.evidence {
-  background: #374151;
-}
+.claim{border-left:7px solid var(--red)}
+.evidence{border-left:7px solid #374151}
+.reasoning{border-left:7px solid var(--yellow)}
 
-.reasoning {
-  background: var(--yellow);
+.bar-chart{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-around;
+  height:260px;
+  border-left:2px solid #374151;
+  border-bottom:2px solid #374151;
+  padding:10px 15px 0;
+  gap:20px;
+  margin-top:20px;
 }
-
-/* PAGE SYSTEM */
 
-.page {
-  display: none;
+.bar{
+  width:70px;
+  background:var(--red);
+  color:white;
+  text-align:center;
+  border-radius:7px 7px 0 0;
+  position:relative;
+  transition:.5s;
 }
 
-.page.active {
-  display: block;
+.bar span{
+  position:absolute;
+  top:-30px;
+  left:0;
+  width:100%;
+  color:#111827;
+  font-weight:bold;
 }
 
-/* FOOTER */
-
-footer {
-  background: #111827;
-  color: #d1d5db;
-  text-align: center;
-  padding: 25px;
-  font-size: 13px;
+footer{
+  background:#111827;
+  color:#d1d5db;
+  text-align:center;
+  padding:25px;
+  font-size:13px;
 }
-
-/* MOBILE */
-
-@media (max-width: 700px) {
 
-  .topbar-inner {
-    flex-direction: column;
-    align-items: flex-start;
+@media(max-width:700px){
+  .header-inner{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
-  .hero {
-    padding: 25px 20px;
+  .hero{
+    padding:24px 19px;
   }
 
-  .hero h2 {
-    font-size: 27px;
+  .hero h2{
+    font-size:27px;
   }
 
-  .card {
-    padding: 18px;
+  .card{
+    padding:18px;
   }
 
-  .navigation {
-    flex-direction: column-reverse;
+  .navigation{
+    flex-direction:column-reverse;
   }
 
-  .navigation button {
-    width: 100%;
+  .navigation button{
+    width:100%;
   }
 
+  .bar{
+    width:50px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="topbar">
-  <div class="topbar-inner">
+<header>
+  <div class="header-inner">
 
-    <div class="brand">
-      <div class="brand-icon">🔬</div>
+    <div class="logo">
+      <div class="logo-icon">🔬</div>
 
       <div>
         <h1>Science Lab</h1>
@@ -535,9 +505,7 @@ footer {
       </div>
     </div>
 
-    <div>
-      <strong>WEEK 1</strong>
-    </div>
+    <strong>WEEK 1</strong>
 
   </div>
 </header>
@@ -545,36 +513,26 @@ footer {
 
 <main class="container">
 
-<!-- HERO -->
-
 <div class="hero">
 
-  <span class="week-badge">WEEK 1 • INTRODUCTION TO SCIENCE</span>
+  <span class="badge">WEEK 1 • INTRODUCTION TO SCIENCE</span>
 
   <h2>Where Did the Water Go?</h2>
 
   <p>
-    Investigate evaporation using reading, measurement,
-    mathematics, data, and scientific reasoning.
+    Investigate evaporation by collecting data,
+    practicing mathematics, analyzing patterns,
+    and constructing a scientific explanation.
   </p>
 
 </div>
 
 
-<!-- PROGRESS -->
-
 <div class="progress-card">
 
   <div class="progress-top">
-
-    <span id="progressTitle">
-      Step 1 of 7
-    </span>
-
-    <span id="progressPercent">
-      0%
-    </span>
-
+    <span id="progressText">Step 1 of 8</span>
+    <span id="progressPercent">0%</span>
   </div>
 
   <div class="progress-track">
@@ -588,108 +546,84 @@ footer {
 
 <section id="page1" class="page active">
 
-  <div class="card">
+<div class="card">
 
-    <h2>💧 Engage: The Mystery</h2>
+<h2>💧 Engage: The Mystery</h2>
 
-    <div class="visual-box">
+<div class="visual">
 
-      <div class="water-visual">
-
-        <div>
-          <div class="beaker">
-            <div class="water"></div>
-          </div>
-
-          <strong>100 mL</strong>
-        </div>
-
-        <div class="arrow">→</div>
-
-        <div>
-          <div class="beaker" style="height:115px;">
-            <div class="water" style="height:42%;"></div>
-          </div>
-
-          <strong>77 mL</strong>
-        </div>
-
-        <div class="cloud">☁️</div>
-
-      </div>
-
-      <p>
-        <strong>23 mL of water is missing.</strong>
-      </p>
-
-    </div>
-
-
-    <h3>Essential Question</h3>
-
-    <p>
-      How do scientists use observations, measurements,
-      mathematics, and evidence to explain changes in
-      the natural world?
-    </p>
-
-
-    <div class="info">
-
-      <strong>Think like a scientist.</strong>
-
-      <p>
-        Scientists observe. Scientists measure.
-        Scientists record data. Scientists look for patterns.
-        Then scientists use evidence to explain what happened.
-      </p>
-
-    </div>
-
-
-    <h3>Make a Prediction</h3>
-
-    <p>
-      Where do you think the missing water went?
-    </p>
-
-    <textarea
-      id="prediction"
-      placeholder="I predict..."
-      oninput="saveAll()"></textarea>
-
+  <div style="font-size:75px;">
+    💧 → ☀️ → ☁️
   </div>
 
+  <h3>Where did the water go?</h3>
 
-  <div class="card">
+  <p>
+    A student places 100 mL of water in a container.
+    After several hours, only 77 mL remains.
+  </p>
 
-    <h3>🎯 Science Skills</h3>
+  <p>
+    <strong>23 mL of water is no longer in the container.</strong>
+  </p>
 
-    <div class="skills">
+</div>
 
-      <span class="skill">Observation</span>
-      <span class="skill">Measurement</span>
-      <span class="skill">Data Analysis</span>
-      <span class="skill">Mathematics</span>
-      <span class="skill">Scientific Writing</span>
-      <span class="skill">CER</span>
+<h3>Essential Question</h3>
 
-    </div>
+<p>
+How does temperature affect the amount of water that evaporates?
+</p>
 
-  </div>
+<h3>Make a Prediction</h3>
+
+<textarea
+id="prediction"
+placeholder="I predict that..."
+oninput="saveData()"></textarea>
+
+<div class="info">
+
+<strong>Think like a scientist.</strong>
+
+<p>
+Scientists make observations, collect measurements,
+look for patterns in data, and use evidence to explain
+what happened.
+</p>
+
+</div>
+
+</div>
 
 
-  <div class="navigation">
+<div class="card">
 
-    <button class="btn-dark" disabled>
-      ◀ Back
-    </button>
+<h3>🎯 Science Practices</h3>
 
-    <button class="btn-red" onclick="nextPage()">
-      Next: Read ▶
-    </button>
+<div class="skills">
 
-  </div>
+<span class="skill">Planning an Investigation</span>
+<span class="skill">Measurement</span>
+<span class="skill">Mathematics</span>
+<span class="skill">Data Analysis</span>
+<span class="skill">Scientific Reasoning</span>
+<span class="skill">CER</span>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" disabled>◀ Back</button>
+
+<button class="red" onclick="nextPage()">
+Read Like a Scientist ▶
+</button>
+
+</div>
 
 </section>
 
@@ -698,912 +632,1059 @@ footer {
 
 <section id="page2" class="page">
 
-  <div class="card">
+<div class="card">
 
-    <h2>📖 Read Like a Scientist</h2>
+<h2>📖 Read Like a Scientist</h2>
 
-    <p>
-      Your teacher will provide a printed scientific reading
-      about evaporation and the water cycle.
-    </p>
+<p>
+Your teacher can print a Grade 9 appropriate reading about
+evaporation and the water cycle for students to use during
+this investigation.
+</p>
 
-    <a
-      href="https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle?page=1"
-      target="_blank"
-      rel="noopener">
+<a
+href="https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle"
+target="_blank"
+rel="noopener">
 
-      <button class="btn-red">
-        📄 Open USGS Reading
-      </button>
+<button class="red">
+📄 Open USGS Reading
+</button>
 
-    </a>
+</a>
 
-    <div class="info">
+<div class="info">
 
-      <strong>Remember:</strong>
+<strong>Reading strategy:</strong>
 
-      <p>
-        Read for information you can use as evidence later.
-      </p>
+<p>
+As you read, look for information that could help explain
+why temperature might affect evaporation.
+</p>
 
-    </div>
+</div>
 
-  </div>
-
-
-  <div class="card">
-
-    <h2>🧠 Reading Check</h2>
-
-    <p>
-      What is the main idea of the reading?
-    </p>
+</div>
 
 
-    <div
-      class="choice"
-      onclick="readingChoice(this, false)">
+<div class="card">
 
-      <strong>A.</strong>
-      Water disappears when it gets hot.
+<h2>🧠 Reading Check</h2>
 
-    </div>
+<p>
+Which statement best explains evaporation?
+</p>
 
+<div
+class="choice"
+onclick="readingAnswer(this,false)">
+A. Water disappears permanently.
+</div>
 
-    <div
-      class="choice"
-      onclick="readingChoice(this, true)">
+<div
+class="choice"
+onclick="readingAnswer(this,true)">
+B. Liquid water changes into water vapor and enters the atmosphere.
+</div>
 
-      <strong>B.</strong>
-      Evaporation moves water from Earth's surface
-      into the atmosphere.
+<div
+class="choice"
+onclick="readingAnswer(this,false)">
+C. Water can only evaporate when it reaches its boiling point.
+</div>
 
-    </div>
+<div
+class="choice"
+onclick="readingAnswer(this,false)">
+D. Evaporation changes water into a different substance.
+</div>
 
+<p id="readingFeedback"></p>
 
-    <div
-      class="choice"
-      onclick="readingChoice(this, false)">
+<label>
+What information from the reading could help you explain
+your investigation?
+</label>
 
-      <strong>C.</strong>
-      Water can only evaporate at 100°C.
+<textarea
+id="readingEvidence"
+placeholder="The reading explains..."
+oninput="saveData()"></textarea>
 
-    </div>
-
-
-    <div
-      class="choice"
-      onclick="readingChoice(this, false)">
-
-      <strong>D.</strong>
-      Condensation causes water to disappear.
-
-    </div>
-
-
-    <p id="readingFeedback"></p>
-
-
-    <label>
-      Find one piece of evidence from the reading.
-    </label>
-
-    <textarea
-      id="readingEvidence"
-      placeholder="The reading explains..."
-      oninput="saveAll()"></textarea>
+</div>
 
 
-    <label>
-      Why is energy important for evaporation?
-    </label>
+<div class="navigation">
 
-    <textarea
-      id="energyResponse"
-      oninput="saveAll()"></textarea>
+<button class="dark" onclick="previousPage()">◀ Back</button>
 
-  </div>
+<button class="red" onclick="nextPage()">
+Enter the Lab ▶
+</button>
 
-
-  <div class="navigation">
-
-    <button class="btn-dark" onclick="previousPage()">
-      ◀ Back
-    </button>
-
-    <button class="btn-red" onclick="nextPage()">
-      Next: Investigate ▶
-    </button>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- PAGE 3 -->
+<!-- PAGE 3 LAB -->
 
 <section id="page3" class="page">
 
-  <div class="card">
+<div class="card">
 
-    <h2>🔬 Investigate</h2>
+<h2>🔬 Investigation: Evaporation Lab</h2>
 
-    <div class="blue-box">
+<div class="bluebox">
 
-      <strong>Investigation Question</strong>
+<strong>Investigation Question</strong>
 
-      <p>
-        How does temperature affect the amount of water
-        that evaporates?
-      </p>
+<p>
+How does temperature affect the amount of water lost
+through evaporation?
+</p>
 
-    </div>
+</div>
 
+<h3>Lab Procedure</h3>
 
-    <h3>Before You Begin</h3>
+<ol>
 
-    <p>
-      Every trial starts with <strong>100 mL</strong> of water.
-    </p>
+<li>Choose a temperature.</li>
 
-    <p>
-      You will compare three temperatures:
-    </p>
+<li>Choose the trial number.</li>
 
-    <div class="skills">
+<li>Click <strong>Run Trial</strong>.</li>
 
-      <span class="skill">🌡️ 15°C</span>
-      <span class="skill">🌡️ 25°C</span>
-      <span class="skill">🌡️ 35°C</span>
+<li>Observe the virtual beaker.</li>
 
-    </div>
+<li>Read the ending-water measurement.</li>
 
+<li>Record the measurement in your Scientific Notebook.</li>
 
-    <h3>Your Prediction</h3>
+<li>Enter the same measurement into the data table.</li>
 
-    <label>
-      Which temperature will cause the greatest water loss?
-    </label>
+</ol>
 
-    <select
-      id="temperaturePrediction"
-      onchange="saveAll()">
+<div class="info">
 
-      <option value="">Choose one</option>
-      <option>15°C</option>
-      <option>25°C</option>
-      <option>35°C</option>
+<strong>Important:</strong>
 
-    </select>
+<p>
+Do not enter a number before running the trial.
+Scientists collect observations before analyzing them.
+</p>
+
+</div>
+
+</div>
 
 
-    <div class="info">
+<div class="card">
 
-      <strong>Your job:</strong>
+<h2>🧪 Virtual Lab</h2>
 
-      <p>
-        Run each trial, observe the ending water,
-        and record the measurement yourself.
-      </p>
+<p>
+<strong>Temperature:</strong>
+<span id="selectedTemp">Not selected</span>
+</p>
 
-    </div>
+<div class="lab-controls">
 
-  </div>
+<button class="temp15" onclick="selectTemperature(15)">
+15°C
+</button>
 
+<button class="temp25" onclick="selectTemperature(25)">
+25°C
+</button>
 
-  <div class="card">
+<button class="temp35" onclick="selectTemperature(35)">
+35°C
+</button>
 
-    <h3>🔬 Virtual Lab Model</h3>
+</div>
 
-    <div class="visual-box">
+<p>
+<strong>Trial:</strong>
+<span id="trialNumber">1</span>
+</p>
 
-      <div style="font-size:70px;">
-        🧪
-      </div>
+<div class="lab-controls">
 
-      <p>
-        <strong>
-          Temperature changes how much water remains.
-        </strong>
-      </p>
+<button class="dark" onclick="setTrial(1)">Trial 1</button>
+<button class="dark" onclick="setTrial(2)">Trial 2</button>
+<button class="dark" onclick="setTrial(3)">Trial 3</button>
 
-      <p>
-        Record the ending measurement in the data table
-        on the next screen.
-      </p>
-
-    </div>
-
-    <p>
-      <em>
-        In the full lab version, this area will become the
-        interactive experiment where students manipulate
-        variables and observe results.
-      </em>
-    </p>
-
-  </div>
+</div>
 
 
-  <div class="navigation">
+<div class="visual">
 
-    <button class="btn-dark" onclick="previousPage()">
-      ◀ Back
-    </button>
+<div class="beaker-area">
 
-    <button class="btn-red" onclick="nextPage()">
-      Begin Data Collection ▶
-    </button>
+<div>
 
-  </div>
+<div class="beaker">
+
+<div
+id="labWater"
+class="water"
+style="height:100%">
+</div>
+
+</div>
+
+<div class="measure">
+<span id="labMeasurement">100.0 mL</span>
+</div>
+
+</div>
+
+<div style="font-size:65px;">
+🌡️
+</div>
+
+</div>
+
+<div id="labResult" class="lab-result">
+Choose a temperature and run the trial.
+</div>
+
+</div>
+
+
+<button
+id="runButton"
+class="red"
+onclick="runTrial()">
+
+▶ RUN TRIAL
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>📓 Scientific Notebook</h2>
+
+<div class="notebook">
+
+<div class="notebook-title">
+<span style="font-size:30px;">📓</span>
+<h3>Observation Record</h3>
+</div>
+
+<p>
+Record what you observe after running the trial.
+</p>
+
+<label>Temperature</label>
+
+<input
+id="notebookTemp"
+readonly
+placeholder="Run a trial first">
+
+<label>Trial</label>
+
+<input
+id="notebookTrial"
+readonly
+placeholder="Run a trial first">
+
+<label>Ending Water</label>
+
+<input
+id="notebookEnding"
+type="number"
+step="0.1"
+placeholder="Enter the measurement you observed"
+oninput="saveData()">
+
+<label>Observation</label>
+
+<textarea
+id="notebookObservation"
+placeholder="I observed..."
+oninput="saveData()"></textarea>
+
+<button class="green" onclick="saveNotebookEntry()">
+💾 Save Notebook Entry
+</button>
+
+<p id="notebookMessage"></p>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">◀ Back</button>
+
+<button class="red" onclick="nextPage()">
+Enter Data Table ▶
+</button>
+
+</div>
 
 </section>
 
 
-<!-- PAGE 4 -->
+<!-- PAGE 4 DATA TABLE -->
 
 <section id="page4" class="page">
 
-  <div class="card">
-
-    <h2>📊 Record Your Data</h2>
-
-    <p>
-      Enter the amount of water remaining after each trial.
-    </p>
-
-    <div class="info">
-
-      <strong>Do the measurement yourself.</strong>
-
-      <p>
-        Do not just copy an answer. Your data should come
-        from your observation of the investigation.
-      </p>
-
-    </div>
-
-
-    <div class="table-wrap">
-
-      <table>
-
-        <thead>
-
-          <tr>
-            <th>Temperature</th>
-            <th>Starting Water</th>
-            <th>Ending Water</th>
-            <th>Water Lost</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr>
-
-            <td><strong>15°C</strong></td>
-
-            <td>100 mL</td>
-
-            <td>
-              <input
-                type="number"
-                id="end15"
-                min="0"
-                max="100"
-                step="0.1"
-                placeholder="mL"
-                oninput="calculateData()">
-            </td>
-
-            <td>
-              <strong id="lost15">—</strong>
-            </td>
-
-          </tr>
-
-
-          <tr>
-
-            <td><strong>25°C</strong></td>
-
-            <td>100 mL</td>
-
-            <td>
-              <input
-                type="number"
-                id="end25"
-                min="0"
-                max="100"
-                step="0.1"
-                placeholder="mL"
-                oninput="calculateData()">
-            </td>
-
-            <td>
-              <strong id="lost25">—</strong>
-            </td>
-
-          </tr>
-
-
-          <tr>
-
-            <td><strong>35°C</strong></td>
-
-            <td>100 mL</td>
-
-            <td>
-              <input
-                type="number"
-                id="end35"
-                min="0"
-                max="100"
-                step="0.1"
-                placeholder="mL"
-                oninput="calculateData()">
-            </td>
-
-            <td>
-              <strong id="lost35">—</strong>
-            </td>
-
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-
-
-    <div class="blue-box">
-
-      <strong>Math Rule</strong>
-
-      <p style="font-size:19px;">
-        Starting Water − Ending Water = Water Lost
-      </p>
-
-    </div>
-
-    <p id="dataMessage"></p>
-
-  </div>
-
-
-  <div class="card">
-
-    <h2>🧮 Math Practice</h2>
-
-    <p>
-      How much more water was lost at 35°C than at 15°C?
-    </p>
-
-    <p>
-      <strong>
-        Water lost at 35°C − Water lost at 15°C
-      </strong>
-    </p>
-
-    <input
-      type="number"
-      id="difference"
-      placeholder="Enter your answer in mL"
-      oninput="checkDifference()">
-
-    <p id="differenceFeedback"></p>
-
-
-    <button
-      class="btn-yellow"
-      onclick="toggleHelp('mathHelp')">
-
-      🧠 I Need Help
-
-    </button>
-
-
-    <div
-      id="mathHelp"
-      class="help-box"
-      style="display:none;">
-
-      <strong>Try these steps:</strong>
-
-      <ol>
-
-        <li>Find water lost at 35°C.</li>
-
-        <li>Find water lost at 15°C.</li>
-
-        <li>Subtract the smaller amount from the larger amount.</li>
-
-      </ol>
-
-    </div>
-
-  </div>
-
-
-  <div class="navigation">
-
-    <button class="btn-dark" onclick="previousPage()">
-      ◀ Back
-    </button>
-
-    <button class="btn-red" onclick="nextPage()">
-      Analyze Data ▶
-    </button>
-
-  </div>
+<div class="card">
+
+<h2>📊 Scientific Data Table</h2>
+
+<p>
+Transfer the ending-water measurements from your Scientific
+Notebook into the table. The website will calculate water lost.
+</p>
+
+<div class="bluebox">
+
+<strong>Math Rule</strong>
+
+<p style="font-size:20px;">
+Starting Water − Ending Water = Water Lost
+</p>
+
+</div>
+
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Temperature</th>
+<th>Trial</th>
+<th>Starting Water</th>
+<th>Ending Water</th>
+<th>Water Lost</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>15°C</td>
+<td>1</td>
+<td>100.0 mL</td>
+<td>
+<input id="d15_1"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l15_1">—</td>
+</tr>
+
+<tr>
+<td>15°C</td>
+<td>2</td>
+<td>100.0 mL</td>
+<td>
+<input id="d15_2"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l15_2">—</td>
+</tr>
+
+<tr>
+<td>15°C</td>
+<td>3</td>
+<td>100.0 mL</td>
+<td>
+<input id="d15_3"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l15_3">—</td>
+</tr>
+
+<tr>
+<td>25°C</td>
+<td>1</td>
+<td>100.0 mL</td>
+<td>
+<input id="d25_1"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l25_1">—</td>
+</tr>
+
+<tr>
+<td>25°C</td>
+<td>2</td>
+<td>100.0 mL</td>
+<td>
+<input id="d25_2"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l25_2">—</td>
+</tr>
+
+<tr>
+<td>25°C</td>
+<td>3</td>
+<td>100.0 mL</td>
+<td>
+<input id="d25_3"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l25_3">—</td>
+</tr>
+
+<tr>
+<td>35°C</td>
+<td>1</td>
+<td>100.0 mL</td>
+<td>
+<input id="d35_1"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l35_1">—</td>
+</tr>
+
+<tr>
+<td>35°C</td>
+<td>2</td>
+<td>100.0 mL</td>
+<td>
+<input id="d35_2"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l35_2">—</td>
+</tr>
+
+<tr>
+<td>35°C</td>
+<td>3</td>
+<td>100.0 mL</td>
+<td>
+<input id="d35_3"
+type="number"
+step="0.1"
+min="0"
+max="100"
+oninput="calculateTable()">
+</td>
+<td id="l35_3">—</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<p id="tableMessage"></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>🧮 Calculate the Averages</h2>
+
+<p>
+After all three trials for a temperature are entered,
+the website will calculate the average amount of water lost.
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+<tr>
+<th>Temperature</th>
+<th>Average Water Lost</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>15°C</td>
+<td id="avg15">—</td>
+</tr>
+
+<tr>
+<td>25°C</td>
+<td id="avg25">—</td>
+</tr>
+
+<tr>
+<td>35°C</td>
+<td id="avg35">—</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">◀ Back</button>
+
+<button class="red" onclick="nextPage()">
+Analyze Data ▶
+</button>
+
+</div>
 
 </section>
 
 
-<!-- PAGE 5 -->
+<!-- PAGE 5 ANALYSIS -->
 
 <section id="page5" class="page">
 
-  <div class="card">
+<div class="card">
 
-    <h2>📈 Analyze Your Data</h2>
+<h2>📈 Analyze Your Data</h2>
 
-    <h3>What Pattern Do You Notice?</h3>
+<p>
+Your graph shows the average amount of water lost at each
+temperature.
+</p>
 
-    <textarea
-      id="pattern"
-      placeholder="As temperature increased..."
-      oninput="saveAll()"></textarea>
+<div class="bar-chart">
 
+<div
+id="bar15"
+class="bar"
+style="height:20px">
 
-    <h3>Observation or Inference?</h3>
+<span id="bar15Label">—</span>
 
-    <p>
-      <strong>
-        "The thermometer reads 35°C."
-      </strong>
-    </p>
+15°C
 
+</div>
 
-    <div
-      class="choice"
-      onclick="observationChoice(this, true)">
+<div
+id="bar25"
+class="bar"
+style="height:20px">
 
-      Observation
+<span id="bar25Label">—</span>
 
-    </div>
+25°C
 
+</div>
 
-    <div
-      class="choice"
-      onclick="observationChoice(this, false)">
+<div
+id="bar35"
+class="bar"
+style="height:20px">
 
-      Inference
+<span id="bar35Label">—</span>
 
-    </div>
+35°C
 
+</div>
 
-    <p id="observationFeedback"></p>
+</div>
 
-  </div>
-
-
-  <div class="card">
-
-    <h2>🔎 Analyze a New Data Set</h2>
-
-    <p>
-      Scientists collected data from two locations.
-    </p>
+</div>
 
 
-    <div class="table-wrap">
+<div class="card">
 
-      <table>
+<h3>Question 1</h3>
 
-        <thead>
+<p>
+Which temperature had the greatest average amount of
+water loss?
+</p>
 
-          <tr>
-            <th>Location</th>
-            <th>Starting</th>
-            <th>Ending</th>
-            <th>Water Lost</th>
-          </tr>
+<select
+id="greatestTemp"
+onchange="saveData()">
 
-        </thead>
+<option value="">Choose one</option>
+<option>15°C</option>
+<option>25°C</option>
+<option>35°C</option>
 
-        <tbody>
-
-          <tr>
-            <td>☀️ Sunny Window</td>
-            <td>100 mL</td>
-            <td>72 mL</td>
-            <td>28 mL</td>
-          </tr>
-
-          <tr>
-            <td>🗄️ Cabinet</td>
-            <td>100 mL</td>
-            <td>91 mL</td>
-            <td>9 mL</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
+</select>
 
 
-    <label>
-      How much more water was lost in the sunny window?
-    </label>
+<h3>Question 2</h3>
 
-    <input
-      type="number"
-      id="newDataMath"
-      placeholder="mL"
-      oninput="checkNewData()">
+<p>
+What pattern do you notice as temperature increases?
+</p>
 
-    <p id="newDataFeedback"></p>
-
-
-    <label>
-      What pattern do you notice?
-    </label>
-
-    <textarea
-      id="newPattern"
-      oninput="saveAll()"></textarea>
-
-  </div>
+<textarea
+id="pattern"
+placeholder="As temperature increased..."
+oninput="saveData()"></textarea>
 
 
-  <div class="card">
+<h3>Question 3</h3>
 
-    <h3>🌎 Think Like a Scientist</h3>
+<p>
+Why is it useful to perform three trials instead of only
+one trial?
+</p>
 
-    <p>
-      Scientists use data to identify patterns.
-      A pattern does not automatically prove why something
-      happened. Scientists need reasoning and evidence
-      to explain the pattern.
-    </p>
+<textarea
+id="trialsReason"
+placeholder="Scientists use multiple trials because..."
+oninput="saveData()"></textarea>
 
-  </div>
+</div>
 
 
-  <div class="navigation">
+<div class="card">
 
-    <button class="btn-dark" onclick="previousPage()">
-      ◀ Back
-    </button>
+<h2>🧮 Data Math Challenge</h2>
 
-    <button class="btn-red" onclick="nextPage()">
-      Construct CER ▶
-    </button>
+<p>
+Use your calculated averages.
+</p>
 
-  </div>
+<p>
+<strong>
+How much greater was the average water loss at 35°C
+than at 15°C?
+</strong>
+</p>
+
+<input
+id="mathChallenge"
+type="number"
+step="0.1"
+placeholder="Enter mL"
+oninput="checkMathChallenge()">
+
+<p id="mathFeedback"></p>
+
+
+<button
+class="yellow"
+onclick="toggle('mathHelp')">
+
+🧠 I Need Help
+
+</button>
+
+
+<div
+id="mathHelp"
+class="help"
+style="display:none">
+
+<strong>Need a hint?</strong>
+
+<p>
+Take the average water lost at 35°C and subtract the
+average water lost at 15°C.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">◀ Back</button>
+
+<button class="red" onclick="nextPage()">
+Build Your CER ▶
+</button>
+
+</div>
 
 </section>
 
 
-<!-- PAGE 6 -->
+<!-- PAGE 6 CER -->
 
 <section id="page6" class="page">
 
-  <div class="card">
+<div class="card">
 
-    <h2>✍️ Construct a CER</h2>
+<h2>✍️ Construct a CER</h2>
 
-    <div class="blue-box">
+<div class="bluebox">
 
-      <strong>Question:</strong>
+<strong>Scientific Question</strong>
 
-      <p>
-        How does temperature affect the amount of water
-        that evaporates?
-      </p>
+<p>
+How does temperature affect the amount of water that
+evaporates?
+</p>
 
-    </div>
+</div>
 
-  </div>
+<p>
+Use your Scientific Notebook and data table.
+Your CER should use evidence from <strong>your investigation</strong>.
+</p>
 
+</div>
 
-  <div class="card">
 
-    <div class="cer-title">
+<div class="card cer claim">
 
-      <div class="cer-icon claim">C</div>
+<h2>🟥 CLAIM</h2>
 
-      <h2>Claim</h2>
+<p>
+Answer the scientific question in one clear sentence.
+</p>
 
-    </div>
+<p>
+<strong>Sentence starter:</strong>
+</p>
 
-    <p>
-      Make a clear statement that answers the question.
-    </p>
+<p>
+As temperature increases, the amount of water lost through
+evaporation...
+</p>
 
-    <p>
-      <strong>Sentence starter:</strong>
-    </p>
+<textarea
+id="claim"
+placeholder="My claim is..."
+oninput="saveData()"></textarea>
 
-    <p>
-      As temperature increases, the amount of water lost...
-    </p>
+</div>
 
-    <textarea
-      id="claim"
-      placeholder="My claim is..."
-      oninput="saveAll()"></textarea>
 
-  </div>
+<div class="card cer evidence">
 
+<h2>⬛ EVIDENCE</h2>
 
-  <div class="card">
+<p>
+Use at least two pieces of evidence from your investigation.
+Include numbers from your data.
+</p>
 
-    <div class="cer-title">
+<label>Evidence #1</label>
 
-      <div class="cer-icon evidence">E</div>
+<textarea
+id="evidence1"
+placeholder="For example: At 15°C..."
+oninput="saveData()"></textarea>
 
-      <h2>Evidence</h2>
+<label>Evidence #2</label>
 
-    </div>
+<textarea
+id="evidence2"
+placeholder="For example: At 35°C..."
+oninput="saveData()"></textarea>
 
-    <p>
-      Use at least <strong>two pieces of evidence</strong>.
-    </p>
+<label>Evidence from the reading</label>
 
-    <label>
-      Evidence from my data:
-    </label>
+<textarea
+id="evidence3"
+placeholder="The reading explains..."
+oninput="saveData()"></textarea>
 
-    <textarea
-      id="evidenceData"
-      placeholder="For example: At ___°C, ___ mL of water was lost..."
-      oninput="saveAll()"></textarea>
+</div>
 
 
-    <label>
-      Evidence from the reading:
-    </label>
+<div class="card cer reasoning">
 
-    <textarea
-      id="evidenceReading"
-      placeholder="The reading explains..."
-      oninput="saveAll()"></textarea>
+<h2>🟨 REASONING</h2>
 
-  </div>
+<p>
+Explain why your evidence supports your claim.
+Connect your data to the science of evaporation.
+</p>
 
+<div class="info">
 
-  <div class="card">
+<strong>Think about the chain:</strong>
 
-    <div class="cer-title">
+<p style="font-size:19px;">
+Temperature → particle energy → evaporation → water vapor
+</p>
 
-      <div class="cer-icon reasoning">R</div>
+</div>
 
-      <h2>Reasoning</h2>
+<textarea
+id="reasoning"
+placeholder="This evidence supports my claim because..."
+oninput="saveData()"></textarea>
 
-    </div>
+</div>
 
-    <p>
-      Explain why your evidence supports your claim.
-    </p>
 
-    <div class="info">
+<div class="card">
 
-      <strong>Think about this connection:</strong>
+<button
+class="yellow"
+onclick="toggle('cerHelp')">
 
-      <p style="font-size:18px;">
-        temperature → heat energy → evaporation → water vapor
-      </p>
+🧠 I Need Help
 
-    </div>
+</button>
 
-    <p>
-      <strong>Sentence starter:</strong>
-    </p>
+<div
+id="cerHelp"
+class="help"
+style="display:none">
 
-    <p>
-      This evidence supports my claim because...
-    </p>
+<h3>CER Help</h3>
 
-    <textarea
-      id="reasoning"
-      placeholder="My reasoning is..."
-      oninput="saveAll()"></textarea>
+<p>
+<strong>Claim:</strong> What happened?
+</p>
 
-  </div>
+<p>
+<strong>Evidence:</strong> What numbers or information prove it?
+</p>
 
+<p>
+<strong>Reasoning:</strong> Why does that evidence make sense
+scientifically?
+</p>
 
-  <div class="card">
+</div>
 
-    <button
-      class="btn-yellow"
-      onclick="toggleHelp('cerHelp')">
+<br>
 
-      🧠 I Need Help
+<button
+class="purple"
+onclick="toggle('challenge')">
 
-    </button>
+⭐ I Got It! Give Me a Challenge
 
+</button>
 
-    <div
-      id="cerHelp"
-      class="help-box"
-      style="display:none;">
+<div
+id="challenge"
+class="challenge"
+style="display:none">
 
-      <h3>Build Your CER</h3>
+<h3>⭐ Challenge</h3>
 
-      <p>
-        <strong>Claim:</strong>
-        Answer the question.
-      </p>
+<p>
+Imagine the class repeated this investigation at 50°C.
+Predict what would happen to the amount of water lost.
+Explain your prediction using evidence and scientific reasoning.
+</p>
 
-      <p>
-        <strong>Evidence:</strong>
-        Give numbers or information that support your claim.
-      </p>
+<textarea
+id="challengeAnswer"
+placeholder="My prediction..."
+oninput="saveData()"></textarea>
 
-      <p>
-        <strong>Reasoning:</strong>
-        Explain the science connecting your evidence to your claim.
-      </p>
+</div>
 
-    </div>
+</div>
 
 
-    <br>
+<div class="navigation">
 
+<button class="dark" onclick="previousPage()">◀ Back</button>
 
-    <button
-      class="btn-purple"
-      onclick="toggleHelp('challenge')">
+<button class="green" onclick="nextPage()">
+Open Scientific Notebook ▶
+</button>
 
-      ⭐ I Got It! Give Me a Challenge
-
-    </button>
-
-
-    <div
-      id="challenge"
-      class="extension-box"
-      style="display:none;">
-
-      <h3>⭐ Challenge</h3>
-
-      <p>
-        Why can water evaporate even when the water is
-        not boiling?
-      </p>
-
-      <textarea
-        id="challengeAnswer"
-        placeholder="My explanation..."
-        oninput="saveAll()"></textarea>
-
-    </div>
-
-  </div>
-
-
-  <div class="navigation">
-
-    <button class="btn-dark" onclick="previousPage()">
-      ◀ Back
-    </button>
-
-    <button class="btn-green" onclick="nextPage()">
-      Save & Finish ▶
-    </button>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- PAGE 7 -->
+<!-- PAGE 7 NOTEBOOK -->
 
 <section id="page7" class="page">
 
-  <div class="card">
+<div class="card">
 
-    <h2>📓 My Science Notebook</h2>
+<h2>📓 My Scientific Notebook</h2>
 
-    <div class="success-box">
+<div class="success">
 
-      <strong>Your work is saved on this device.</strong>
+<strong>Your notebook is saved on this device.</strong>
 
-      <p>
-        You can use your responses to review your thinking
-        before completing your CER.
-      </p>
+<p>
+Use this page to review your thinking before submitting
+your final CER.
+</p>
 
-    </div>
+</div>
+
+<div class="notebook">
+
+<h3>Prediction</h3>
+<p id="summaryPrediction">—</p>
+
+<h3>Investigation Observations</h3>
+<p id="summaryObservation">—</p>
+
+<h3>Data</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+<tr>
+<th>Temperature</th>
+<th>Trial 1</th>
+<th>Trial 2</th>
+<th>Trial 3</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>15°C</td>
+<td id="s15_1">—</td>
+<td id="s15_2">—</td>
+<td id="s15_3">—</td>
+</tr>
+
+<tr>
+<td>25°C</td>
+<td id="s25_1">—</td>
+<td id="s25_2">—</td>
+<td id="s25_3">—</td>
+</tr>
+
+<tr>
+<td>35°C</td>
+<td id="s35_1">—</td>
+<td id="s35_2">—</td>
+<td id="s35_3">—</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<h3>My Pattern</h3>
+<p id="summaryPattern">—</p>
+
+<h3>My Claim</h3>
+<p id="summaryClaim">—</p>
+
+<h3>My Evidence</h3>
+<p id="summaryEvidence">—</p>
+
+<h3>My Reasoning</h3>
+<p id="summaryReasoning">—</p>
+
+</div>
+
+</div>
 
 
-    <h3>My Prediction</h3>
+<div class="card">
 
-    <p id="summaryPrediction">—</p>
+<h2>🎫 Exit Ticket</h2>
 
+<p>
+What is one important thing you learned about evaporation,
+measurement, or analyzing scientific data?
+</p>
 
-    <h3>My Claim</h3>
+<textarea
+id="exitTicket"
+placeholder="I learned..."
+oninput="saveData()"></textarea>
 
-    <p id="summaryClaim">—</p>
+<br><br>
 
+<button
+class="green"
+onclick="saveData();alert('Your work has been saved on this device!')">
 
-    <h3>My Evidence</h3>
+💾 Save My Work
 
-    <p id="summaryEvidence">—</p>
+</button>
 
-
-    <h3>My Reasoning</h3>
-
-    <p id="summaryReasoning">—</p>
-
-  </div>
-
-
-  <div class="card">
-
-    <h2>🎫 Exit Ticket</h2>
-
-    <p>
-      What did you learn about temperature and evaporation?
-    </p>
-
-    <textarea
-      id="exitTicket"
-      placeholder="I learned..."
-      oninput="saveAll()"></textarea>
+</div>
 
 
-    <button
-      class="btn-green"
-      onclick="saveAll(); alert('Your work has been saved on this device!')">
+<div class="card">
 
-      💾 Save My Work
+<h2>🎯 Skills You Practiced</h2>
 
-    </button>
+<div class="skills">
 
-  </div>
+<span class="skill">Reading</span>
+<span class="skill">Measurement</span>
+<span class="skill">Data Collection</span>
+<span class="skill">Subtraction</span>
+<span class="skill">Averages</span>
+<span class="skill">Graphing</span>
+<span class="skill">Data Analysis</span>
+<span class="skill">CER Writing</span>
 
+</div>
 
-  <div class="card">
-
-    <h2>🎯 Skills You Practiced</h2>
-
-    <div class="skills">
-
-      <span class="skill">Reading</span>
-      <span class="skill">Measurement</span>
-      <span class="skill">Mathematics</span>
-      <span class="skill">Data Analysis</span>
-      <span class="skill">Scientific Reasoning</span>
-      <span class="skill">CER Writing</span>
-
-    </div>
-
-  </div>
+</div>
 
 
-  <div class="navigation">
+<div class="navigation">
 
-    <button class="btn-dark" onclick="previousPage()">
-      ◀ Back
-    </button>
+<button class="dark" onclick="previousPage()">◀ Back</button>
 
-    <button
-      class="btn-red"
-      onclick="clearWork()">
+<button
+class="red"
+onclick="alert('Your Week 1 work is saved on this device. Great work, scientist!')">
 
-      Clear My Test Data
+🏁 Finish Week 1
 
-    </button>
+</button>
 
-  </div>
+</div>
 
 </section>
 
@@ -1612,79 +1693,80 @@ footer {
 
 <footer>
 
-  <strong>Science Lab</strong>
-  <br>
-  Grade 9 Earth & Universe Science
-  <br><br>
-  Week 1 • Introduction to Science
+<strong>Science Lab</strong>
+<br>
+Grade 9 Earth & Universe Science
+<br><br>
+Week 1 • Introduction to Science
 
 </footer>
 
 
 <script>
 
-/* -----------------------------
+/* ============================
    PAGE NAVIGATION
------------------------------ */
+============================ */
 
 let currentPage = 1;
 const totalPages = 7;
 
+function showPage(page){
 
-function showPage(page) {
-
-  document.querySelectorAll(".page").forEach(function(section) {
-    section.classList.remove("active");
+  document.querySelectorAll(".page").forEach(function(p){
+    p.classList.remove("active");
   });
 
-  document.getElementById("page" + page).classList.add("active");
+  document.getElementById("page"+page).classList.add("active");
 
   currentPage = page;
 
   updateProgress();
 
-  if (page === 7) {
-    updateSummary();
+  if(page === 5){
+    updateGraph();
+  }
+
+  if(page === 7){
+    updateNotebookSummary();
   }
 
   window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+    top:0,
+    behavior:"smooth"
   });
 }
 
+function nextPage(){
 
-function nextPage() {
-
-  if (currentPage < totalPages) {
+  if(currentPage < totalPages){
     showPage(currentPage + 1);
   }
 
 }
 
+function previousPage(){
 
-function previousPage() {
-
-  if (currentPage > 1) {
+  if(currentPage > 1){
     showPage(currentPage - 1);
   }
 
 }
 
 
-/* -----------------------------
+/* ============================
    PROGRESS
------------------------------ */
+============================ */
 
-function updateProgress() {
+function updateProgress(){
 
   const percent =
-    Math.round(((currentPage - 1) / (totalPages - 1)) * 100);
+    Math.round(((currentPage - 1)/(totalPages - 1))*100);
 
   document.getElementById("progressFill").style.width =
     percent + "%";
 
-  document.getElementById("progressTitle").textContent =
+  document.getElementById("progressText").textContent =
     "Step " + currentPage + " of " + totalPages;
 
   document.getElementById("progressPercent").textContent =
@@ -1693,47 +1775,99 @@ function updateProgress() {
 }
 
 
-/* -----------------------------
-   SAVE DATA
------------------------------ */
+/* ============================
+   LOCAL STORAGE
+============================ */
 
-const savedFields = [
+const fieldIDs = [
 
-  "prediction",
-  "readingEvidence",
-  "energyResponse",
-  "temperaturePrediction",
+"prediction",
+"readingEvidence",
 
-  "end15",
-  "end25",
-  "end35",
+"notebookTemp",
+"notebookTrial",
+"notebookEnding",
+"notebookObservation",
 
-  "pattern",
-  "newPattern",
+"greatestTemp",
+"pattern",
+"trialsReason",
+"mathChallenge",
 
-  "claim",
-  "evidenceData",
-  "evidenceReading",
-  "reasoning",
-
-  "challengeAnswer",
-  "exitTicket"
+"claim",
+"evidence1",
+"evidence2",
+"evidence3",
+"reasoning",
+"challengeAnswer",
+"exitTicket"
 
 ];
 
+function saveData(){
 
-function saveAll() {
+  fieldIDs.forEach(function(id){
 
-  savedFields.forEach(function(id) {
+    const el = document.getElementById(id);
 
-    const element =
-      document.getElementById(id);
+    if(el){
+      localStorage.setItem(
+        "scienceLab_"+id,
+        el.value
+      );
+    }
 
-    if (element) {
+  });
+
+  saveTable();
+
+}
+
+function loadData(){
+
+  fieldIDs.forEach(function(id){
+
+    const saved =
+      localStorage.getItem("scienceLab_"+id);
+
+    const el = document.getElementById(id);
+
+    if(saved !== null && el){
+      el.value = saved;
+    }
+
+  });
+
+  loadTable();
+
+  calculateTable();
+
+}
+
+
+/* ============================
+   TABLE STORAGE
+============================ */
+
+const tableIDs = [
+
+"d15_1","d15_2","d15_3",
+"d25_1","d25_2","d25_3",
+"d35_1","d35_2","d35_3"
+
+];
+
+function saveTable(){
+
+  tableIDs.forEach(function(id){
+
+    const el = document.getElementById(id);
+
+    if(el){
 
       localStorage.setItem(
-        "scienceLab_" + id,
-        element.value
+        "scienceLab_"+id,
+        el.value
       );
 
     }
@@ -1742,223 +1876,419 @@ function saveAll() {
 
 }
 
+function loadTable(){
 
-function loadAll() {
-
-  savedFields.forEach(function(id) {
+  tableIDs.forEach(function(id){
 
     const saved =
-      localStorage.getItem("scienceLab_" + id);
+      localStorage.getItem("scienceLab_"+id);
 
-    const element =
+    const el =
       document.getElementById(id);
 
-    if (saved !== null && element) {
-
-      element.value = saved;
-
+    if(saved !== null && el){
+      el.value = saved;
     }
 
   });
 
-  calculateData();
+}
+
+
+/* ============================
+   VIRTUAL LAB
+============================ */
+
+let selectedTemperature = null;
+let selectedTrial = 1;
+let currentMeasurement = null;
+
+const labResults = {};
+
+function selectTemperature(temp){
+
+  selectedTemperature = temp;
+
+  document.getElementById("selectedTemp").textContent =
+    temp + "°C";
+
+  document.getElementById("labResult").textContent =
+    "Temperature selected. Now run the trial.";
+
+}
+
+function setTrial(trial){
+
+  selectedTrial = trial;
+
+  document.getElementById("trialNumber").textContent =
+    trial;
+
+  document.getElementById("labResult").textContent =
+    "Trial " + trial + " selected. Run the trial.";
+
+}
+
+function runTrial(){
+
+  if(!selectedTemperature){
+
+    alert("Please select a temperature first.");
+
+    return;
+
+  }
+
+  const key =
+    selectedTemperature + "_" + selectedTrial;
+
+  /*
+    Realistic simulated measurements.
+    Each trial varies slightly.
+  */
+
+  const results = {
+
+    "15_1":94.2,
+    "15_2":93.7,
+    "15_3":94.5,
+
+    "25_1":86.8,
+    "25_2":87.3,
+    "25_3":86.1,
+
+    "35_1":75.4,
+    "35_2":74.8,
+    "35_3":75.9
+
+  };
+
+  currentMeasurement = results[key];
+
+  labResults[key] = currentMeasurement;
+
+  const waterPercent =
+    currentMeasurement;
+
+  document.getElementById("labWater").style.height =
+    waterPercent + "%";
+
+  document.getElementById("labMeasurement").textContent =
+    currentMeasurement.toFixed(1) + " mL";
+
+  document.getElementById("labResult").innerHTML =
+    "Trial complete! Observe the ending-water measurement: " +
+    "<strong>" +
+    currentMeasurement.toFixed(1) +
+    " mL</strong>";
+
+  document.getElementById("notebookTemp").value =
+    selectedTemperature + "°C";
+
+  document.getElementById("notebookTrial").value =
+    selectedTrial;
+
+  document.getElementById("notebookEnding").value =
+    currentMeasurement.toFixed(1);
+
+  saveData();
 
 }
 
 
-/* -----------------------------
-   DATA CALCULATIONS
------------------------------ */
+/* ============================
+   NOTEBOOK
+============================ */
 
-function calculateData() {
-
-  calculateOne("end15", "lost15");
-  calculateOne("end25", "lost25");
-  calculateOne("end35", "lost35");
-
-  saveAll();
-
-}
-
-
-function calculateOne(inputId, outputId) {
+function saveNotebookEntry(){
 
   const ending =
     parseFloat(
-      document.getElementById(inputId).value
+      document.getElementById("notebookEnding").value
     );
 
-  const output =
-    document.getElementById(outputId);
+  if(isNaN(ending)){
 
-  if (isNaN(ending)) {
-
-    output.textContent = "—";
+    alert("Run a trial and record the ending-water measurement first.");
 
     return;
 
   }
 
-  if (ending < 0 || ending > 100) {
+  const temp =
+    document.getElementById("notebookTemp").value;
 
-    output.textContent = "Check";
+  const trial =
+    document.getElementById("notebookTrial").value;
+
+  let inputID = "";
+
+  if(temp === "15°C"){
+
+    inputID = "d15_"+trial;
+
+  }else if(temp === "25°C"){
+
+    inputID = "d25_"+trial;
+
+  }else if(temp === "35°C"){
+
+    inputID = "d35_"+trial;
+
+  }
+
+  if(inputID){
+
+    document.getElementById(inputID).value =
+      ending.toFixed(1);
+
+    saveData();
+
+    calculateTable();
+
+    document.getElementById("notebookMessage").innerHTML =
+      '<span style="color:#15803d;font-weight:bold;">✓ Notebook entry saved to your data table.</span>';
+
+  }
+
+}
+
+
+/* ============================
+   DATA TABLE CALCULATIONS
+============================ */
+
+function calculateTable(){
+
+  let complete = 0;
+
+  tableIDs.forEach(function(id){
+
+    const ending =
+      parseFloat(
+        document.getElementById(id).value
+      );
+
+    const lostID =
+      id.replace("d","l");
+
+    const output =
+      document.getElementById(lostID);
+
+    if(isNaN(ending)){
+
+      output.textContent = "—";
+
+      return;
+
+    }
+
+    if(ending < 0 || ending > 100){
+
+      output.textContent = "Check";
+
+      return;
+
+    }
+
+    const lost =
+      100 - ending;
+
+    output.textContent =
+      lost.toFixed(1) + " mL";
+
+    complete++;
+
+  });
+
+
+  calculateAverage(
+    "d15_1",
+    "d15_2",
+    "d15_3",
+    "avg15"
+  );
+
+  calculateAverage(
+    "d25_1",
+    "d25_2",
+    "d25_3",
+    "avg25"
+  );
+
+  calculateAverage(
+    "d35_1",
+    "d35_2",
+    "d35_3",
+    "avg35"
+  );
+
+  saveTable();
+
+}
+
+
+function calculateAverage(a,b,c,outputID){
+
+  const values = [a,b,c].map(function(id){
+
+    const ending =
+      parseFloat(
+        document.getElementById(id).value
+      );
+
+    if(isNaN(ending)){
+      return null;
+    }
+
+    return 100-ending;
+
+  });
+
+
+  if(values.includes(null)){
+
+    document.getElementById(outputID).textContent =
+      "—";
+
+    return null;
+
+  }
+
+
+  const average =
+    (values[0]+values[1]+values[2])/3;
+
+  document.getElementById(outputID).textContent =
+    average.toFixed(1) + " mL";
+
+  return average;
+
+}
+
+
+/* ============================
+   GRAPH
+============================ */
+
+function getAverageValue(a,b,c){
+
+  const values = [a,b,c].map(function(id){
+
+    const ending =
+      parseFloat(
+        document.getElementById(id).value
+      );
+
+    if(isNaN(ending)){
+      return null;
+    }
+
+    return 100-ending;
+
+  });
+
+  if(values.includes(null)){
+    return null;
+  }
+
+  return (
+    values[0]+values[1]+values[2]
+  )/3;
+
+}
+
+
+function updateGraph(){
+
+  const a15 =
+    getAverageValue(
+      "d15_1","d15_2","d15_3"
+    );
+
+  const a25 =
+    getAverageValue(
+      "d25_1","d25_2","d25_3"
+    );
+
+  const a35 =
+    getAverageValue(
+      "d35_1","d35_2","d35_3"
+    );
+
+
+  updateBar("bar15","bar15Label",a15);
+  updateBar("bar25","bar25Label",a25);
+  updateBar("bar35","bar35Label",a35);
+
+}
+
+
+function updateBar(barID,labelID,value){
+
+  const bar =
+    document.getElementById(barID);
+
+  const label =
+    document.getElementById(labelID);
+
+  if(value === null){
+
+    bar.style.height = "20px";
+
+    label.textContent = "—";
 
     return;
 
   }
 
-  const lost = 100 - ending;
+  /*
+    Scale graph so 100% corresponds to
+    40 mL water lost.
+  */
 
-  output.textContent =
-    lost.toFixed(1) + " mL";
+  const height =
+    Math.max(25,Math.min(220,(value/40)*220));
 
-}
+  bar.style.height =
+    height + "px";
 
-
-/* -----------------------------
-   DIFFERENCE QUESTION
------------------------------ */
-
-function checkDifference() {
-
-  const end15 =
-    parseFloat(
-      document.getElementById("end15").value
-    );
-
-  const end35 =
-    parseFloat(
-      document.getElementById("end35").value
-    );
-
-  const student =
-    parseFloat(
-      document.getElementById("difference").value
-    );
-
-  const feedback =
-    document.getElementById("differenceFeedback");
-
-
-  if (
-    isNaN(end15) ||
-    isNaN(end35) ||
-    isNaN(student)
-  ) {
-
-    feedback.textContent = "";
-
-    return;
-
-  }
-
-
-  const lost15 = 100 - end15;
-  const lost35 = 100 - end35;
-
-  const correct =
-    lost35 - lost15;
-
-
-  if (Math.abs(student - correct) < 0.01) {
-
-    feedback.innerHTML =
-      '<span style="color:#15803d;font-weight:bold;">✓ Correct! You found the difference between the two water-loss values.</span>';
-
-  } else {
-
-    feedback.innerHTML =
-      '<span style="color:#b91c1c;">Not quite. First calculate water lost at each temperature, then subtract.</span>';
-
-  }
+  label.textContent =
+    value.toFixed(1) + " mL";
 
 }
 
 
-/* -----------------------------
-   READING QUESTION
------------------------------ */
+/* ============================
+   MATH CHALLENGE
+============================ */
 
-function readingChoice(element, correct) {
-
-  document.querySelectorAll("#page2 .choice")
-    .forEach(function(choice) {
-
-      choice.classList.remove("correct");
-      choice.classList.remove("incorrect");
-
-    });
-
-
-  if (correct) {
-
-    element.classList.add("correct");
-
-    document.getElementById("readingFeedback").innerHTML =
-      '<span style="color:#15803d;font-weight:bold;">✓ Correct! You identified the main idea.</span>';
-
-  } else {
-
-    element.classList.add("incorrect");
-
-    document.getElementById("readingFeedback").innerHTML =
-      '<span style="color:#b91c1c;">Try again. Look for what the entire reading is mostly explaining.</span>';
-
-  }
-
-}
-
-
-/* -----------------------------
-   OBSERVATION QUESTION
------------------------------ */
-
-function observationChoice(element, correct) {
-
-  document.querySelectorAll("#page5 .choice")
-    .forEach(function(choice) {
-
-      choice.classList.remove("correct");
-      choice.classList.remove("incorrect");
-
-    });
-
-
-  if (correct) {
-
-    element.classList.add("correct");
-
-    document.getElementById("observationFeedback").innerHTML =
-      '<span style="color:#15803d;font-weight:bold;">✓ Correct! This is something that can be directly measured or observed.</span>';
-
-  } else {
-
-    element.classList.add("incorrect");
-
-    document.getElementById("observationFeedback").innerHTML =
-      '<span style="color:#b91c1c;">Try again. An inference is an explanation based on evidence.</span>';
-
-  }
-
-}
-
-
-/* -----------------------------
-   NEW DATA QUESTION
------------------------------ */
-
-function checkNewData() {
+function checkMathChallenge(){
 
   const answer =
     parseFloat(
-      document.getElementById("newDataMath").value
+      document.getElementById("mathChallenge").value
+    );
+
+  const a15 =
+    getAverageValue(
+      "d15_1","d15_2","d15_3"
+    );
+
+  const a35 =
+    getAverageValue(
+      "d35_1","d35_2","d35_3"
     );
 
   const feedback =
-    document.getElementById("newDataFeedback");
+    document.getElementById("mathFeedback");
 
 
-  if (isNaN(answer)) {
+  if(
+    isNaN(answer) ||
+    a15 === null ||
+    a35 === null
+  ){
 
     feedback.textContent = "";
 
@@ -1967,35 +2297,73 @@ function checkNewData() {
   }
 
 
-  if (answer === 19) {
+  const correct =
+    a35-a15;
+
+
+  if(Math.abs(answer-correct)<0.11){
 
     feedback.innerHTML =
-      '<span style="color:#15803d;font-weight:bold;">✓ Correct! 28 − 9 = 19 mL.</span>';
+      '<span style="color:#15803d;font-weight:bold;">✓ Correct! You compared the two averages.</span>';
 
-  } else {
+  }else{
 
     feedback.innerHTML =
-      '<span style="color:#b91c1c;">Try again. Subtract 9 mL from 28 mL.</span>';
+      '<span style="color:#b91c1c;">Not quite. Subtract the 15°C average from the 35°C average.</span>';
 
   }
 
 }
 
 
-/* -----------------------------
-   HELP BOXES
------------------------------ */
+/* ============================
+   READING QUESTION
+============================ */
 
-function toggleHelp(id) {
+function readingAnswer(element,correct){
+
+  document.querySelectorAll("#page2 .choice")
+    .forEach(function(choice){
+
+      choice.classList.remove("correct");
+      choice.classList.remove("incorrect");
+
+    });
+
+
+  if(correct){
+
+    element.classList.add("correct");
+
+    document.getElementById("readingFeedback").innerHTML =
+      '<span style="color:#15803d;font-weight:bold;">✓ Correct!</span>';
+
+  }else{
+
+    element.classList.add("incorrect");
+
+    document.getElementById("readingFeedback").innerHTML =
+      '<span style="color:#b91c1c;">Try again. Look at what happens to liquid water during evaporation.</span>';
+
+  }
+
+}
+
+
+/* ============================
+   HELP
+============================ */
+
+function toggle(id){
 
   const box =
     document.getElementById(id);
 
-  if (box.style.display === "none") {
+  if(box.style.display === "none"){
 
     box.style.display = "block";
 
-  } else {
+  }else{
 
     box.style.display = "none";
 
@@ -2004,88 +2372,87 @@ function toggleHelp(id) {
 }
 
 
-/* -----------------------------
-   SUMMARY
------------------------------ */
+/* ============================
+   NOTEBOOK SUMMARY
+============================ */
 
-function getSaved(id) {
+function value(id){
 
   return localStorage.getItem(
-    "scienceLab_" + id
+    "scienceLab_"+id
   ) || "—";
 
 }
 
 
-function updateSummary() {
+function updateNotebookSummary(){
 
   document.getElementById("summaryPrediction")
     .textContent =
-    getSaved("prediction");
+    value("prediction");
 
+  document.getElementById("summaryObservation")
+    .textContent =
+    value("notebookObservation");
+
+  document.getElementById("summaryPattern")
+    .textContent =
+    value("pattern");
 
   document.getElementById("summaryClaim")
     .textContent =
-    getSaved("claim");
+    value("claim");
 
 
-  const data =
-    getSaved("evidenceData");
-
-  const reading =
-    getSaved("evidenceReading");
-
+  const evidence =
+    value("evidence1") +
+    " " +
+    value("evidence2") +
+    " " +
+    value("evidence3");
 
   document.getElementById("summaryEvidence")
     .textContent =
-    data + " " + reading;
+    evidence;
 
 
   document.getElementById("summaryReasoning")
     .textContent =
-    getSaved("reasoning");
-
-}
+    value("reasoning");
 
 
-/* -----------------------------
-   CLEAR TEST DATA
------------------------------ */
+  tableIDs.forEach(function(id){
 
-function clearWork() {
+    const saved =
+      localStorage.getItem(
+        "scienceLab_"+id
+      );
 
-  const confirmed =
-    confirm(
-      "Are you sure you want to clear the saved test responses on this device?"
-    );
+    const summaryID =
+      id.replace("d","s");
 
+    const cell =
+      document.getElementById(summaryID);
 
-  if (!confirmed) {
-    return;
-  }
+    if(saved && cell){
 
+      cell.textContent =
+        saved + " mL";
 
-  savedFields.forEach(function(id) {
-
-    localStorage.removeItem(
-      "scienceLab_" + id
-    );
+    }
 
   });
 
-
-  location.reload();
-
 }
 
 
-/* -----------------------------
-   START APP
------------------------------ */
+/* ============================
+   START
+============================ */
 
-window.addEventListener("load", function() {
+window.addEventListener("load",function(){
 
-  loadAll();
+  loadData();
 
   updateProgress();
 
