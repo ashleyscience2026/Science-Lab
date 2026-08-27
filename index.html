@@ -4,13 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Science Lab - Grade 9</title>
+<title>Science Lab | Grade 9</title>
 
 <style>
-
-/* =========================
-   SCIENCE LAB RED & WHITE THEME
-========================= */
 
 * {
   box-sizing: border-box;
@@ -20,32 +16,34 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
-  color: #252525;
+  color: #222;
   line-height: 1.6;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header {
   background: #a6192e;
   color: white;
+  padding: 22px;
   text-align: center;
-  padding: 25px 20px;
   border-bottom: 6px solid #7d1021;
 }
 
 header h1 {
   margin: 0;
-  font-size: 38px;
-  letter-spacing: 1px;
+  font-size: 34px;
 }
 
 header p {
   margin: 5px 0 0;
-  font-size: 18px;
 }
 
-/* MAIN */
+/* =========================
+   LAYOUT
+========================= */
 
 .container {
   max-width: 1000px;
@@ -53,154 +51,87 @@ header p {
   padding: 20px;
 }
 
-/* CARDS */
-
 .card {
   background: white;
-  padding: 30px;
-  border-radius: 16px;
-  margin-bottom: 22px;
+  padding: 28px;
+  border-radius: 15px;
+  margin-bottom: 20px;
   box-shadow: 0 3px 12px rgba(0,0,0,.08);
   border-top: 5px solid #a6192e;
 }
 
-h1 {
-  color: #a6192e;
-}
+/* =========================
+   NAVIGATION
+========================= */
 
-h2 {
-  color: #a6192e;
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
 }
-
-h3 {
-  color: #7d1021;
-}
-
-/* BUTTONS */
 
 button {
   background: #a6192e;
   color: white;
   border: none;
-  padding: 13px 21px;
-  border-radius: 9px;
-  font-size: 17px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
-  margin: 7px 3px;
-  transition: .2s;
 }
 
 button:hover {
   background: #7d1021;
-  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: #bbb;
+  cursor: not-allowed;
 }
 
 .secondary {
-  background: #333333;
+  background: #444;
 }
 
 .secondary:hover {
-  background: #111111;
+  background: #222;
 }
 
-/* MULTIPLE CHOICE */
+/* =========================
+   PROGRESS
+========================= */
 
-.option {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: white;
-  color: #252525;
-  border: 2px solid #d9d9d9;
-  margin: 10px 0;
+.progress {
+  height: 13px;
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
-.option:hover {
-  background: #fff3f4;
-  border-color: #a6192e;
-  color: #7d1021;
-}
-
-.correct {
-  background: #e2f4e7 !important;
-  border-color: #3d9254 !important;
-  color: #245c32 !important;
-}
-
-.incorrect {
-  background: #ffe5e8 !important;
-  border-color: #c62828 !important;
-  color: #8a1111 !important;
-}
-
-/* INPUTS */
-
-textarea,
-input {
-  width: 100%;
-  padding: 13px;
-  border: 2px solid #cccccc;
-  border-radius: 9px;
-  font-size: 17px;
-  margin-top: 8px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-textarea:focus,
-input:focus {
-  outline: none;
-  border-color: #a6192e;
-  box-shadow: 0 0 0 2px #f5d8dd;
-}
-
-/* VISUAL */
-
-.visual {
-  background: #fff4f5;
-  border: 2px solid #f0c7cd;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 45px;
-  margin: 20px 0;
-}
-
-/* TABLE */
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  background: white;
-}
-
-.data-table th,
-.data-table td {
-  border: 1px solid #cccccc;
-  padding: 12px;
-  text-align: center;
-}
-
-.data-table th {
+.progress-bar {
+  height: 100%;
+  width: 0%;
   background: #a6192e;
-  color: white;
+  transition: width .3s;
 }
 
-.data-table tr:nth-child(even) {
-  background: #fafafa;
+/* =========================
+   TEXT
+========================= */
+
+h2,
+h3 {
+  color: #a6192e;
 }
 
-.data-table input {
-  width: 90px;
-  text-align: center;
+.callout {
+  background: #fff3f5;
+  border-left: 6px solid #a6192e;
+  padding: 15px;
+  margin: 18px 0;
 }
-
-/* VOCABULARY */
 
 .vocab {
   background: #fafafa;
@@ -209,148 +140,189 @@ input:focus {
   margin: 12px 0;
 }
 
-/* CALLOUT */
+/* =========================
+   VISUAL
+========================= */
 
-.callout {
-  background: #fff8f8;
-  border-left: 6px solid #a6192e;
-  padding: 16px;
-  margin: 17px 0;
-}
-
-/* CER */
-
-.cer-box {
+.visual {
+  background: #fff3f5;
+  border: 2px solid #efc4cb;
   border-radius: 12px;
-  padding: 20px;
+  padding: 30px;
+  text-align: center;
+  font-size: 45px;
   margin: 20px 0;
 }
 
-.claim-box {
-  background: #fff1f3;
+/* =========================
+   INPUTS
+========================= */
+
+textarea,
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-top: 7px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea {
+  min-height: 110px;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: #a6192e;
+}
+
+/* =========================
+   OPTIONS
+========================= */
+
+.option {
+  width: 100%;
+  text-align: left;
+  background: white;
+  color: #222;
+  border: 2px solid #ccc;
+  margin: 8px 0;
+}
+
+.option:hover {
+  background: #fff3f5;
+  color: #7d1021;
+}
+
+.correct {
+  background: #e2f4e7 !important;
+  border-color: #3d9254 !important;
+}
+
+.incorrect {
+  background: #ffe5e8 !important;
+  border-color: #c62828 !important;
+}
+
+/* =========================
+   DATA TABLE
+========================= */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.data-table th {
+  background: #a6192e;
+  color: white;
+}
+
+.data-table input {
+  width: 90px;
+  text-align: center;
+}
+
+/* =========================
+   CER
+========================= */
+
+.cer-box {
+  padding: 20px;
+  border-radius: 12px;
+  margin: 18px 0;
+}
+
+.claim {
+  background: #fff0f2;
   border-left: 7px solid #a6192e;
 }
 
-.evidence-box {
+.evidence {
   background: #f5f5f5;
-  border-left: 7px solid #555555;
+  border-left: 7px solid #555;
 }
 
-.reasoning-box {
-  background: #fff8e5;
-  border-left: 7px solid #d39b00;
+.reasoning {
+  background: #fff8df;
+  border-left: 7px solid #d29a00;
 }
 
-/* PROGRESS BAR */
+/* =========================
+   NOTEBOOK
+========================= */
 
-.progress {
-  height: 14px;
-  background: #dddddd;
-  border-radius: 10px;
+.notebook {
+  background: white;
+  border: 3px solid #a6192e;
+  border-radius: 12px;
+  padding: 20px;
   margin-bottom: 20px;
-  overflow: hidden;
 }
 
-.progress-bar {
-  height: 14px;
-  background: #a6192e;
-  width: 0%;
-  border-radius: 10px;
-  transition: width .3s;
+.notebook h3 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
 }
 
-/* CENTER */
+/* =========================
+   HELP / EXTENSION
+========================= */
+
+.help {
+  background: #fff4e5;
+  border-left: 6px solid #e19a00;
+  padding: 16px;
+  margin-top: 15px;
+}
+
+.extension {
+  background: #eef6ff;
+  border-left: 6px solid #2474b5;
+  padding: 16px;
+  margin-top: 15px;
+}
+
+/* =========================
+   CENTER
+========================= */
 
 .center {
   text-align: center;
 }
 
-/* SIMULATION */
+/* =========================
+   MOBILE
+========================= */
 
-.simulation {
-  border: 3px solid #a6192e;
-  border-radius: 15px;
-  padding: 25px;
-  background: #fffafa;
-  text-align: center;
-}
-
-.water-container {
-  width: 170px;
-  height: 230px;
-  border: 5px solid #666666;
-  border-top: none;
-  margin: 20px auto;
-  position: relative;
-  background: white;
-}
-
-.water {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #45a9e8;
-  transition: height 1s;
-}
-
-.sun {
-  font-size: 55px;
-}
-
-.result {
-  font-size: 21px;
-  font-weight: bold;
-  margin: 15px;
-}
-
-/* FEEDBACK */
-
-.check-result {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-.success {
-  background: #e2f4e7;
-  border: 2px solid #3d9254;
-}
-
-.try-again {
-  background: #ffe9e9;
-  border: 2px solid #c62828;
-}
-
-/* MOBILE */
-
-@media (max-width: 700px) {
+@media(max-width:700px) {
 
   header h1 {
-    font-size: 29px;
+    font-size: 27px;
   }
 
   .card {
     padding: 18px;
   }
 
-  .data-table {
-    font-size: 13px;
-  }
-
-  .data-table th,
-  .data-table td {
-    padding: 7px;
-  }
-
-  .data-table input {
-    width: 65px;
+  .navigation {
+    flex-direction: column;
   }
 
 }
 
 </style>
-
 </head>
 
 <body>
@@ -359,37 +331,79 @@ input:focus {
 
 <h1>🔬 SCIENCE LAB</h1>
 
-<p>
-Earth & Universe Science • Grade 9
-</p>
+<p>Earth & Universe Science • Grade 9</p>
 
 </header>
 
 <div class="container">
 
 <div class="progress">
-
-<div
-class="progress-bar"
-id="progressBar">
-</div>
-
+<div class="progress-bar" id="progressBar"></div>
 </div>
 
 <div id="app"></div>
 
 </div>
 
-
 <script>
 
-/* =========================
-   LESSON NAVIGATION
-========================= */
+/* =====================================================
+   STUDENT NOTEBOOK
+   Everything students type is saved automatically.
+===================================================== */
 
-let currentStep = 0;
+const STORAGE_KEY = "scienceLabWeek1";
+
+let studentWork =
+JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+
+prediction: "",
+readingAnswer: "",
+end15: "",
+lost15: "",
+end25: "",
+lost25: "",
+end35: "",
+lost35: "",
+pattern: "",
+causeEffect: "",
+comparison: "",
+claim: "",
+evidence: "",
+reasoning: ""
+
+};
+
+
+/* SAVE */
+
+function saveWork() {
+
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(studentWork)
+);
+
+}
+
+
+/* UPDATE A RESPONSE */
+
+function updateWork(field, value) {
+
+studentWork[field] = value;
+
+saveWork();
+
+}
+
+
+/* =====================================================
+   LESSON STEPS
+===================================================== */
 
 const steps = [
+
 "welcome",
 "engage",
 "reading",
@@ -397,18 +411,16 @@ const steps = [
 "explain",
 "elaborate",
 "cer",
-"complete"
+"notebook"
+
 ];
 
-function updateProgress() {
+let currentStep = 0;
 
-let percent =
-(currentStep / (steps.length - 1)) * 100;
 
-document.getElementById("progressBar").style.width =
-percent + "%";
-
-}
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 function show(step) {
 
@@ -423,14 +435,65 @@ if(step === "explore") explore();
 if(step === "explain") explain();
 if(step === "elaborate") elaborate();
 if(step === "cer") cer();
-if(step === "complete") complete();
+if(step === "notebook") notebook();
 
 }
 
 
-/* =========================
+/* PROGRESS */
+
+function updateProgress() {
+
+let percent =
+(currentStep / (steps.length - 1)) * 100;
+
+document.getElementById(
+"progressBar"
+).style.width = percent + "%";
+
+}
+
+
+/* =====================================================
+   NAVIGATION BUTTONS
+===================================================== */
+
+function navigation(previous, next) {
+
+let backButton = previous
+? `<button class="secondary" onclick="show('${previous}')">← Back</button>`
+: `<button disabled>← Back</button>`;
+
+let nextButton = next
+? `<button onclick="show('${next}')">Continue →</button>`
+: "";
+
+return `
+
+<div class="navigation">
+
+${backButton}
+
+<button
+class="secondary"
+onclick="show('notebook')">
+
+📓 My Science Notebook
+
+</button>
+
+${nextButton}
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
    WELCOME
-========================= */
+===================================================== */
 
 function welcome() {
 
@@ -463,9 +526,8 @@ to explain changes in the natural world?
 
 <p>
 
-This week you will read,
-investigate data, make observations,
-and construct a scientific explanation.
+Today you will read, investigate data,
+practice math, and write a scientific explanation.
 
 </p>
 
@@ -482,9 +544,9 @@ Begin Investigation →
 }
 
 
-/* =========================
+/* =====================================================
    ENGAGE
-========================= */
+===================================================== */
 
 function engage() {
 
@@ -542,49 +604,13 @@ in the container.
 
 <h2>🤔 Where did the water go?</h2>
 
-<p>
-
-Before learning the answer,
-make your own prediction.
-
-</p>
-
 <textarea
 id="prediction"
 placeholder="I think the water..."
-></textarea>
+oninput="updateWork('prediction',this.value)"
+>${studentWork.prediction}</textarea>
 
-<h3>Choose the explanation you think is most likely.</h3>
-
-<button
-class="option"
-onclick="predictionFeedback(this)">
-
-The water disappeared.
-
-</button>
-
-<button
-class="option"
-onclick="predictionFeedback(this)">
-
-The water changed into another form.
-
-</button>
-
-<button
-class="option"
-onclick="predictionFeedback(this)">
-
-The water moved somewhere else.
-
-</button>
-
-<button onclick="show('reading')">
-
-Continue to Reading →
-
-</button>
+${navigation(null,"reading")}
 
 </div>
 
@@ -592,22 +618,10 @@ Continue to Reading →
 
 }
 
-function predictionFeedback(button) {
 
-button.classList.add("correct");
-
-alert(
-
-"Good scientific thinking! A prediction is something scientists test using evidence."
-
-);
-
-}
-
-
-/* =========================
+/* =====================================================
    READING
-========================= */
+===================================================== */
 
 function reading() {
 
@@ -615,64 +629,37 @@ document.getElementById("app").innerHTML = `
 
 <div class="card">
 
-<h2>📖 EXPLAIN — Scientific Reading</h2>
-
-<h3>Today's Reading</h3>
+<h2>📖 READ — Scientific Reading</h2>
 
 <p>
 
-<strong>
-Evaporation and the Water Cycle
-</strong>
-
-</p>
-
-<p>
-
-Today you will use a published
-scientific reading to learn about
-evaporation and water movement.
+Your teacher will provide a printed
+scientific reading about evaporation
+and the water cycle.
 
 </p>
 
 <div class="callout">
 
-<strong>
+<strong>Reading strategy:</strong>
 
-Your teacher will provide a printed
-copy of the reading.
+<br>
 
-</strong>
+As you read, underline:
 
 <br><br>
 
-Use the link below to access
-the USGS reading.
+🟥 The main idea
+
+<br>
+
+🟦 An important detail
+
+<br>
+
+🟩 Evidence that explains evaporation
 
 </div>
-
-<button onclick="window.open(
-'https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle?page=1',
-'_blank'
-)">
-
-📖 Open USGS Reading
-
-</button>
-
-<h3>While You Read</h3>
-
-<p>
-🟨 Find one important idea.
-</p>
-
-<p>
-🟩 Find one piece of evidence.
-</p>
-
-<p>
-🔵 Find one unfamiliar vocabulary word.
-</p>
 
 <h3>Vocabulary</h3>
 
@@ -682,8 +669,8 @@ the USGS reading.
 
 <br>
 
-The process in which a liquid
-changes into a gas.
+The process in which a liquid changes
+into a gas.
 
 </div>
 
@@ -703,12 +690,12 @@ Water in its gas state.
 
 <br>
 
-Information used to support
+Information that helps support
 a scientific explanation.
 
 </div>
 
-<h3>Reading Check</h3>
+<h3>Reading Response</h3>
 
 <p>
 
@@ -717,15 +704,11 @@ What happens to water during evaporation?
 </p>
 
 <textarea
-id="readingAnswer"
 placeholder="During evaporation..."
-></textarea>
+oninput="updateWork('readingAnswer',this.value)"
+>${studentWork.readingAnswer}</textarea>
 
-<button onclick="show('explore')">
-
-Begin Virtual Investigation →
-
-</button>
+${navigation("engage","explore")}
 
 </div>
 
@@ -734,26 +717,22 @@ Begin Virtual Investigation →
 }
 
 
-/* =========================
-   VIRTUAL INVESTIGATION
-========================= */
+/* =====================================================
+   EXPLORE
+===================================================== */
 
-let simulationResults = {
+let trialResults = {
 
 15: 96,
-
 25: 87,
-
 35: 75
 
 };
 
-let trialsRun = {
+let completedTrials = {
 
 15: false,
-
 25: false,
-
 35: false
 
 };
@@ -766,32 +745,6 @@ document.getElementById("app").innerHTML = `
 <div class="card">
 
 <h2>🔬 EXPLORE — Virtual Investigation</h2>
-
-<p>
-
-You are now the scientist.
-
-You will collect and record
-your own data.
-
-</p>
-
-<div class="callout">
-
-<strong>
-
-Scientists record data during an investigation.
-
-</strong>
-
-<br><br>
-
-Do NOT fill in the table before
-running the simulation.
-
-Run each temperature trial first.
-
-</div>
 
 <h3>Investigation Question</h3>
 
@@ -806,63 +759,37 @@ the amount of water that evaporates?
 
 </p>
 
-<div class="simulation">
+<div class="callout">
 
-<div class="sun">
+Run all three trials.
 
-☀️
+<strong>
+
+Record the ending water yourself.
+
+</strong>
+
+Then calculate the water lost.
+
+</div>
+
+<div class="visual">
+
+☀️ 🧪 💧
 
 </div>
 
 <h3>Choose a Temperature</h3>
 
-<button onclick="runSimulation(15)">
+<button onclick="runTrial(15)">15°C</button>
 
-15°C
+<button onclick="runTrial(25)">25°C</button>
 
-</button>
+<button onclick="runTrial(35)">35°C</button>
 
-<button onclick="runSimulation(25)">
-
-25°C
-
-</button>
-
-<button onclick="runSimulation(35)">
-
-35°C
-
-</button>
-
-<div class="water-container">
-
-<div
-id="water"
-class="water"
-style="height:100%;">
-</div>
-
-</div>
-
-<div
-id="simResult"
-class="result">
-
-Choose a temperature
-to begin.
-
-</div>
-
-</div>
+<div id="trialResult"></div>
 
 <h3>📊 Record Your Data</h3>
-
-<p>
-
-The starting amount of water
-is always <strong>100 mL</strong>.
-
-</p>
 
 <table class="data-table">
 
@@ -872,17 +799,9 @@ is always <strong>100 mL</strong>.
 
 <th>Starting Water</th>
 
-<th>
-Ending Water
-<br>
-YOU RECORD
-</th>
+<th>Ending Water</th>
 
-<th>
-Water Lost
-<br>
-YOU CALCULATE
-</th>
+<th>Water Lost</th>
 
 </tr>
 
@@ -895,18 +814,20 @@ YOU CALCULATE
 <td>
 
 <input
-id="end15"
 type="number"
-placeholder="mL">
+value="${studentWork.end15}"
+oninput="updateWork('end15',this.value)"
+>
 
 </td>
 
 <td>
 
 <input
-id="lost15"
 type="number"
-placeholder="mL">
+value="${studentWork.lost15}"
+oninput="updateWork('lost15',this.value)"
+>
 
 </td>
 
@@ -921,18 +842,20 @@ placeholder="mL">
 <td>
 
 <input
-id="end25"
 type="number"
-placeholder="mL">
+value="${studentWork.end25}"
+oninput="updateWork('end25',this.value)"
+>
 
 </td>
 
 <td>
 
 <input
-id="lost25"
 type="number"
-placeholder="mL">
+value="${studentWork.lost25}"
+oninput="updateWork('lost25',this.value)"
+>
 
 </td>
 
@@ -947,18 +870,20 @@ placeholder="mL">
 <td>
 
 <input
-id="end35"
 type="number"
-placeholder="mL">
+value="${studentWork.end35}"
+oninput="updateWork('end35',this.value)"
+>
 
 </td>
 
 <td>
 
 <input
-id="lost35"
 type="number"
-placeholder="mL">
+value="${studentWork.lost35}"
+oninput="updateWork('lost35',this.value)"
+>
 
 </td>
 
@@ -968,7 +893,7 @@ placeholder="mL">
 
 <div class="callout">
 
-<strong>Remember:</strong>
+<strong>Math Formula</strong>
 
 <br><br>
 
@@ -981,50 +906,33 @@ Example:
 
 <br>
 
-100 mL − 90 mL = 10 mL
+100 − 90 = 10 mL
 
 </div>
 
-<button
-class="secondary"
-onclick="checkDataTable()">
+<button onclick="checkData()">
 
 Check My Data ✓
 
 </button>
 
-<div id="tableFeedback"></div>
+<div id="dataFeedback"></div>
 
-<h3>📈 Analyze the Data</h3>
-
-<p>
-
-After you have completed
-the table, answer:
-
-</p>
+<h3>📈 Data Analysis</h3>
 
 <p>
 
-<strong>
-
-What pattern do you notice
-as temperature increases?
-
-</strong>
+What pattern do you notice as
+temperature increases?
 
 </p>
 
 <textarea
-id="pattern"
 placeholder="As temperature increased..."
-></textarea>
+oninput="updateWork('pattern',this.value)"
+>${studentWork.pattern}</textarea>
 
-<button onclick="show('explain')">
-
-Continue →
-
-</button>
+${navigation("reading","explain")}
 
 </div>
 
@@ -1033,184 +941,120 @@ Continue →
 }
 
 
-function runSimulation(temp) {
+/* RUN TRIAL */
 
-let endingWater =
-simulationResults[temp];
+function runTrial(temp) {
 
-trialsRun[temp] = true;
+completedTrials[temp] = true;
 
-document.getElementById("water").style.height =
-endingWater + "%";
+let ending = trialResults[temp];
 
-document.getElementById("simResult").innerHTML =
+document.getElementById(
+"trialResult"
+).innerHTML = `
 
-`
+<div class="callout">
 
-<strong>
-Trial: ${temp}°C
-</strong>
+<h3>Trial: ${temp}°C</h3>
 
-<br><br>
+<p>
 
-Your observed ending water level is:
+Ending water:
 
-<br><br>
+<strong>${ending} mL</strong>
 
-<strong>
-${endingWater} mL
-</strong>
+</p>
 
-<br><br>
+<p>
 
-📝 Record
-<strong>
-${endingWater} mL
-</strong>
+📝 Record this number
 in your data table.
 
-<br><br>
+</p>
+
+<p>
 
 Now calculate:
 
 <br>
 
-100 mL − ${endingWater} mL = ?
+100 − ${ending} = ?
+
+</p>
+
+</div>
 
 `;
 
 }
 
 
-function checkDataTable() {
+/* CHECK DATA */
 
-let end15 =
-Number(document.getElementById("end15").value);
+function checkData() {
 
-let lost15 =
-Number(document.getElementById("lost15").value);
+let answers = {
 
-let end25 =
-Number(document.getElementById("end25").value);
+end15: 96,
+lost15: 4,
 
-let lost25 =
-Number(document.getElementById("lost25").value);
+end25: 87,
+lost25: 13,
 
-let end35 =
-Number(document.getElementById("end35").value);
+end35: 75,
+lost35: 25
 
-let lost35 =
-Number(document.getElementById("lost35").value);
+};
 
 let correct = true;
 
-let messages = [];
+for(let key in answers) {
 
-
-if(
-!trialsRun[15] ||
-!trialsRun[25] ||
-!trialsRun[35]
-) {
-
-messages.push(
-"⚠️ Run all three temperature trials before checking your data."
-);
+if(Number(studentWork[key]) !== answers[key]) {
 
 correct = false;
 
 }
 
-
-if(end15 !== 96) {
-
-messages.push(
-"Check the ending water for the 15°C trial."
-);
-
-correct = false;
-
 }
-
-
-if(lost15 !== 4) {
-
-messages.push(
-"Check your calculation for water lost at 15°C."
-);
-
-correct = false;
-
-}
-
-
-if(end25 !== 87) {
-
-messages.push(
-"Check the ending water for the 25°C trial."
-);
-
-correct = false;
-
-}
-
-
-if(lost25 !== 13) {
-
-messages.push(
-"Check your calculation for water lost at 25°C."
-);
-
-correct = false;
-
-}
-
-
-if(end35 !== 75) {
-
-messages.push(
-"Check the ending water for the 35°C trial."
-);
-
-correct = false;
-
-}
-
-
-if(lost35 !== 25) {
-
-messages.push(
-"Check your calculation for water lost at 35°C."
-);
-
-correct = false;
-
-}
-
 
 let feedback =
-document.getElementById("tableFeedback");
-
+document.getElementById("dataFeedback");
 
 if(correct) {
 
 feedback.innerHTML = `
 
-<div
-class="check-result success">
+<div class="extension">
 
-<h3>✅ Data Complete!</h3>
+<strong>⭐ Excellent!</strong>
 
 <p>
 
-You correctly recorded your observations
-and calculated the amount of water lost.
+Your data and calculations are correct.
 
 </p>
 
 <p>
 
-Now look for a pattern in your data.
+Now try this challenge:
+
+</p>
+
+<p>
+
+<strong>
+
+How many more milliliters of water
+were lost at 35°C than at 15°C?
+
+</strong>
+
+</p>
+
+<p>
+
+25 − 4 = ?
 
 </p>
 
@@ -1224,20 +1068,42 @@ else {
 
 feedback.innerHTML = `
 
-<div
-class="check-result try-again">
+<div class="help">
 
-<h3>🔎 Keep Investigating</h3>
-
-${messages
-.map(message => `<p>${message}</p>`)
-.join("")}
+<strong>🧠 Let's Practice</strong>
 
 <p>
 
-Scientists check their data carefully.
-Review your measurements and calculations,
-then try again.
+Remember:
+
+</p>
+
+<p>
+
+<strong>
+
+Starting Water − Ending Water
+= Water Lost
+
+</strong>
+
+</p>
+
+<p>
+
+Try the 15°C trial first:
+
+</p>
+
+<p>
+
+100 − 96 = ?
+
+</p>
+
+<p>
+
+Then check your other calculations.
 
 </p>
 
@@ -1250,9 +1116,9 @@ then try again.
 }
 
 
-/* =========================
+/* =====================================================
    EXPLAIN
-========================= */
+===================================================== */
 
 function explain() {
 
@@ -1260,13 +1126,9 @@ document.getElementById("app").innerHTML = `
 
 <div class="card">
 
-<h2>
-🧠 EXPLAIN — Make Sense of the Evidence
-</h2>
+<h2>🧠 EXPLAIN</h2>
 
-<h3>
-Observation vs. Inference
-</h3>
+<h3>Observation or Inference?</h3>
 
 <div class="vocab">
 
@@ -1274,8 +1136,8 @@ Observation vs. Inference
 
 <br>
 
-Something you directly notice
-or measure.
+Something you directly see,
+measure, or record.
 
 </div>
 
@@ -1285,43 +1147,42 @@ or measure.
 
 <br>
 
-An explanation based on
-observations and evidence.
+An explanation based on observations
+and evidence.
 
 </div>
 
-<h3>
-Which is an observation?
-</h3>
+<p>
+
+A thermometer reads 25°C.
+
+Is this an observation or an inference?
+
+</p>
 
 <button
 class="option"
-onclick="checkExplain(this,true)">
+onclick="answerExplain(this,true)">
 
-The container had 75 mL
-of water after the investigation.
+Observation
 
 </button>
 
 <button
 class="option"
-onclick="checkExplain(this,false)">
+onclick="answerExplain(this,false)">
 
-The water probably evaporated
-because the room was warm.
+Inference
 
 </button>
 
 <div id="explainFeedback"></div>
 
-<h3>
-Cause and Effect
-</h3>
+<h3>Cause and Effect</h3>
 
 <p>
 
-Complete the statement using
-your investigation.
+Complete the sentence:
 
 </p>
 
@@ -1330,58 +1191,18 @@ your investigation.
 <strong>
 
 As temperature increased,
-__________________.
+________________________.
 
 </strong>
 
 </p>
 
 <textarea
-id="causeEffect"
 placeholder="As temperature increased..."
-></textarea>
+oninput="updateWork('causeEffect',this.value)"
+>${studentWork.causeEffect}</textarea>
 
-<h3>
-Use Evidence
-</h3>
-
-<p>
-
-Which piece of data is strongest evidence
-that temperature affected evaporation?
-
-</p>
-
-<button
-class="option"
-onclick="checkData(this,false)">
-
-100 mL at the beginning
-
-</button>
-
-<button
-class="option"
-onclick="checkData(this,true)">
-
-35°C resulted in
-25 mL of water being lost.
-
-</button>
-
-<button
-class="option"
-onclick="checkData(this,false)">
-
-The container was made of glass.
-
-</button>
-
-<button onclick="show('elaborate')">
-
-Continue →
-
-</button>
+${navigation("explore","elaborate")}
 
 </div>
 
@@ -1390,7 +1211,7 @@ Continue →
 }
 
 
-function checkExplain(button, correct) {
+function answerExplain(button, correct) {
 
 if(correct) {
 
@@ -1398,17 +1219,24 @@ button.classList.add("correct");
 
 document.getElementById(
 "explainFeedback"
-).innerHTML =
+).innerHTML = `
 
-`
+<div class="extension">
 
-<p
-style="color:#25834a;font-weight:bold;">
+<strong>⭐ Correct!</strong>
 
-✅ Correct. That statement reports
-something measured directly.
+<p>
+
+Challenge:
+
+Why is the statement
+“the water evaporated” an inference?
 
 </p>
+
+<textarea></textarea>
+
+</div>
 
 `;
 
@@ -1420,19 +1248,28 @@ button.classList.add("incorrect");
 
 document.getElementById(
 "explainFeedback"
-).innerHTML =
+).innerHTML = `
 
-`
+<div class="help">
 
-<p
-style="color:#b33;font-weight:bold;">
+<strong>🧠 Need Help?</strong>
+
+<p>
+
+An observation is something you can
+directly measure or see.
+
+</p>
+
+<p>
+
+A thermometer reading is a measurement.
 
 Try again.
 
-An observation is something
-directly measured or noticed.
-
 </p>
+
+</div>
 
 `;
 
@@ -1441,38 +1278,9 @@ directly measured or noticed.
 }
 
 
-function checkData(button, correct) {
-
-if(correct) {
-
-button.classList.add("correct");
-
-alert(
-
-"Correct! This evidence connects temperature with the amount of water lost."
-
-);
-
-}
-
-else {
-
-button.classList.add("incorrect");
-
-alert(
-
-"Look for evidence that shows a relationship between temperature and water loss."
-
-);
-
-}
-
-}
-
-
-/* =========================
+/* =====================================================
    ELABORATE
-========================= */
+===================================================== */
 
 function elaborate() {
 
@@ -1480,31 +1288,14 @@ document.getElementById("app").innerHTML = `
 
 <div class="card">
 
-<h2>
-🌎 ELABORATE — A New Situation
-</h2>
+<h2>🌎 ELABORATE — Apply Your Thinking</h2>
 
 <p>
 
-Now apply what you learned
-to a different investigation.
+Two containers each begin with
+100 mL of water.
 
 </p>
-
-<h3>
-
-Two containers hold 100 mL
-of water.
-
-</h3>
-
-<div class="visual">
-
-☀️ 🧪
-&nbsp;&nbsp;&nbsp;&nbsp;
-🧪 🌑
-
-</div>
 
 <table class="data-table">
 
@@ -1546,51 +1337,54 @@ of water.
 
 </table>
 
-<h3>Question</h3>
+<h3>Math Challenge</h3>
 
 <p>
 
-Which location produced more evaporation?
+How much more water was lost
+in the sunny window?
 
 </p>
 
-<button
-class="option"
-onclick="newSituation(this,false)">
+<p>
 
-Cabinet
+<strong>
+
+28 − 9 = ?
+
+</strong>
+
+</p>
+
+<input
+type="number"
+id="mathChallenge"
+placeholder="Answer in mL"
+>
+
+<button onclick="checkMath()">
+
+Check Answer
 
 </button>
 
-<button
-class="option"
-onclick="newSituation(this,true)">
+<div id="mathFeedback"></div>
 
-Sunny window
-
-</button>
-
-<div id="newFeedback"></div>
-
-<h3>Use Numbers as Evidence</h3>
+<h3>Writing</h3>
 
 <p>
 
-Write one sentence comparing
-the amount of water lost.
+Compare the two locations
+using their data.
 
 </p>
 
 <textarea
-id="comparison"
 placeholder="The sunny window..."
-></textarea>
+oninput="updateWork('comparison',this.value)"
+>${studentWork.comparison}</textarea>
 
-<button onclick="show('cer')">
-
-Write Your CER →
-
-</button>
+${navigation("explain","cer")}
 
 </div>
 
@@ -1599,27 +1393,38 @@ Write Your CER →
 }
 
 
-function newSituation(button, correct) {
+function checkMath() {
 
-if(correct) {
+let answer =
+Number(document.getElementById("mathChallenge").value);
 
-button.classList.add("correct");
+let feedback =
+document.getElementById("mathFeedback");
 
-document.getElementById(
-"newFeedback"
-).innerHTML =
+if(answer === 19) {
 
-`
+feedback.innerHTML = `
 
-<p
-style="color:#25834a;font-weight:bold;">
+<div class="extension">
 
-✅ Correct!
+<strong>⭐ Correct!</strong>
 
-The sunny location lost
-28 mL compared with 9 mL.
+<p>
+
+28 − 9 = 19 mL
 
 </p>
+
+<p>
+
+Challenge:
+
+What percentage of the original
+100 mL was lost in the sunny window?
+
+</p>
+
+</div>
 
 `;
 
@@ -1627,21 +1432,32 @@ The sunny location lost
 
 else {
 
-button.classList.add("incorrect");
+feedback.innerHTML = `
 
-document.getElementById(
-"newFeedback"
-).innerHTML =
+<div class="help">
 
-`
+<strong>🧠 Let's Practice</strong>
 
-<p
-style="color:#b33;font-weight:bold;">
+<p>
 
-Look at the amount of water lost
-in each location.
+Look at the two amounts:
 
 </p>
+
+<p>
+
+28 mL and 9 mL
+
+</p>
+
+<p>
+
+Subtract the smaller number
+from the larger number.
+
+</p>
+
+</div>
 
 `;
 
@@ -1650,9 +1466,9 @@ in each location.
 }
 
 
-/* =========================
+/* =====================================================
    CER
-========================= */
+===================================================== */
 
 function cer() {
 
@@ -1660,9 +1476,14 @@ document.getElementById("app").innerHTML = `
 
 <div class="card">
 
-<h2>
-✍️ EVALUATE — CER
-</h2>
+<h2>✍️ CER — Scientific Writing</h2>
+
+<p>
+
+Use your reading, observations,
+math, and data to explain:
+
+</p>
 
 <h3>
 
@@ -1670,201 +1491,224 @@ Where did the missing water go?
 
 </h3>
 
-<p>
+<div class="cer-box claim">
 
-Use evidence from the reading
-and investigation to construct
-your explanation.
-
-</p>
-
-<div class="cer-box claim-box">
-
-<h3>
-🟥 CLAIM
-</h3>
+<h3>🟥 CLAIM</h3>
 
 <p>
 
-Answer the question
-in one clear sentence.
+Answer the question in one sentence.
 
 </p>
 
 <textarea
-id="claim"
 placeholder="The missing water..."
-></textarea>
+oninput="updateWork('claim',this.value)"
+>${studentWork.claim}</textarea>
 
 </div>
 
-<div class="cer-box evidence-box">
+<div class="cer-box evidence">
 
-<h3>
-⬜ EVIDENCE
-</h3>
+<h3>⬜ EVIDENCE</h3>
 
 <p>
 
-Use <strong>two pieces of evidence</strong>.
+Give at least <strong>two pieces of evidence</strong>.
 
-At least one should include data.
+Use a number from your data.
 
 </p>
 
 <textarea
-id="evidence"
 placeholder="My evidence is..."
-></textarea>
+oninput="updateWork('evidence',this.value)"
+>${studentWork.evidence}</textarea>
 
 </div>
 
-<div class="cer-box reasoning-box">
+<div class="cer-box reasoning">
 
-<h3>
-🟨 REASONING
-</h3>
+<h3>🟨 REASONING</h3>
 
 <p>
 
-Explain why your evidence
+Explain how your evidence
 supports your claim.
 
 </p>
 
-<p>
-
-<strong>
-
-This evidence supports my claim because...
-
-</strong>
-
-</p>
-
 <textarea
-id="reasoning"
 placeholder="This evidence supports my claim because..."
-></textarea>
+oninput="updateWork('reasoning',this.value)"
+>${studentWork.reasoning}</textarea>
 
 </div>
 
-<h3>
-🔍 CER Checklist
-</h3>
+<h3>✅ CER Checklist</h3>
+
+<p>☐ I answered the question.</p>
+
+<p>☐ I used evidence from the investigation.</p>
+
+<p>☐ I included scientific data.</p>
+
+<p>☐ I explained how my evidence supports my claim.</p>
+
+${navigation("elaborate","notebook")}
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   SCIENCE NOTEBOOK
+===================================================== */
+
+function notebook() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card">
+
+<h2>📓 MY SCIENCE NOTEBOOK</h2>
 
 <p>
-☐ I answered the question.
+
+Your work is automatically saved
+on this device.
+
 </p>
+
+<div class="notebook">
+
+<h3>🔎 My Prediction</h3>
 
 <p>
-☐ I used evidence from the investigation.
+
+${studentWork.prediction || "No response yet."}
+
 </p>
+
+<h3>📖 My Reading Response</h3>
 
 <p>
-☐ I used at least one number.
+
+${studentWork.readingAnswer || "No response yet."}
+
 </p>
+
+<h3>📊 My Data</h3>
+
+<table class="data-table">
+
+<tr>
+
+<th>Temperature</th>
+
+<th>Ending Water</th>
+
+<th>Water Lost</th>
+
+</tr>
+
+<tr>
+
+<td>15°C</td>
+
+<td>${studentWork.end15 || "—"}</td>
+
+<td>${studentWork.lost15 || "—"}</td>
+
+</tr>
+
+<tr>
+
+<td>25°C</td>
+
+<td>${studentWork.end25 || "—"}</td>
+
+<td>${studentWork.lost25 || "—"}</td>
+
+</tr>
+
+<tr>
+
+<td>35°C</td>
+
+<td>${studentWork.end35 || "—"}</td>
+
+<td>${studentWork.lost35 || "—"}</td>
+
+</tr>
+
+</table>
+
+<h3>📈 My Data Analysis</h3>
 
 <p>
-☐ I explained how the evidence supports my claim.
+
+${studentWork.pattern || "No response yet."}
+
 </p>
 
-<button onclick="show('complete')">
+<h3>🧠 Cause & Effect</h3>
 
-Finish Investigation ⭐
+<p>
+
+${studentWork.causeEffect || "No response yet."}
+
+</p>
+
+<h3>🌎 My Comparison</h3>
+
+<p>
+
+${studentWork.comparison || "No response yet."}
+
+</p>
+
+<h3>🟥 My Claim</h3>
+
+<p>
+
+${studentWork.claim || "No response yet."}
+
+</p>
+
+<h3>⬜ My Evidence</h3>
+
+<p>
+
+${studentWork.evidence || "No response yet."}
+
+</p>
+
+<h3>🟨 My Reasoning</h3>
+
+<p>
+
+${studentWork.reasoning || "No response yet."}
+
+</p>
+
+</div>
+
+<div class="navigation">
+
+<button
+class="secondary"
+onclick="show('cer')">
+
+← Back to CER
 
 </button>
 
 </div>
 
-`;
-
-}
-
-
-/* =========================
-   COMPLETE
-========================= */
-
-function complete() {
-
-document.getElementById("app").innerHTML = `
-
-<div class="card center">
-
-<h1>
-🎉 Investigation Complete!
-</h1>
-
-<h2>
-Where Did the Water Go?
-</h2>
-
-<p>
-
-You practiced the work of a scientist.
-
-</p>
-
-<p>
-🔎 Observation
-</p>
-
-<p>
-💭 Inference
-</p>
-
-<p>
-📖 Scientific Reading
-</p>
-
-<p>
-🔬 Investigation
-</p>
-
-<p>
-📊 Data Analysis
-</p>
-
-<p>
-🟥 Claim
-</p>
-
-<p>
-⬜ Evidence
-</p>
-
-<p>
-🟨 Reasoning
-</p>
-
-<div class="callout">
-
-<strong>
-
-Science is not just knowing facts.
-
-</strong>
-
-<br><br>
-
-Scientists use observations,
-evidence, and reasoning
-to develop explanations.
-
-</div>
-
-<p>
-
-<strong>
-
-Save your CER according to
-your teacher's instructions.
-
-</strong>
-
-</p>
-
 </div>
 
 `;
@@ -1872,9 +1716,9 @@ your teacher's instructions.
 }
 
 
-/* =========================
-   START
-========================= */
+/* =====================================================
+   START APP
+===================================================== */
 
 show("welcome");
 
