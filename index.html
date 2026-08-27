@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Science Lab | Grade 9</title>
 
 <style>
+
 :root{
   --red:#b91c1c;
   --dark-red:#7f1d1d;
@@ -27,7 +29,9 @@
   --light-yellow:#fef3c7;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -42,6 +46,9 @@ header{
   color:white;
   padding:15px 20px;
   box-shadow:0 2px 8px rgba(0,0,0,.15);
+  position:sticky;
+  top:0;
+  z-index:20;
 }
 
 .header-inner{
@@ -81,6 +88,16 @@ header{
   font-size:13px;
 }
 
+.header-button{
+  background:white;
+  color:var(--red);
+  padding:9px 14px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  border:0;
+}
+
 .container{
   max-width:1100px;
   margin:auto;
@@ -100,6 +117,10 @@ header{
   font-size:34px;
 }
 
+.hero p{
+  max-width:800px;
+}
+
 .badge{
   background:white;
   color:var(--red);
@@ -110,37 +131,13 @@ header{
   font-size:13px;
 }
 
-.progress-card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:17px;
-  margin-bottom:20px;
+.page{
+  display:none;
 }
 
-.progress-top{
-  display:flex;
-  justify-content:space-between;
-  font-weight:bold;
+.page.active{
+  display:block;
 }
-
-.progress-track{
-  height:10px;
-  background:#e5e7eb;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:8px;
-}
-
-.progress-fill{
-  height:100%;
-  width:0;
-  background:var(--red);
-  transition:.3s;
-}
-
-.page{display:none}
-.page.active{display:block}
 
 .card{
   background:white;
@@ -188,12 +185,35 @@ button:disabled{
   cursor:not-allowed;
 }
 
-.red{background:var(--red);color:white}
-.dark{background:#374151;color:white}
-.green{background:var(--green);color:white}
-.yellow{background:var(--yellow);color:white}
-.purple{background:var(--purple);color:white}
-.blue{background:var(--blue);color:white}
+.red{
+  background:var(--red);
+  color:white;
+}
+
+.dark{
+  background:#374151;
+  color:white;
+}
+
+.green{
+  background:var(--green);
+  color:white;
+}
+
+.yellow{
+  background:var(--yellow);
+  color:white;
+}
+
+.purple{
+  background:var(--purple);
+  color:white;
+}
+
+.blue{
+  background:var(--blue);
+  color:white;
+}
 
 .navigation{
   display:flex;
@@ -248,7 +268,9 @@ label{
   margin-top:15px;
 }
 
-textarea,input,select{
+textarea,
+input,
+select{
   width:100%;
   padding:11px;
   margin-top:6px;
@@ -263,7 +285,9 @@ textarea{
   resize:vertical;
 }
 
-input:focus,textarea:focus,select:focus{
+input:focus,
+textarea:focus,
+select:focus{
   outline:3px solid var(--light-red);
   border-color:var(--red);
 }
@@ -333,6 +357,101 @@ td input{
   font-size:13px;
 }
 
+.progress-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:17px;
+  margin-bottom:20px;
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+}
+
+.progress-track{
+  height:10px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.progress-fill{
+  height:100%;
+  width:0;
+  background:var(--red);
+  transition:.3s;
+}
+
+/* HOME */
+
+.unit-card{
+  background:white;
+  border:2px solid var(--border);
+  border-radius:16px;
+  padding:22px;
+  margin-bottom:16px;
+  transition:.2s;
+}
+
+.unit-card:hover{
+  border-color:var(--red);
+  box-shadow:0 4px 15px rgba(185,28,28,.12);
+}
+
+.unit-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.week-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:12px;
+  margin-top:15px;
+}
+
+.week-card{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  background:#fff;
+}
+
+.week-card.available{
+  border-color:#fecaca;
+}
+
+.week-card.locked{
+  background:#f9fafb;
+  color:#6b7280;
+}
+
+.week-number{
+  color:var(--red);
+  font-weight:bold;
+  font-size:13px;
+}
+
+.notebook-home{
+  background:linear-gradient(135deg,#7f1d1d,#dc2626);
+  color:white;
+  border-radius:16px;
+  padding:24px;
+  margin-top:20px;
+}
+
+.notebook-home h2{
+  margin-top:0;
+}
+
+/* LAB */
+
 .lab-controls{
   display:flex;
   flex-wrap:wrap;
@@ -340,13 +459,20 @@ td input{
   margin:15px 0;
 }
 
-.lab-controls button{
-  min-width:100px;
+.temp15{
+  background:#2563eb;
+  color:white;
 }
 
-.temp15{background:#2563eb;color:white}
-.temp25{background:#f59e0b;color:white}
-.temp35{background:#dc2626;color:white}
+.temp25{
+  background:#f59e0b;
+  color:white;
+}
+
+.temp35{
+  background:#dc2626;
+  color:white;
+}
 
 .beaker-area{
   display:flex;
@@ -403,22 +529,6 @@ td input{
   gap:10px;
 }
 
-.notebook-line{
-  border-bottom:1px dashed #d1d5db;
-  min-height:45px;
-  margin-bottom:10px;
-}
-
-.cer{
-  border-radius:10px;
-  padding:20px;
-  margin-bottom:15px;
-}
-
-.claim{border-left:7px solid var(--red)}
-.evidence{border-left:7px solid #374151}
-.reasoning{border-left:7px solid var(--yellow)}
-
 .bar-chart{
   display:flex;
   align-items:flex-end;
@@ -450,6 +560,58 @@ td input{
   font-weight:bold;
 }
 
+/* WEEK 2 */
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+
+.tool{
+  background:#fff;
+  border:2px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
+}
+
+.tool-icon{
+  font-size:45px;
+}
+
+.metric-box{
+  background:#f8fafc;
+  border:1px solid #cbd5e1;
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
+}
+
+.metric-number{
+  font-size:30px;
+  font-weight:bold;
+  color:var(--red);
+}
+
+.measurement-display{
+  background:#111827;
+  color:#4ade80;
+  font-family:monospace;
+  font-size:32px;
+  padding:18px;
+  border-radius:10px;
+  text-align:center;
+  margin:15px 0;
+}
+
+.density-box{
+  background:#fff7ed;
+  border:2px solid #fed7aa;
+  border-radius:12px;
+  padding:20px;
+}
+
 footer{
   background:#111827;
   color:#d1d5db;
@@ -459,6 +621,7 @@ footer{
 }
 
 @media(max-width:700px){
+
   .header-inner{
     flex-direction:column;
     align-items:flex-start;
@@ -487,64 +650,233 @@ footer{
   .bar{
     width:50px;
   }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="header-inner">
 
-    <div class="logo">
-      <div class="logo-icon">🔬</div>
+<div class="header-inner">
 
-      <div>
-        <h1>Science Lab</h1>
-        <p>Grade 9 Earth & Universe Science</p>
-      </div>
-    </div>
+<div class="logo">
 
-    <strong>WEEK 1</strong>
+<div class="logo-icon">🔬</div>
 
-  </div>
+<div>
+<h1>Science Lab</h1>
+<p>Grade 9 Earth & Universe Science</p>
+</div>
+
+</div>
+
+<button class="header-button" onclick="showPage('home')">
+🏠 Home
+</button>
+
+</div>
+
 </header>
 
 
 <main class="container">
 
+
+<!-- =====================================================
+HOME
+===================================================== -->
+
+<section id="home" class="page active">
+
 <div class="hero">
 
-  <span class="badge">WEEK 1 • INTRODUCTION TO SCIENCE</span>
+<span class="badge">GRADE 9 SCIENCE</span>
 
-  <h2>Where Did the Water Go?</h2>
+<h2>Welcome to Science Lab 🔬</h2>
 
-  <p>
-    Investigate evaporation by collecting data,
-    practicing mathematics, analyzing patterns,
-    and constructing a scientific explanation.
-  </p>
+<p>
+A digital science classroom where you investigate,
+collect evidence, practice math, analyze data,
+and explain your thinking like a scientist.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>📚 Your Science Course</h2>
+
+<p>
+Choose your current week. Your work is saved on this device
+so you can return to your Scientific Notebook whenever you
+need your evidence.
+</p>
+
+</div>
+
+
+<div class="unit-card">
+
+<div class="unit-title">
+
+<div>
+
+<h2>🔬 Unit 1 — Introduction to Science</h2>
+
+<p>
+September–October
+</p>
+
+</div>
+
+<span class="badge">CURRENT</span>
+
+</div>
+
+
+<div class="week-grid">
+
+
+<div class="week-card available">
+
+<div class="week-number">WEEK 1</div>
+
+<h3>💧 Where Did the Water Go?</h3>
+
+<p>
+Evaporation, measurement, data collection,
+mathematics, graphing, and CER.
+</p>
+
+<button class="red" onclick="startWeek1()">
+Open Week 1 →
+</button>
+
+</div>
+
+
+<div class="week-card available">
+
+<div class="week-number">WEEK 2</div>
+
+<h3>📏 Scientific Tools & Measurement</h3>
+
+<p>
+Learn to choose scientific tools, measure accurately,
+use metric units, and analyze measurement data.
+</p>
+
+<button class="red" onclick="startWeek2()">
+Open Week 2 →
+</button>
+
+</div>
+
+
+<div class="week-card locked">
+
+<div class="week-number">WEEK 3</div>
+
+<h3>🔢 Metric System & Density</h3>
+
+<p>
+Coming next.
+</p>
+
+<button disabled>
+🔒 Coming Soon
+</button>
+
+</div>
+
+
+<div class="week-card locked">
+
+<div class="week-number">WEEK 4</div>
+
+<h3>📈 Graphing Scientific Data</h3>
+
+<p>
+Coming next.
+</p>
+
+<button disabled>
+🔒 Coming Soon
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="notebook-home">
+
+<h2>📓 Scientific Notebook</h2>
+
+<p>
+Your notebook is where your scientific thinking lives.
+Return here to review your saved observations,
+measurements, data, and CER work.
+</p>
+
+<button class="header-button" onclick="showPage('notebookHome')">
+Open My Notebook →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+WEEK 1 PAGE 1
+===================================================== -->
+
+<section id="w1p1" class="page">
+
+<div class="hero">
+
+<span class="badge">WEEK 1 • INTRODUCTION TO SCIENCE</span>
+
+<h2>Where Did the Water Go?</h2>
+
+<p>
+Investigate evaporation by collecting data,
+practicing mathematics, analyzing patterns,
+and constructing a scientific explanation.
+</p>
 
 </div>
 
 
 <div class="progress-card">
 
-  <div class="progress-top">
-    <span id="progressText">Step 1 of 8</span>
-    <span id="progressPercent">0%</span>
-  </div>
+<div class="progress-top">
 
-  <div class="progress-track">
-    <div id="progressFill" class="progress-fill"></div>
-  </div>
+<span id="w1ProgressText">
+Step 1 of 7
+</span>
+
+<span id="w1ProgressPercent">
+0%
+</span>
 
 </div>
 
+<div class="progress-track">
 
-<!-- PAGE 1 -->
+<div id="w1ProgressFill" class="progress-fill"></div>
 
-<section id="page1" class="page active">
+</div>
+
+</div>
+
 
 <div class="card">
 
@@ -552,22 +884,23 @@ footer{
 
 <div class="visual">
 
-  <div style="font-size:75px;">
-    💧 → ☀️ → ☁️
-  </div>
+<div style="font-size:75px;">
+💧 → ☀️ → ☁️
+</div>
 
-  <h3>Where did the water go?</h3>
+<h3>Where did the water go?</h3>
 
-  <p>
-    A student places 100 mL of water in a container.
-    After several hours, only 77 mL remains.
-  </p>
+<p>
+A student places 100 mL of water in a container.
+After several hours, only 77 mL remains.
+</p>
 
-  <p>
-    <strong>23 mL of water is no longer in the container.</strong>
-  </p>
+<p>
+<strong>23 mL of water is no longer in the container.</strong>
+</p>
 
 </div>
+
 
 <h3>Essential Question</h3>
 
@@ -575,12 +908,14 @@ footer{
 How does temperature affect the amount of water that evaporates?
 </p>
 
+
 <h3>Make a Prediction</h3>
 
 <textarea
 id="prediction"
 placeholder="I predict that..."
 oninput="saveData()"></textarea>
+
 
 <div class="info">
 
@@ -617,9 +952,11 @@ what happened.
 
 <div class="navigation">
 
-<button class="dark" disabled>◀ Back</button>
+<button class="dark" onclick="showPage('home')">
+🏠 Home
+</button>
 
-<button class="red" onclick="nextPage()">
+<button class="red" onclick="showW1(2)">
 Read Like a Scientist ▶
 </button>
 
@@ -628,30 +965,28 @@ Read Like a Scientist ▶
 </section>
 
 
-<!-- PAGE 2 -->
+<!-- =====================================================
+WEEK 1 PAGE 2
+===================================================== -->
 
-<section id="page2" class="page">
+<section id="w1p2" class="page">
 
 <div class="card">
 
 <h2>📖 Read Like a Scientist</h2>
 
 <p>
-Your teacher can print a Grade 9 appropriate reading about
-evaporation and the water cycle for students to use during
-this investigation.
+Read about evaporation and the water cycle.
+Look for information that could help explain
+why temperature affects evaporation.
 </p>
 
-<a
-href="https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle"
-target="_blank"
-rel="noopener">
+<button class="red"
+onclick="window.open('https://www.usgs.gov/water-science-school/science/evaporation-and-water-cycle','_blank')">
 
-<button class="red">
 📄 Open USGS Reading
-</button>
 
-</a>
+</button>
 
 <div class="info">
 
@@ -675,31 +1010,28 @@ why temperature might affect evaporation.
 Which statement best explains evaporation?
 </p>
 
-<div
-class="choice"
+<div class="choice"
 onclick="readingAnswer(this,false)">
 A. Water disappears permanently.
 </div>
 
-<div
-class="choice"
+<div class="choice"
 onclick="readingAnswer(this,true)">
 B. Liquid water changes into water vapor and enters the atmosphere.
 </div>
 
-<div
-class="choice"
+<div class="choice"
 onclick="readingAnswer(this,false)">
 C. Water can only evaporate when it reaches its boiling point.
 </div>
 
-<div
-class="choice"
+<div class="choice"
 onclick="readingAnswer(this,false)">
 D. Evaporation changes water into a different substance.
 </div>
 
 <p id="readingFeedback"></p>
+
 
 <label>
 What information from the reading could help you explain
@@ -716,9 +1048,11 @@ oninput="saveData()"></textarea>
 
 <div class="navigation">
 
-<button class="dark" onclick="previousPage()">◀ Back</button>
+<button class="dark" onclick="showW1(1)">
+◀ Back
+</button>
 
-<button class="red" onclick="nextPage()">
+<button class="red" onclick="showW1(3)">
 Enter the Lab ▶
 </button>
 
@@ -727,9 +1061,11 @@ Enter the Lab ▶
 </section>
 
 
-<!-- PAGE 3 LAB -->
+<!-- =====================================================
+WEEK 1 PAGE 3
+===================================================== -->
 
-<section id="page3" class="page">
+<section id="w1p3" class="page">
 
 <div class="card">
 
@@ -751,18 +1087,12 @@ through evaporation?
 <ol>
 
 <li>Choose a temperature.</li>
-
 <li>Choose the trial number.</li>
-
 <li>Click <strong>Run Trial</strong>.</li>
-
 <li>Observe the virtual beaker.</li>
-
 <li>Read the ending-water measurement.</li>
-
 <li>Record the measurement in your Scientific Notebook.</li>
-
-<li>Enter the same measurement into the data table.</li>
+<li>Enter the measurement into the data table.</li>
 
 </ol>
 
@@ -855,7 +1185,6 @@ Choose a temperature and run the trial.
 
 
 <button
-id="runButton"
 class="red"
 onclick="runTrial()">
 
@@ -924,9 +1253,11 @@ oninput="saveData()"></textarea>
 
 <div class="navigation">
 
-<button class="dark" onclick="previousPage()">◀ Back</button>
+<button class="dark" onclick="showW1(2)">
+◀ Back
+</button>
 
-<button class="red" onclick="nextPage()">
+<button class="red" onclick="showW1(4)">
 Enter Data Table ▶
 </button>
 
@@ -935,9 +1266,11 @@ Enter Data Table ▶
 </section>
 
 
-<!-- PAGE 4 DATA TABLE -->
+<!-- =====================================================
+WEEK 1 PAGE 4 DATA
+===================================================== -->
 
-<section id="page4" class="page">
+<section id="w1p4" class="page">
 
 <div class="card">
 
@@ -977,140 +1310,47 @@ Starting Water − Ending Water = Water Lost
 
 <tbody>
 
-<tr>
-<td>15°C</td>
-<td>1</td>
-<td>100.0 mL</td>
-<td>
-<input id="d15_1"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l15_1">—</td>
-</tr>
+<script>
 
-<tr>
-<td>15°C</td>
-<td>2</td>
-<td>100.0 mL</td>
-<td>
-<input id="d15_2"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l15_2">—</td>
-</tr>
+document.write(`
+<tr><td>15°C</td><td>1</td><td>100.0 mL</td>
+<td><input id="d15_1" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l15_1">—</td></tr>
 
-<tr>
-<td>15°C</td>
-<td>3</td>
-<td>100.0 mL</td>
-<td>
-<input id="d15_3"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l15_3">—</td>
-</tr>
+<tr><td>15°C</td><td>2</td><td>100.0 mL</td>
+<td><input id="d15_2" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l15_2">—</td></tr>
 
-<tr>
-<td>25°C</td>
-<td>1</td>
-<td>100.0 mL</td>
-<td>
-<input id="d25_1"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l25_1">—</td>
-</tr>
+<tr><td>15°C</td><td>3</td><td>100.0 mL</td>
+<td><input id="d15_3" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l15_3">—</td></tr>
 
-<tr>
-<td>25°C</td>
-<td>2</td>
-<td>100.0 mL</td>
-<td>
-<input id="d25_2"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l25_2">—</td>
-</tr>
+<tr><td>25°C</td><td>1</td><td>100.0 mL</td>
+<td><input id="d25_1" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l25_1">—</td></tr>
 
-<tr>
-<td>25°C</td>
-<td>3</td>
-<td>100.0 mL</td>
-<td>
-<input id="d25_3"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l25_3">—</td>
-</tr>
+<tr><td>25°C</td><td>2</td><td>100.0 mL</td>
+<td><input id="d25_2" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l25_2">—</td></tr>
 
-<tr>
-<td>35°C</td>
-<td>1</td>
-<td>100.0 mL</td>
-<td>
-<input id="d35_1"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l35_1">—</td>
-</tr>
+<tr><td>25°C</td><td>3</td><td>100.0 mL</td>
+<td><input id="d25_3" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l25_3">—</td></tr>
 
-<tr>
-<td>35°C</td>
-<td>2</td>
-<td>100.0 mL</td>
-<td>
-<input id="d35_2"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l35_2">—</td>
-</tr>
+<tr><td>35°C</td><td>1</td><td>100.0 mL</td>
+<td><input id="d35_1" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l35_1">—</td></tr>
 
-<tr>
-<td>35°C</td>
-<td>3</td>
-<td>100.0 mL</td>
-<td>
-<input id="d35_3"
-type="number"
-step="0.1"
-min="0"
-max="100"
-oninput="calculateTable()">
-</td>
-<td id="l35_3">—</td>
-</tr>
+<tr><td>35°C</td><td>2</td><td>100.0 mL</td>
+<td><input id="d35_2" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l35_2">—</td></tr>
+
+<tr><td>35°C</td><td>3</td><td>100.0 mL</td>
+<td><input id="d35_3" type="number" step="0.1" min="0" max="100" oninput="calculateTable()"></td>
+<td id="l35_3">—</td></tr>
+`);
+
+</script>
 
 </tbody>
 
@@ -1131,8 +1371,6 @@ oninput="calculateTable()">
 After all three trials for a temperature are entered,
 the website will calculate the average amount of water lost.
 </p>
-
-<div class="table-wrap">
 
 <table>
 
@@ -1166,14 +1404,14 @@ the website will calculate the average amount of water lost.
 
 </div>
 
-</div>
-
 
 <div class="navigation">
 
-<button class="dark" onclick="previousPage()">◀ Back</button>
+<button class="dark" onclick="showW1(3)">
+◀ Back
+</button>
 
-<button class="red" onclick="nextPage()">
+<button class="red" onclick="showW1(5)">
 Analyze Data ▶
 </button>
 
@@ -1182,9 +1420,11 @@ Analyze Data ▶
 </section>
 
 
-<!-- PAGE 5 ANALYSIS -->
+<!-- =====================================================
+WEEK 1 PAGE 5
+===================================================== -->
 
-<section id="page5" class="page">
+<section id="w1p5" class="page">
 
 <div class="card">
 
@@ -1197,37 +1437,19 @@ temperature.
 
 <div class="bar-chart">
 
-<div
-id="bar15"
-class="bar"
-style="height:20px">
-
+<div id="bar15" class="bar" style="height:20px">
 <span id="bar15Label">—</span>
-
 15°C
-
 </div>
 
-<div
-id="bar25"
-class="bar"
-style="height:20px">
-
+<div id="bar25" class="bar" style="height:20px">
 <span id="bar25Label">—</span>
-
 25°C
-
 </div>
 
-<div
-id="bar35"
-class="bar"
-style="height:20px">
-
+<div id="bar35" class="bar" style="height:20px">
 <span id="bar35Label">—</span>
-
 35°C
-
 </div>
 
 </div>
@@ -1244,9 +1466,7 @@ Which temperature had the greatest average amount of
 water loss?
 </p>
 
-<select
-id="greatestTemp"
-onchange="saveData()">
+<select id="greatestTemp" onchange="saveData()">
 
 <option value="">Choose one</option>
 <option>15°C</option>
@@ -1288,14 +1508,8 @@ oninput="saveData()"></textarea>
 <h2>🧮 Data Math Challenge</h2>
 
 <p>
-Use your calculated averages.
-</p>
-
-<p>
-<strong>
 How much greater was the average water loss at 35°C
 than at 15°C?
-</strong>
 </p>
 
 <input
@@ -1308,19 +1522,11 @@ oninput="checkMathChallenge()">
 <p id="mathFeedback"></p>
 
 
-<button
-class="yellow"
-onclick="toggle('mathHelp')">
-
+<button class="yellow" onclick="toggle('mathHelp')">
 🧠 I Need Help
-
 </button>
 
-
-<div
-id="mathHelp"
-class="help"
-style="display:none">
+<div id="mathHelp" class="help" style="display:none">
 
 <strong>Need a hint?</strong>
 
@@ -1336,9 +1542,11 @@ average water lost at 15°C.
 
 <div class="navigation">
 
-<button class="dark" onclick="previousPage()">◀ Back</button>
+<button class="dark" onclick="showW1(4)">
+◀ Back
+</button>
 
-<button class="red" onclick="nextPage()">
+<button class="red" onclick="showW1(6)">
 Build Your CER ▶
 </button>
 
@@ -1347,9 +1555,11 @@ Build Your CER ▶
 </section>
 
 
-<!-- PAGE 6 CER -->
+<!-- =====================================================
+WEEK 1 PAGE 6 CER
+===================================================== -->
 
-<section id="page6" class="page">
+<section id="w1p6" class="page">
 
 <div class="card">
 
@@ -1368,13 +1578,13 @@ evaporates?
 
 <p>
 Use your Scientific Notebook and data table.
-Your CER should use evidence from <strong>your investigation</strong>.
+Your CER should use evidence from your investigation.
 </p>
 
 </div>
 
 
-<div class="card cer claim">
+<div class="card">
 
 <h2>🟥 CLAIM</h2>
 
@@ -1399,7 +1609,7 @@ oninput="saveData()"></textarea>
 </div>
 
 
-<div class="card cer evidence">
+<div class="card">
 
 <h2>⬛ EVIDENCE</h2>
 
@@ -1432,7 +1642,7 @@ oninput="saveData()"></textarea>
 </div>
 
 
-<div class="card cer reasoning">
+<div class="card">
 
 <h2>🟨 REASONING</h2>
 
@@ -1461,50 +1671,29 @@ oninput="saveData()"></textarea>
 
 <div class="card">
 
-<button
-class="yellow"
-onclick="toggle('cerHelp')">
-
+<button class="yellow" onclick="toggle('cerHelp')">
 🧠 I Need Help
-
 </button>
 
-<div
-id="cerHelp"
-class="help"
-style="display:none">
+<div id="cerHelp" class="help" style="display:none">
 
 <h3>CER Help</h3>
 
-<p>
-<strong>Claim:</strong> What happened?
-</p>
+<p><strong>Claim:</strong> What happened?</p>
 
-<p>
-<strong>Evidence:</strong> What numbers or information prove it?
-</p>
+<p><strong>Evidence:</strong> What numbers or information prove it?</p>
 
-<p>
-<strong>Reasoning:</strong> Why does that evidence make sense
-scientifically?
-</p>
+<p><strong>Reasoning:</strong> Why does that evidence make sense scientifically?</p>
 
 </div>
 
 <br>
 
-<button
-class="purple"
-onclick="toggle('challenge')">
-
+<button class="purple" onclick="toggle('challenge')">
 ⭐ I Got It! Give Me a Challenge
-
 </button>
 
-<div
-id="challenge"
-class="challenge"
-style="display:none">
+<div id="challenge" class="challenge" style="display:none">
 
 <h3>⭐ Challenge</h3>
 
@@ -1526,9 +1715,11 @@ oninput="saveData()"></textarea>
 
 <div class="navigation">
 
-<button class="dark" onclick="previousPage()">◀ Back</button>
+<button class="dark" onclick="showW1(5)">
+◀ Back
+</button>
 
-<button class="green" onclick="nextPage()">
+<button class="green" onclick="showW1(7)">
 Open Scientific Notebook ▶
 </button>
 
@@ -1537,9 +1728,11 @@ Open Scientific Notebook ▶
 </section>
 
 
-<!-- PAGE 7 NOTEBOOK -->
+<!-- =====================================================
+WEEK 1 PAGE 7 NOTEBOOK
+===================================================== -->
 
-<section id="page7" class="page">
+<section id="w1p7" class="page">
 
 <div class="card">
 
@@ -1566,17 +1759,17 @@ your final CER.
 
 <h3>Data</h3>
 
-<div class="table-wrap">
-
 <table>
 
 <thead>
+
 <tr>
 <th>Temperature</th>
 <th>Trial 1</th>
 <th>Trial 2</th>
 <th>Trial 3</th>
 </tr>
+
 </thead>
 
 <tbody>
@@ -1605,8 +1798,6 @@ your final CER.
 </tbody>
 
 </table>
-
-</div>
 
 <h3>My Pattern</h3>
 <p id="summaryPattern">—</p>
@@ -1641,8 +1832,7 @@ oninput="saveData()"></textarea>
 
 <br><br>
 
-<button
-class="green"
+<button class="green"
 onclick="saveData();alert('Your work has been saved on this device!')">
 
 💾 Save My Work
@@ -1652,20 +1842,166 @@ onclick="saveData();alert('Your work has been saved on this device!')">
 </div>
 
 
+<div class="navigation">
+
+<button class="dark" onclick="showW1(6)">
+◀ Back
+</button>
+
+<button class="red" onclick="showPage('home')">
+🏠 Back to Science Lab
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+WEEK 2 PAGE 1
+===================================================== -->
+
+<section id="w2p1" class="page">
+
+<div class="hero">
+
+<span class="badge">WEEK 2 • SCIENTIFIC TOOLS & MEASUREMENT</span>
+
+<h2>Scientists Measure the World</h2>
+
+<p>
+Learn how scientists choose tools, measure accurately,
+use metric units, record data, and communicate measurements.
+</p>
+
+</div>
+
+
+<div class="progress-card">
+
+<div class="progress-top">
+
+<span id="w2ProgressText">
+Step 1 of 6
+</span>
+
+<span id="w2ProgressPercent">
+0%
+</span>
+
+</div>
+
+<div class="progress-track">
+
+<div id="w2ProgressFill" class="progress-fill"></div>
+
+</div>
+
+</div>
+
+
 <div class="card">
 
-<h2>🎯 Skills You Practiced</h2>
+<h2>🔎 Engage: Which Tool?</h2>
+
+<p>
+Scientists choose a measuring tool based on the question
+they are investigating.
+</p>
+
+
+<div class="tool-grid">
+
+<div class="tool">
+
+<div class="tool-icon">📏</div>
+
+<h3>Ruler</h3>
+
+<p>
+Measures length or distance.
+</p>
+
+</div>
+
+
+<div class="tool">
+
+<div class="tool-icon">🧪</div>
+
+<h3>Graduated Cylinder</h3>
+
+<p>
+Measures liquid volume.
+</p>
+
+</div>
+
+
+<div class="tool">
+
+<div class="tool-icon">⚖️</div>
+
+<h3>Balance</h3>
+
+<p>
+Measures mass.
+</p>
+
+</div>
+
+
+<div class="tool">
+
+<div class="tool-icon">🌡️</div>
+
+<h3>Thermometer</h3>
+
+<p>
+Measures temperature.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="info">
+
+<strong>Scientist's Question:</strong>
+
+<p>
+If you wanted to determine the amount of water in a beaker,
+which tool would give you the most useful measurement?
+</p>
+
+</div>
+
+
+<label>
+What tool would you choose and why?
+</label>
+
+<textarea
+id="w2ToolPrediction"
+placeholder="I would use..."
+oninput="saveData()"></textarea>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎯 Learning Targets</h2>
 
 <div class="skills">
 
-<span class="skill">Reading</span>
-<span class="skill">Measurement</span>
-<span class="skill">Data Collection</span>
-<span class="skill">Subtraction</span>
-<span class="skill">Averages</span>
-<span class="skill">Graphing</span>
-<span class="skill">Data Analysis</span>
-<span class="skill">CER Writing</span>
+<span class="skill">Scientific Tools</span>
+<span class="skill">Metric Measurement</span>
+<span class="skill">Accuracy</span>
+<span class="skill">Precision</span>
+<span class="skill">Data Tables</span>
+<span class="skill">Mathematics</span>
 
 </div>
 
@@ -1674,19 +2010,871 @@ onclick="saveData();alert('Your work has been saved on this device!')">
 
 <div class="navigation">
 
-<button class="dark" onclick="previousPage()">◀ Back</button>
+<button class="dark" onclick="showPage('home')">
+🏠 Home
+</button>
 
-<button
-class="red"
-onclick="alert('Your Week 1 work is saved on this device. Great work, scientist!')">
-
-🏁 Finish Week 1
-
+<button class="red" onclick="showW2(2)">
+Learn the Metric System ▶
 </button>
 
 </div>
 
 </section>
+
+
+<!-- =====================================================
+WEEK 2 PAGE 2
+===================================================== -->
+
+<section id="w2p2" class="page">
+
+<div class="card">
+
+<h2>📏 The Metric System</h2>
+
+<p>
+Scientists around the world use the metric system because
+it provides a consistent way to communicate measurements.
+</p>
+
+
+<div class="tool-grid">
+
+<div class="metric-box">
+
+<div class="metric-number">m</div>
+
+<strong>meter</strong>
+
+<p>Length</p>
+
+</div>
+
+
+<div class="metric-box">
+
+<div class="metric-number">g</div>
+
+<strong>gram</strong>
+
+<p>Mass</p>
+
+</div>
+
+
+<div class="metric-box">
+
+<div class="metric-number">L</div>
+
+<strong>liter</strong>
+
+<p>Volume</p>
+
+</div>
+
+
+<div class="metric-box">
+
+<div class="metric-number">°C</div>
+
+<strong>degrees Celsius</strong>
+
+<p>Temperature</p>
+
+</div>
+
+</div>
+
+
+<div class="bluebox">
+
+<strong>Remember:</strong>
+
+<p>
+Choose a unit that matches the quantity being measured.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🧠 Check Your Thinking</h2>
+
+<p>
+Which unit would be most appropriate for measuring the
+volume of water in a classroom container?
+</p>
+
+<div class="choice"
+onclick="w2Choice(this,false)">
+A. meters
+</div>
+
+<div class="choice"
+onclick="w2Choice(this,true)">
+B. milliliters
+</div>
+
+<div class="choice"
+onclick="w2Choice(this,false)">
+C. grams
+</div>
+
+<div class="choice"
+onclick="w2Choice(this,false)">
+D. degrees Celsius
+</div>
+
+<p id="w2ChoiceFeedback"></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>🔢 Metric Math</h2>
+
+<p>
+Scientists often need to convert between metric units.
+</p>
+
+<p>
+<strong>
+How many milliliters are in 1 liter?
+</strong>
+</p>
+
+<input
+id="metricAnswer"
+type="number"
+placeholder="Enter your answer"
+oninput="checkMetricAnswer()">
+
+<p id="metricFeedback"></p>
+
+<button class="yellow" onclick="toggle('metricHelp')">
+🧠 I Need Help
+</button>
+
+<div id="metricHelp" class="help" style="display:none">
+
+<p>
+Remember: the prefix <strong>milli-</strong> means one thousandth.
+So 1 liter contains 1,000 milliliters.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="showW2(1)">
+◀ Back
+</button>
+
+<button class="red" onclick="showW2(3)">
+Practice Measuring ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+WEEK 2 PAGE 3
+===================================================== -->
+
+<section id="w2p3" class="page">
+
+<div class="card">
+
+<h2>🧪 Measurement Station</h2>
+
+<p>
+Scientists read measuring instruments carefully.
+For this practice station, determine the measurement shown.
+</p>
+
+
+<div class="visual">
+
+<div style="font-size:80px;">
+🧪
+</div>
+
+<div class="measurement-display">
+<span id="measurementNumber">42.0</span> mL
+</div>
+
+<p>
+Read the volume shown above.
+</p>
+
+</div>
+
+
+<button class="blue" onclick="newMeasurement()">
+🔄 New Measurement
+</button>
+
+
+<label>
+What volume did you measure?
+</label>
+
+<input
+id="measurementAnswer"
+type="number"
+step="0.1"
+placeholder="Enter mL"
+oninput="checkMeasurement()">
+
+<p id="measurementFeedback"></p>
+
+
+<button class="yellow" onclick="toggle('measurementHelp')">
+🧠 I Need Help
+</button>
+
+<div id="measurementHelp" class="help" style="display:none">
+
+<p>
+Look carefully at the number displayed on the graduated
+cylinder. Include the unit in your thinking.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>👀 Accuracy Matters</h2>
+
+<p>
+When reading a measuring tool, scientists should:
+</p>
+
+<ul>
+
+<li>Use the correct tool.</li>
+<li>Use the correct unit.</li>
+<li>Read the scale carefully.</li>
+<li>Record the measurement immediately.</li>
+<li>Include the appropriate number of decimal places.</li>
+
+</ul>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="showW2(2)">
+◀ Back
+</button>
+
+<button class="red" onclick="showW2(4)">
+Collect Data ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+WEEK 2 PAGE 4 DATA TABLE
+===================================================== -->
+
+<section id="w2p4" class="page">
+
+<div class="card">
+
+<h2>📊 Measurement Data Table</h2>
+
+<p>
+Scientists record their measurements in organized tables.
+Enter the measurements from your three trials.
+</p>
+
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Trial</th>
+<th>Volume Measured</th>
+<th>Unit</th>
+<th>Mass Measured</th>
+<th>Unit</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+
+<td>
+<input
+id="w2vol1"
+type="number"
+step="0.1"
+oninput="calculateW2Data()">
+</td>
+
+<td>mL</td>
+
+<td>
+<input
+id="w2mass1"
+type="number"
+step="0.1"
+oninput="calculateW2Data()">
+</td>
+
+<td>g</td>
+
+</tr>
+
+
+<tr>
+<td>2</td>
+
+<td>
+<input
+id="w2vol2"
+type="number"
+step="0.1"
+oninput="calculateW2Data()">
+</td>
+
+<td>mL</td>
+
+<td>
+<input
+id="w2mass2"
+type="number"
+step="0.1"
+oninput="calculateW2Data()">
+</td>
+
+<td>g</td>
+
+</tr>
+
+
+<tr>
+<td>3</td>
+
+<td>
+<input
+id="w2vol3"
+type="number"
+step="0.1"
+oninput="calculateW2Data()">
+</td>
+
+<td>mL</td>
+
+<td>
+<input
+id="w2mass3"
+type="number"
+step="0.1"
+oninput="calculateW2Data()">
+</td>
+
+<td>g</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🧮 Math Practice: Find the Average</h2>
+
+<p>
+Add your three volume measurements and divide by 3.
+</p>
+
+<div class="bluebox">
+
+<strong>
+Average = (Trial 1 + Trial 2 + Trial 3) ÷ 3
+</strong>
+
+</div>
+
+<p>
+Your calculated average volume:
+</p>
+
+<div class="measurement-display">
+<span id="w2Average">—</span>
+</div>
+
+
+<label>
+What does your average tell you?
+</label>
+
+<textarea
+id="w2AverageExplanation"
+placeholder="The average tells me..."
+oninput="saveData()"></textarea>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="showW2(3)">
+◀ Back
+</button>
+
+<button class="red" onclick="showW2(5)">
+Apply Measurement ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+WEEK 2 PAGE 5
+===================================================== -->
+
+<section id="w2p5" class="page">
+
+<div class="card">
+
+<h2>⚖️ Apply Your Measurement Skills</h2>
+
+<p>
+Scientists sometimes use measurements to calculate other
+properties of matter.
+</p>
+
+
+<div class="density-box">
+
+<h3>Density</h3>
+
+<p style="font-size:22px;text-align:center;">
+
+<strong>
+Density = Mass ÷ Volume
+</strong>
+
+</p>
+
+<p>
+Density describes how much mass is packed into a certain
+volume of matter.
+</p>
+
+</div>
+
+
+<label>
+Mass
+</label>
+
+<input
+id="densityMass"
+type="number"
+step="0.1"
+placeholder="grams"
+oninput="checkDensity()">
+
+
+<label>
+Volume
+</label>
+
+<input
+id="densityVolume"
+type="number"
+step="0.1"
+placeholder="milliliters"
+oninput="checkDensity()">
+
+
+<div class="measurement-display">
+
+Density =
+<span id="densityAnswer">—</span>
+g/mL
+
+</div>
+
+<p id="densityFeedback"></p>
+
+
+<button class="yellow" onclick="toggle('densityHelp')">
+🧠 I Need Help
+</button>
+
+<div id="densityHelp" class="help" style="display:none">
+
+<p>
+Divide the mass by the volume.
+</p>
+
+<p>
+For example, if an object has a mass of 20 g and a volume
+of 10 mL:
+</p>
+
+<p>
+20 ÷ 10 = 2 g/mL
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>⭐ Challenge Question</h2>
+
+<p>
+Two objects have the same volume.
+Object A has a mass of 50 g.
+Object B has a mass of 80 g.
+</p>
+
+<p>
+Which object has the greater density?
+Explain your reasoning.
+</p>
+
+<textarea
+id="densityChallenge"
+placeholder="Object ___ has greater density because..."
+oninput="saveData()"></textarea>
+
+</div>
+
+
+<div class="card">
+
+<h2>🧠 Scientist Help</h2>
+
+<p>
+If you are stuck, use this sequence:
+</p>
+
+<ol>
+
+<li>Identify what you know.</li>
+
+<li>Identify what you need to find.</li>
+
+<li>Choose the correct formula.</li>
+
+<li>Substitute the numbers.</li>
+
+<li>Calculate.</li>
+
+<li>Include the correct unit.</li>
+
+</ol>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="showW2(4)">
+◀ Back
+</button>
+
+<button class="red" onclick="showW2(6)">
+Scientific Notebook ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+WEEK 2 PAGE 6
+===================================================== -->
+
+<section id="w2p6" class="page">
+
+<div class="card">
+
+<h2>📓 Week 2 Scientific Notebook</h2>
+
+<div class="success">
+
+<strong>Your Week 2 thinking is saved.</strong>
+
+<p>
+Review your measurements and explanations before
+finishing the week.
+</p>
+
+</div>
+
+
+<div class="notebook">
+
+<h3>🔬 Tool Selection</h3>
+
+<p id="w2SummaryTool">—</p>
+
+
+<h3>📏 Metric Math</h3>
+
+<p>
+1 liter =
+<strong>1,000 milliliters</strong>
+</p>
+
+
+<h3>📊 Average Volume</h3>
+
+<p>
+<strong id="w2SummaryAverage">—</strong>
+</p>
+
+
+<h3>⚖️ Density Calculation</h3>
+
+<p>
+<strong id="w2SummaryDensity">—</strong>
+</p>
+
+
+<h3>🧠 My Thinking</h3>
+
+<p id="w2SummaryExplanation">—</p>
+
+
+<h3>⭐ Challenge Response</h3>
+
+<p id="w2SummaryChallenge">—</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>🎫 Week 2 Exit Ticket</h2>
+
+<p>
+What is one thing you learned about scientific measurement?
+</p>
+
+<textarea
+id="w2ExitTicket"
+placeholder="I learned..."
+oninput="saveData()"></textarea>
+
+<br><br>
+
+<button class="green"
+onclick="saveData();alert('Your Week 2 work has been saved!')">
+
+💾 Save My Work
+
+</button>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="showW2(5)">
+◀ Back
+</button>
+
+<button class="red" onclick="showPage('home')">
+🏠 Return to Science Lab
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+MASTER NOTEBOOK
+===================================================== -->
+
+<section id="notebookHome" class="page">
+
+<div class="hero">
+
+<span class="badge">MY SCIENTIFIC NOTEBOOK</span>
+
+<h2>📓 My Science Notebook</h2>
+
+<p>
+This is your permanent workspace for scientific thinking.
+Use it to review evidence before writing CERs and answering
+future questions.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>🔬 Week 1 — Evaporation Investigation</h2>
+
+<div class="notebook">
+
+<h3>Prediction</h3>
+
+<p id="masterPrediction">—</p>
+
+<h3>Observations</h3>
+
+<p id="masterObservation">—</p>
+
+<h3>Data</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Temperature</th>
+<th>Trial 1</th>
+<th>Trial 2</th>
+<th>Trial 3</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>15°C</td>
+<td id="ms15_1">—</td>
+<td id="ms15_2">—</td>
+<td id="ms15_3">—</td>
+</tr>
+
+<tr>
+<td>25°C</td>
+<td id="ms25_1">—</td>
+<td id="ms25_2">—</td>
+<td id="ms25_3">—</td>
+</tr>
+
+<tr>
+<td>35°C</td>
+<td id="ms35_1">—</td>
+<td id="ms35_2">—</td>
+<td id="ms35_3">—</td>
+</tr>
+
+</tbody>
+
+</table>
+
+
+<h3>Pattern</h3>
+
+<p id="masterPattern">—</p>
+
+
+<h3>Claim</h3>
+
+<p id="masterClaim">—</p>
+
+
+<h3>Evidence</h3>
+
+<p id="masterEvidence">—</p>
+
+
+<h3>Reasoning</h3>
+
+<p id="masterReasoning">—</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>📏 Week 2 — Measurement</h2>
+
+<div class="notebook">
+
+<h3>Tool Selection</h3>
+
+<p id="masterTool">—</p>
+
+<h3>Average Volume</h3>
+
+<p id="masterAverage">—</p>
+
+<h3>Density</h3>
+
+<p id="masterDensity">—</p>
+
+<h3>My Thinking</h3>
+
+<p id="masterW2Thinking">—</p>
+
+<h3>Challenge</h3>
+
+<p id="masterW2Challenge">—</p>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="showPage('home')">
+🏠 Home
+</button>
+
+<button class="red" onclick="startWeek1()">
+Continue Week 1 →
+</button>
+
+</div>
+
+</section>
+
 
 </main>
 
@@ -1694,769 +2882,1313 @@ onclick="alert('Your Week 1 work is saved on this device. Great work, scientist!
 <footer>
 
 <strong>Science Lab</strong>
+
 <br>
+
 Grade 9 Earth & Universe Science
+
 <br><br>
-Week 1 • Introduction to Science
+
+One website • One Scientific Notebook • Many investigations
 
 </footer>
 
 
 <script>
 
-/* ============================
-   PAGE NAVIGATION
-============================ */
-
-let currentPage = 1;
-const totalPages = 7;
-
-function showPage(page){
-
-  document.querySelectorAll(".page").forEach(function(p){
-    p.classList.remove("active");
-  });
-
-  document.getElementById("page"+page).classList.add("active");
-
-  currentPage = page;
-
-  updateProgress();
-
-  if(page === 5){
-    updateGraph();
-  }
-
-  if(page === 7){
-    updateNotebookSummary();
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-function nextPage(){
-
-  if(currentPage < totalPages){
-    showPage(currentPage + 1);
-  }
-
-}
-
-function previousPage(){
-
-  if(currentPage > 1){
-    showPage(currentPage - 1);
-  }
-
-}
-
-
-/* ============================
-   PROGRESS
-============================ */
-
-function updateProgress(){
-
-  const percent =
-    Math.round(((currentPage - 1)/(totalPages - 1))*100);
-
-  document.getElementById("progressFill").style.width =
-    percent + "%";
-
-  document.getElementById("progressText").textContent =
-    "Step " + currentPage + " of " + totalPages;
-
-  document.getElementById("progressPercent").textContent =
-    percent + "%";
-
-}
-
-
-/* ============================
-   LOCAL STORAGE
-============================ */
+/* =====================================================
+GLOBAL DATA
+===================================================== */
 
 const fieldIDs = [
 
 "prediction",
 "readingEvidence",
-
 "notebookTemp",
 "notebookTrial",
 "notebookEnding",
 "notebookObservation",
-
 "greatestTemp",
 "pattern",
 "trialsReason",
 "mathChallenge",
-
 "claim",
 "evidence1",
 "evidence2",
 "evidence3",
 "reasoning",
 "challengeAnswer",
-"exitTicket"
+"exitTicket",
+
+"w2ToolPrediction",
+"metricAnswer",
+"measurementAnswer",
+"w2AverageExplanation",
+"densityMass",
+"densityVolume",
+"densityChallenge",
+"w2ExitTicket"
 
 ];
 
-function saveData(){
-
-  fieldIDs.forEach(function(id){
-
-    const el = document.getElementById(id);
-
-    if(el){
-      localStorage.setItem(
-        "scienceLab_"+id,
-        el.value
-      );
-    }
-
-  });
-
-  saveTable();
-
-}
-
-function loadData(){
-
-  fieldIDs.forEach(function(id){
-
-    const saved =
-      localStorage.getItem("scienceLab_"+id);
-
-    const el = document.getElementById(id);
-
-    if(saved !== null && el){
-      el.value = saved;
-    }
-
-  });
-
-  loadTable();
-
-  calculateTable();
-
-}
-
-
-/* ============================
-   TABLE STORAGE
-============================ */
 
 const tableIDs = [
 
 "d15_1","d15_2","d15_3",
 "d25_1","d25_2","d25_3",
-"d35_1","d35_2","d35_3"
+"d35_1","d35_2","d35_3",
+
+"w2vol1","w2vol2","w2vol3",
+"w2mass1","w2mass2","w2mass3"
 
 ];
 
-function saveTable(){
 
-  tableIDs.forEach(function(id){
+/* =====================================================
+PAGE NAVIGATION
+===================================================== */
 
-    const el = document.getElementById(id);
+function showPage(id){
 
-    if(el){
+document.querySelectorAll(".page").forEach(function(page){
 
-      localStorage.setItem(
-        "scienceLab_"+id,
-        el.value
-      );
+page.classList.remove("active");
 
-    }
+});
 
-  });
+const page=document.getElementById(id);
+
+if(page){
+page.classList.add("active");
+}
+
+if(id==="w1p5"){
+updateGraph();
+}
+
+if(id==="w1p7"){
+updateNotebookSummary();
+}
+
+if(id==="w2p6"){
+updateWeek2Notebook();
+}
+
+if(id==="notebookHome"){
+updateMasterNotebook();
+}
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
+
+
+function startWeek1(){
+
+showW1(1);
+
+}
+
+
+function startWeek2(){
+
+showW2(1);
+
+}
+
+
+function showW1(step){
+
+showPage("w1p"+step);
+
+const percent=Math.round(((step-1)/6)*100);
+
+const fill=document.getElementById("w1ProgressFill");
+
+const text=document.getElementById("w1ProgressText");
+
+const number=document.getElementById("w1ProgressPercent");
+
+if(fill) fill.style.width=percent+"%";
+
+if(text) text.textContent="Step "+step+" of 7";
+
+if(number) number.textContent=percent+"%";
+
+}
+
+
+function showW2(step){
+
+showPage("w2p"+step);
+
+const percent=Math.round(((step-1)/5)*100);
+
+const fill=document.getElementById("w2ProgressFill");
+
+const text=document.getElementById("w2ProgressText");
+
+const number=document.getElementById("w2ProgressPercent");
+
+if(fill) fill.style.width=percent+"%";
+
+if(text) text.textContent="Step "+step+" of 6";
+
+if(number) number.textContent=percent+"%";
+
+}
+
+
+/* =====================================================
+SAVE DATA
+===================================================== */
+
+function saveData(){
+
+fieldIDs.forEach(function(id){
+
+const el=document.getElementById(id);
+
+if(el){
+
+localStorage.setItem(
+"scienceLab_"+id,
+el.value
+);
+
+}
+
+});
+
+saveTable();
+
+}
+
+
+function loadData(){
+
+fieldIDs.forEach(function(id){
+
+const saved=localStorage.getItem(
+"scienceLab_"+id
+);
+
+const el=document.getElementById(id);
+
+if(saved!==null && el){
+
+el.value=saved;
+
+}
+
+});
+
+loadTable();
+
+calculateTable();
+
+calculateW2Data();
+
+}
+
+
+function saveTable(){
+
+tableIDs.forEach(function(id){
+
+const el=document.getElementById(id);
+
+if(el){
+
+localStorage.setItem(
+"scienceLab_"+id,
+el.value
+);
+
+}
+
+});
+
+}
+
 
 function loadTable(){
 
-  tableIDs.forEach(function(id){
+tableIDs.forEach(function(id){
 
-    const saved =
-      localStorage.getItem("scienceLab_"+id);
+const saved=localStorage.getItem(
+"scienceLab_"+id
+);
 
-    const el =
-      document.getElementById(id);
+const el=document.getElementById(id);
 
-    if(saved !== null && el){
-      el.value = saved;
-    }
+if(saved!==null && el){
 
-  });
+el.value=saved;
+
+}
+
+});
 
 }
 
 
-/* ============================
-   VIRTUAL LAB
-============================ */
+function savedValue(id){
 
-let selectedTemperature = null;
-let selectedTrial = 1;
-let currentMeasurement = null;
+return localStorage.getItem(
+"scienceLab_"+id
+) || "—";
 
-const labResults = {};
+}
+
+
+/* =====================================================
+WEEK 1 VIRTUAL LAB
+===================================================== */
+
+let selectedTemperature=null;
+
+let selectedTrial=1;
+
+let currentMeasurement=null;
+
+
+const labResults={};
+
 
 function selectTemperature(temp){
 
-  selectedTemperature = temp;
+selectedTemperature=temp;
 
-  document.getElementById("selectedTemp").textContent =
-    temp + "°C";
+document.getElementById("selectedTemp").textContent=
+temp+"°C";
 
-  document.getElementById("labResult").textContent =
-    "Temperature selected. Now run the trial.";
+document.getElementById("labResult").textContent=
+"Temperature selected. Now run the trial.";
 
 }
+
 
 function setTrial(trial){
 
-  selectedTrial = trial;
+selectedTrial=trial;
 
-  document.getElementById("trialNumber").textContent =
-    trial;
+document.getElementById("trialNumber").textContent=
+trial;
 
-  document.getElementById("labResult").textContent =
-    "Trial " + trial + " selected. Run the trial.";
+document.getElementById("labResult").textContent=
+"Trial "+trial+" selected. Run the trial.";
 
 }
+
 
 function runTrial(){
 
-  if(!selectedTemperature){
+if(!selectedTemperature){
 
-    alert("Please select a temperature first.");
+alert("Please select a temperature first.");
 
-    return;
-
-  }
-
-  const key =
-    selectedTemperature + "_" + selectedTrial;
-
-  /*
-    Realistic simulated measurements.
-    Each trial varies slightly.
-  */
-
-  const results = {
-
-    "15_1":94.2,
-    "15_2":93.7,
-    "15_3":94.5,
-
-    "25_1":86.8,
-    "25_2":87.3,
-    "25_3":86.1,
-
-    "35_1":75.4,
-    "35_2":74.8,
-    "35_3":75.9
-
-  };
-
-  currentMeasurement = results[key];
-
-  labResults[key] = currentMeasurement;
-
-  const waterPercent =
-    currentMeasurement;
-
-  document.getElementById("labWater").style.height =
-    waterPercent + "%";
-
-  document.getElementById("labMeasurement").textContent =
-    currentMeasurement.toFixed(1) + " mL";
-
-  document.getElementById("labResult").innerHTML =
-    "Trial complete! Observe the ending-water measurement: " +
-    "<strong>" +
-    currentMeasurement.toFixed(1) +
-    " mL</strong>";
-
-  document.getElementById("notebookTemp").value =
-    selectedTemperature + "°C";
-
-  document.getElementById("notebookTrial").value =
-    selectedTrial;
-
-  document.getElementById("notebookEnding").value =
-    currentMeasurement.toFixed(1);
-
-  saveData();
+return;
 
 }
 
 
-/* ============================
-   NOTEBOOK
-============================ */
+const key=
+selectedTemperature+"_"+selectedTrial;
+
+
+const results={
+
+"15_1":94.2,
+"15_2":93.7,
+"15_3":94.5,
+
+"25_1":86.8,
+"25_2":87.3,
+"25_3":86.1,
+
+"35_1":75.4,
+"35_2":74.8,
+"35_3":75.9
+
+};
+
+
+currentMeasurement=results[key];
+
+labResults[key]=currentMeasurement;
+
+
+document.getElementById("labWater").style.height=
+currentMeasurement+"%";
+
+
+document.getElementById("labMeasurement").textContent=
+currentMeasurement.toFixed(1)+" mL";
+
+
+document.getElementById("labResult").innerHTML=
+"Trial complete! Ending water: <strong>"+
+currentMeasurement.toFixed(1)+
+" mL</strong>";
+
+
+document.getElementById("notebookTemp").value=
+selectedTemperature+"°C";
+
+
+document.getElementById("notebookTrial").value=
+selectedTrial;
+
+
+document.getElementById("notebookEnding").value=
+currentMeasurement.toFixed(1);
+
+
+saveData();
+
+}
+
+
+/* =====================================================
+WEEK 1 NOTEBOOK ENTRY
+===================================================== */
 
 function saveNotebookEntry(){
 
-  const ending =
-    parseFloat(
-      document.getElementById("notebookEnding").value
-    );
+const ending=parseFloat(
+document.getElementById("notebookEnding").value
+);
 
-  if(isNaN(ending)){
 
-    alert("Run a trial and record the ending-water measurement first.");
+if(isNaN(ending)){
 
-    return;
+alert(
+"Run a trial and record the ending-water measurement first."
+);
 
-  }
-
-  const temp =
-    document.getElementById("notebookTemp").value;
-
-  const trial =
-    document.getElementById("notebookTrial").value;
-
-  let inputID = "";
-
-  if(temp === "15°C"){
-
-    inputID = "d15_"+trial;
-
-  }else if(temp === "25°C"){
-
-    inputID = "d25_"+trial;
-
-  }else if(temp === "35°C"){
-
-    inputID = "d35_"+trial;
-
-  }
-
-  if(inputID){
-
-    document.getElementById(inputID).value =
-      ending.toFixed(1);
-
-    saveData();
-
-    calculateTable();
-
-    document.getElementById("notebookMessage").innerHTML =
-      '<span style="color:#15803d;font-weight:bold;">✓ Notebook entry saved to your data table.</span>';
-
-  }
+return;
 
 }
 
 
-/* ============================
-   DATA TABLE CALCULATIONS
-============================ */
+const temp=
+document.getElementById("notebookTemp").value;
+
+const trial=
+document.getElementById("notebookTrial").value;
+
+
+let inputID="";
+
+
+if(temp==="15°C"){
+inputID="d15_"+trial;
+}
+
+else if(temp==="25°C"){
+inputID="d25_"+trial;
+}
+
+else if(temp==="35°C"){
+inputID="d35_"+trial;
+}
+
+
+if(inputID){
+
+document.getElementById(inputID).value=
+ending.toFixed(1);
+
+saveData();
+
+calculateTable();
+
+
+document.getElementById("notebookMessage").innerHTML=
+'<span style="color:#15803d;font-weight:bold;">✓ Notebook entry saved to your data table.</span>';
+
+}
+
+}
+
+
+/* =====================================================
+WEEK 1 DATA
+===================================================== */
 
 function calculateTable(){
 
-  let complete = 0;
+const groups=[
 
-  tableIDs.forEach(function(id){
+["d15_1","d15_2","d15_3","avg15"],
+["d25_1","d25_2","d25_3","avg25"],
+["d35_1","d35_2","d35_3","avg35"]
 
-    const ending =
-      parseFloat(
-        document.getElementById(id).value
-      );
-
-    const lostID =
-      id.replace("d","l");
-
-    const output =
-      document.getElementById(lostID);
-
-    if(isNaN(ending)){
-
-      output.textContent = "—";
-
-      return;
-
-    }
-
-    if(ending < 0 || ending > 100){
-
-      output.textContent = "Check";
-
-      return;
-
-    }
-
-    const lost =
-      100 - ending;
-
-    output.textContent =
-      lost.toFixed(1) + " mL";
-
-    complete++;
-
-  });
+];
 
 
-  calculateAverage(
-    "d15_1",
-    "d15_2",
-    "d15_3",
-    "avg15"
-  );
+tableIDs.slice(0,9).forEach(function(id){
 
-  calculateAverage(
-    "d25_1",
-    "d25_2",
-    "d25_3",
-    "avg25"
-  );
+const ending=parseFloat(
+document.getElementById(id).value
+);
 
-  calculateAverage(
-    "d35_1",
-    "d35_2",
-    "d35_3",
-    "avg35"
-  );
+const output=document.getElementById(
+id.replace("d","l")
+);
 
-  saveTable();
+if(!output) return;
+
+if(isNaN(ending)){
+
+output.textContent="—";
+
+return;
+
+}
+
+if(ending<0 || ending>100){
+
+output.textContent="Check";
+
+return;
+
+}
+
+const lost=100-ending;
+
+output.textContent=
+lost.toFixed(1)+" mL";
+
+});
+
+
+groups.forEach(function(group){
+
+const avg=calculateAverage(
+group[0],
+group[1],
+group[2]
+);
+
+const output=document.getElementById(group[3]);
+
+if(avg===null){
+
+output.textContent="—";
+
+}
+
+else{
+
+output.textContent=
+avg.toFixed(1)+" mL";
+
+}
+
+});
+
+saveTable();
 
 }
 
 
-function calculateAverage(a,b,c,outputID){
+function calculateAverage(a,b,c){
 
-  const values = [a,b,c].map(function(id){
+const values=[a,b,c].map(function(id){
 
-    const ending =
-      parseFloat(
-        document.getElementById(id).value
-      );
+const ending=parseFloat(
+document.getElementById(id).value
+);
 
-    if(isNaN(ending)){
-      return null;
-    }
+if(isNaN(ending)){
+return null;
+}
 
-    return 100-ending;
+return 100-ending;
 
-  });
-
-
-  if(values.includes(null)){
-
-    document.getElementById(outputID).textContent =
-      "—";
-
-    return null;
-
-  }
+});
 
 
-  const average =
-    (values[0]+values[1]+values[2])/3;
-
-  document.getElementById(outputID).textContent =
-    average.toFixed(1) + " mL";
-
-  return average;
-
+if(values.includes(null)){
+return null;
 }
 
 
-/* ============================
-   GRAPH
-============================ */
+return(
+values[0]+values[1]+values[2]
+)/3;
+
+}
+
 
 function getAverageValue(a,b,c){
 
-  const values = [a,b,c].map(function(id){
-
-    const ending =
-      parseFloat(
-        document.getElementById(id).value
-      );
-
-    if(isNaN(ending)){
-      return null;
-    }
-
-    return 100-ending;
-
-  });
-
-  if(values.includes(null)){
-    return null;
-  }
-
-  return (
-    values[0]+values[1]+values[2]
-  )/3;
+return calculateAverage(a,b,c);
 
 }
 
 
+/* =====================================================
+WEEK 1 GRAPH
+===================================================== */
+
 function updateGraph(){
 
-  const a15 =
-    getAverageValue(
-      "d15_1","d15_2","d15_3"
-    );
+const a15=getAverageValue(
+"d15_1","d15_2","d15_3"
+);
 
-  const a25 =
-    getAverageValue(
-      "d25_1","d25_2","d25_3"
-    );
+const a25=getAverageValue(
+"d25_1","d25_2","d25_3"
+);
 
-  const a35 =
-    getAverageValue(
-      "d35_1","d35_2","d35_3"
-    );
+const a35=getAverageValue(
+"d35_1","d35_2","d35_3"
+);
 
 
-  updateBar("bar15","bar15Label",a15);
-  updateBar("bar25","bar25Label",a25);
-  updateBar("bar35","bar35Label",a35);
+updateBar("bar15","bar15Label",a15);
+
+updateBar("bar25","bar25Label",a25);
+
+updateBar("bar35","bar35Label",a35);
 
 }
 
 
 function updateBar(barID,labelID,value){
 
-  const bar =
-    document.getElementById(barID);
+const bar=document.getElementById(barID);
 
-  const label =
-    document.getElementById(labelID);
+const label=document.getElementById(labelID);
 
-  if(value === null){
+if(!bar || !label) return;
 
-    bar.style.height = "20px";
 
-    label.textContent = "—";
+if(value===null){
 
-    return;
+bar.style.height="20px";
 
-  }
+label.textContent="—";
 
-  /*
-    Scale graph so 100% corresponds to
-    40 mL water lost.
-  */
-
-  const height =
-    Math.max(25,Math.min(220,(value/40)*220));
-
-  bar.style.height =
-    height + "px";
-
-  label.textContent =
-    value.toFixed(1) + " mL";
+return;
 
 }
 
 
-/* ============================
-   MATH CHALLENGE
-============================ */
+const height=
+Math.max(
+25,
+Math.min(
+220,
+(value/40)*220
+)
+);
+
+
+bar.style.height=
+height+"px";
+
+label.textContent=
+value.toFixed(1)+" mL";
+
+}
+
+
+/* =====================================================
+WEEK 1 MATH CHALLENGE
+===================================================== */
 
 function checkMathChallenge(){
 
-  const answer =
-    parseFloat(
-      document.getElementById("mathChallenge").value
-    );
+const answer=parseFloat(
+document.getElementById("mathChallenge").value
+);
 
-  const a15 =
-    getAverageValue(
-      "d15_1","d15_2","d15_3"
-    );
+const a15=getAverageValue(
+"d15_1","d15_2","d15_3"
+);
 
-  const a35 =
-    getAverageValue(
-      "d35_1","d35_2","d35_3"
-    );
+const a35=getAverageValue(
+"d35_1","d35_2","d35_3"
+);
 
-  const feedback =
-    document.getElementById("mathFeedback");
+const feedback=document.getElementById(
+"mathFeedback"
+);
 
 
-  if(
-    isNaN(answer) ||
-    a15 === null ||
-    a35 === null
-  ){
+if(
+isNaN(answer) ||
+a15===null ||
+a35===null
+){
 
-    feedback.textContent = "";
+feedback.textContent="";
 
-    return;
-
-  }
-
-
-  const correct =
-    a35-a15;
-
-
-  if(Math.abs(answer-correct)<0.11){
-
-    feedback.innerHTML =
-      '<span style="color:#15803d;font-weight:bold;">✓ Correct! You compared the two averages.</span>';
-
-  }else{
-
-    feedback.innerHTML =
-      '<span style="color:#b91c1c;">Not quite. Subtract the 15°C average from the 35°C average.</span>';
-
-  }
+return;
 
 }
 
 
-/* ============================
-   READING QUESTION
-============================ */
+const correct=a35-a15;
+
+
+if(Math.abs(answer-correct)<0.11){
+
+feedback.innerHTML=
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! You compared the two averages.</span>';
+
+}
+
+else{
+
+feedback.innerHTML=
+'<span style="color:#b91c1c;">Not quite. Subtract the 15°C average from the 35°C average.</span>';
+
+}
+
+}
+
+
+/* =====================================================
+READING
+===================================================== */
 
 function readingAnswer(element,correct){
 
-  document.querySelectorAll("#page2 .choice")
-    .forEach(function(choice){
+document.querySelectorAll(
+"#w1p2 .choice"
+).forEach(function(choice){
 
-      choice.classList.remove("correct");
-      choice.classList.remove("incorrect");
+choice.classList.remove("correct");
 
-    });
+choice.classList.remove("incorrect");
+
+});
 
 
-  if(correct){
+if(correct){
 
-    element.classList.add("correct");
+element.classList.add("correct");
 
-    document.getElementById("readingFeedback").innerHTML =
-      '<span style="color:#15803d;font-weight:bold;">✓ Correct!</span>';
+document.getElementById(
+"readingFeedback"
+).innerHTML=
+'<span style="color:#15803d;font-weight:bold;">✓ Correct!</span>';
 
-  }else{
+}
 
-    element.classList.add("incorrect");
+else{
 
-    document.getElementById("readingFeedback").innerHTML =
-      '<span style="color:#b91c1c;">Try again. Look at what happens to liquid water during evaporation.</span>';
+element.classList.add("incorrect");
 
-  }
+document.getElementById(
+"readingFeedback"
+).innerHTML=
+'<span style="color:#b91c1c;">Try again. Look at what happens to liquid water during evaporation.</span>';
+
+}
 
 }
 
 
-/* ============================
-   HELP
-============================ */
+/* =====================================================
+HELP
+===================================================== */
 
 function toggle(id){
 
-  const box =
-    document.getElementById(id);
+const box=document.getElementById(id);
 
-  if(box.style.display === "none"){
+if(!box) return;
 
-    box.style.display = "block";
 
-  }else{
+if(box.style.display==="none"){
 
-    box.style.display = "none";
+box.style.display="block";
 
-  }
+}
+
+else{
+
+box.style.display="none";
+
+}
 
 }
 
 
-/* ============================
-   NOTEBOOK SUMMARY
-============================ */
-
-function value(id){
-
-  return localStorage.getItem(
-    "scienceLab_"+id
-  ) || "—";
-
-}
-
+/* =====================================================
+WEEK 1 NOTEBOOK SUMMARY
+===================================================== */
 
 function updateNotebookSummary(){
 
-  document.getElementById("summaryPrediction")
-    .textContent =
-    value("prediction");
+document.getElementById("summaryPrediction").textContent=
+savedValue("prediction");
 
-  document.getElementById("summaryObservation")
-    .textContent =
-    value("notebookObservation");
+document.getElementById("summaryObservation").textContent=
+savedValue("notebookObservation");
 
-  document.getElementById("summaryPattern")
-    .textContent =
-    value("pattern");
+document.getElementById("summaryPattern").textContent=
+savedValue("pattern");
 
-  document.getElementById("summaryClaim")
-    .textContent =
-    value("claim");
+document.getElementById("summaryClaim").textContent=
+savedValue("claim");
 
 
-  const evidence =
-    value("evidence1") +
-    " " +
-    value("evidence2") +
-    " " +
-    value("evidence3");
+document.getElementById("summaryEvidence").textContent=
 
-  document.getElementById("summaryEvidence")
-    .textContent =
-    evidence;
+savedValue("evidence1")+
+" "+
+savedValue("evidence2")+
+" "+
+savedValue("evidence3");
 
 
-  document.getElementById("summaryReasoning")
-    .textContent =
-    value("reasoning");
+document.getElementById("summaryReasoning").textContent=
+savedValue("reasoning");
 
 
-  tableIDs.forEach(function(id){
+tableIDs.slice(0,9).forEach(function(id){
 
-    const saved =
-      localStorage.getItem(
-        "scienceLab_"+id
-      );
+const saved=localStorage.getItem(
+"scienceLab_"+id
+);
 
-    const summaryID =
-      id.replace("d","s");
+const summaryID=id.replace("d","s");
 
-    const cell =
-      document.getElementById(summaryID);
+const cell=document.getElementById(summaryID);
 
-    if(saved && cell){
+if(saved && cell){
 
-      cell.textContent =
-        saved + " mL";
+cell.textContent=saved+" mL";
 
-    }
+}
 
-  });
+});
 
 }
 
 
-/* ============================
-   START
-============================ */
+/* =====================================================
+WEEK 2 MULTIPLE CHOICE
+===================================================== */
 
-window.addEventListener("load",function(){
+function w2Choice(element,correct){
 
-  loadData();
+document.querySelectorAll(
+"#w2p2 .choice"
+).forEach(function(choice){
 
-  updateProgress();
+choice.classList.remove("correct");
+
+choice.classList.remove("incorrect");
 
 });
+
+
+if(correct){
+
+element.classList.add("correct");
+
+document.getElementById(
+"w2ChoiceFeedback"
+).innerHTML=
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! Milliliters are used to measure liquid volume.</span>';
+
+}
+
+else{
+
+element.classList.add("incorrect");
+
+document.getElementById(
+"w2ChoiceFeedback"
+).innerHTML=
+'<span style="color:#b91c1c;">Try again. Think about what quantity you are measuring.</span>';
+
+}
+
+}
+
+
+/* =====================================================
+WEEK 2 METRIC MATH
+===================================================== */
+
+function checkMetricAnswer(){
+
+const answer=parseFloat(
+document.getElementById("metricAnswer").value
+);
+
+const feedback=document.getElementById(
+"metricFeedback"
+);
+
+
+if(isNaN(answer)){
+
+feedback.textContent="";
+
+return;
+
+}
+
+
+if(answer===1000){
+
+feedback.innerHTML=
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! 1 L = 1,000 mL.</span>';
+
+}
+
+else{
+
+feedback.innerHTML=
+'<span style="color:#b91c1c;">Not quite. Think about the prefix milli-.</span>';
+
+}
+
+}
+
+
+/* =====================================================
+WEEK 2 MEASUREMENT PRACTICE
+===================================================== */
+
+let measurementValue=42.0;
+
+
+function newMeasurement(){
+
+const choices=[
+12.5,
+18.0,
+27.5,
+36.2,
+42.0,
+54.5,
+63.0,
+75.5
+];
+
+measurementValue=
+choices[
+Math.floor(
+Math.random()*choices.length
+)
+];
+
+
+document.getElementById(
+"measurementNumber"
+).textContent=
+measurementValue.toFixed(1);
+
+
+document.getElementById(
+"measurementAnswer"
+).value="";
+
+
+document.getElementById(
+"measurementFeedback"
+).textContent="";
+
+}
+
+
+function checkMeasurement(){
+
+const answer=parseFloat(
+document.getElementById("measurementAnswer").value
+);
+
+const feedback=document.getElementById(
+"measurementFeedback"
+);
+
+
+if(isNaN(answer)){
+
+feedback.textContent="";
+
+return;
+
+}
+
+
+if(Math.abs(answer-measurementValue)<0.01){
+
+feedback.innerHTML=
+'<span style="color:#15803d;font-weight:bold;">✓ Correct measurement!</span>';
+
+}
+
+else{
+
+feedback.innerHTML=
+'<span style="color:#b91c1c;">Look carefully at the measurement display and try again.</span>';
+
+}
+
+}
+
+
+/* =====================================================
+WEEK 2 DATA
+===================================================== */
+
+function calculateW2Data(){
+
+const values=[
+"w2vol1",
+"w2vol2",
+"w2vol3"
+].map(function(id){
+
+const value=parseFloat(
+document.getElementById(id).value
+);
+
+return isNaN(value)?null:value;
+
+});
+
+
+let average=null;
+
+
+if(!values.includes(null)){
+
+average=
+(
+values[0]+
+values[1]+
+values[2]
+)/3;
+
+}
+
+
+const output=document.getElementById(
+"w2Average"
+);
+
+
+if(average===null){
+
+output.textContent="—";
+
+}
+
+else{
+
+output.textContent=
+average.toFixed(1)+" mL";
+
+}
+
+
+saveTable();
+
+}
+
+
+/* =====================================================
+WEEK 2 DENSITY
+===================================================== */
+
+function checkDensity(){
+
+const mass=parseFloat(
+document.getElementById("densityMass").value
+);
+
+const volume=parseFloat(
+document.getElementById("densityVolume").value
+);
+
+const output=document.getElementById(
+"densityAnswer"
+);
+
+const feedback=document.getElementById(
+"densityFeedback"
+);
+
+
+if(
+isNaN(mass) ||
+isNaN(volume) ||
+volume===0
+){
+
+output.textContent="—";
+
+feedback.textContent="";
+
+return;
+
+}
+
+
+const density=mass/volume;
+
+
+output.textContent=
+density.toFixed(2);
+
+
+feedback.innerHTML=
+'<span style="color:#15803d;">✓ Mass divided by volume gives density.</span>';
+
+saveData();
+
+}
+
+
+/* =====================================================
+WEEK 2 NOTEBOOK
+===================================================== */
+
+function getW2Average(){
+
+const values=[
+"w2vol1",
+"w2vol2",
+"w2vol3"
+].map(function(id){
+
+const value=parseFloat(
+document.getElementById(id).value
+);
+
+return isNaN(value)?null:value;
+
+});
+
+
+if(values.includes(null)){
+
+return null;
+
+}
+
+
+return(
+values[0]+
+values[1]+
+values[2]
+)/3;
+
+}
+
+
+function getW2Density(){
+
+const mass=parseFloat(
+document.getElementById("densityMass").value
+);
+
+const volume=parseFloat(
+document.getElementById("densityVolume").value
+);
+
+
+if(
+isNaN(mass) ||
+isNaN(volume) ||
+volume===0
+){
+
+return null;
+
+}
+
+
+return mass/volume;
+
+}
+
+
+function updateWeek2Notebook(){
+
+const average=getW2Average();
+
+const density=getW2Density();
+
+
+document.getElementById(
+"w2SummaryTool"
+).textContent=
+savedValue("w2ToolPrediction");
+
+
+document.getElementById(
+"w2SummaryAverage"
+).textContent=
+average===null?
+"—":
+average.toFixed(1)+" mL";
+
+
+document.getElementById(
+"w2SummaryDensity"
+).textContent=
+density===null?
+"—":
+density.toFixed(2)+" g/mL";
+
+
+document.getElementById(
+"w2SummaryExplanation"
+).textContent=
+savedValue("w2AverageExplanation");
+
+
+document.getElementById(
+"w2SummaryChallenge"
+).textContent=
+savedValue("densityChallenge");
+
+}
+
+
+/* =====================================================
+MASTER NOTEBOOK
+===================================================== */
+
+function updateMasterNotebook(){
+
+document.getElementById(
+"masterPrediction"
+).textContent=
+savedValue("prediction");
+
+
+document.getElementById(
+"masterObservation"
+).textContent=
+savedValue("notebookObservation");
+
+
+document.getElementById(
+"masterPattern"
+).textContent=
+savedValue("pattern");
+
+
+document.getElementById(
+"masterClaim"
+).textContent=
+savedValue("claim");
+
+
+document.getElementById(
+"masterEvidence"
+).textContent=
+
+savedValue("evidence1")+
+" "+
+savedValue("evidence2")+
+" "+
+savedValue("evidence3");
+
+
+document.getElementById(
+"masterReasoning"
+).textContent=
+savedValue("reasoning");
+
+
+document.getElementById(
+"masterTool"
+).textContent=
+savedValue("w2ToolPrediction");
+
+
+const average=getW2Average();
+
+document.getElementById(
+"masterAverage"
+).textContent=
+average===null?
+"—":
+average.toFixed(1)+" mL";
+
+
+const density=getW2Density();
+
+document.getElementById(
+"masterDensity"
+).textContent=
+density===null?
+"—":
+density.toFixed(2)+" g/mL";
+
+
+document.getElementById(
+"masterW2Thinking"
+).textContent=
+savedValue("w2AverageExplanation");
+
+
+document.getElementById(
+"masterW2Challenge"
+).textContent=
+savedValue("densityChallenge");
+
+
+tableIDs.slice(0,9).forEach(function(id){
+
+const saved=localStorage.getItem(
+"scienceLab_"+id
+);
+
+const summaryID=
+id.replace("d","ms");
+
+const cell=document.getElementById(summaryID);
+
+if(saved && cell){
+
+cell.textContent=
+saved+" mL";
+
+}
+
+});
+
+}
+
+
+/* =====================================================
+START
+===================================================== */
+
+window.addEventListener(
+"load",
+function(){
+
+loadData();
+
+updateNotebookSummary();
+
+updateWeek2Notebook();
+
+updateMasterNotebook();
+
+}
+);
 
 </script>
 
