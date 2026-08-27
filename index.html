@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science Lab</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #eef6ff;
+      color: #18324a;
+    }
+
+    header {
+      background: #1769aa;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    header p {
+      font-size: 20px;
+      margin-bottom: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .welcome {
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .welcome h2 {
+      font-size: 30px;
+    }
+
+    .lab-card {
+      background: #ffffff;
+      margin-top: 25px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .lab-card h2 {
+      color: #1769aa;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .step {
+      padding: 22px;
+      border-radius: 14px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .read {
+      background: #dceeff;
+    }
+
+    .investigate {
+      background: #dff7e5;
+    }
+
+    .evidence {
+      background: #fff3c4;
+    }
+
+    .cer {
+      background: #f1ddff;
+    }
+
+    .start-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 16px 35px;
+      background: #1769aa;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .start-button:hover {
+      background: #0d4f82;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #557;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🧪 Science Lab</h1>
+    <p>Earth & Universe Science</p>
+  </header>
+
+  <div class="container">
+
+    <div class="welcome">
+      <h2>Welcome, Scientist! 👩‍🔬👨‍🔬</h2>
+
+      <p>
+        Today you will investigate a science question,
+        collect evidence, and explain what you discovered.
+      </p>
+
+      <div class="lab-card">
+        <h2>🔎 Week 1 Investigation</h2>
+
+        <h3>Observation vs. Inference</h3>
+
+        <p>
+          <strong>Essential Question:</strong><br>
+          How do scientists use observations and evidence
+          to learn about the world?
+        </p>
+
+        <div class="steps">
+
+          <div class="step read">
+            📖<br>
+            READ
+          </div>
+
+          <div class="step investigate">
+            🔬<br>
+            INVESTIGATE
+          </div>
+
+          <div class="step evidence">
+            🟩<br>
+            FIND EVIDENCE
+          </div>
+
+          <div class="step cer">
+            ✍️<br>
+            WRITE CER
+          </div>
+
+        </div>
+
+        <button class="start-button" onclick="startLab()">
+          Start Investigation
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Science Lab • Earth & Universe
+  </footer>
+
+  <script>
+    function startLab() {
+      alert("Welcome, Scientist! Your first investigation is coming next.");
+    }
+  </script>
+
+</body>
+</html>
