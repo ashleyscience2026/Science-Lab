@@ -1,206 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Science Lab</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Science Lab</title>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #eef6ff;
-      color: #18324a;
-    }
+<style>
 
-    header {
-      background: #1769aa;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 42px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef6ff;
+  color: #18324a;
+}
 
-    header p {
-      font-size: 20px;
-      margin-bottom: 0;
-    }
+header {
+  background: #1769aa;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-    }
+header h1 {
+  margin: 0;
+  font-size: 38px;
+}
 
-    .welcome {
-      background: white;
-      border-radius: 18px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
+header p {
+  margin: 8px 0 0;
+  font-size: 18px;
+}
 
-    .welcome h2 {
-      font-size: 30px;
-    }
+.container {
+  max-width: 900px;
+  margin: 25px auto;
+  padding: 20px;
+}
 
-    .lab-card {
-      background: #ffffff;
-      margin-top: 25px;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  margin-bottom: 20px;
+}
 
-    .lab-card h2 {
-      color: #1769aa;
-    }
+h2 {
+  color: #1769aa;
+}
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin-top: 25px;
-    }
+h3 {
+  margin-top: 25px;
+}
 
-    .step {
-      padding: 22px;
-      border-radius: 14px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
+button {
+  background: #1769aa;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 8px 4px;
+}
 
-    .read {
-      background: #dceeff;
-    }
+button:hover {
+  background: #0d4f82;
+}
 
-    .investigate {
-      background: #dff7e5;
-    }
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #f1f7fc;
+  color: #18324a;
+  border: 2px solid #c8ddec;
+  margin: 10px 0;
+}
 
-    .evidence {
-      background: #fff3c4;
-    }
+.option:hover {
+  background: #dceeff;
+}
 
-    .cer {
-      background: #f1ddff;
-    }
+.correct {
+  background: #dff7e5 !important;
+  border-color: #4caf70 !important;
+}
 
-    .start-button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 16px 35px;
-      background: #1769aa;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-size: 20px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
+.incorrect {
+  background: #ffe0e0 !important;
+  border-color: #d9534f !important;
+}
 
-    .start-button:hover {
-      background: #0d4f82;
-    }
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 14px;
+  font-size: 18px;
+  border: 2px solid #c8ddec;
+  border-radius: 10px;
+  resize: vertical;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #557;
-    }
+.vocab {
+  background: #f5f9ff;
+  border-left: 5px solid #1769aa;
+  padding: 12px;
+  margin: 10px 0;
+}
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 32px;
-      }
+.visual {
+  background: linear-gradient(#c9e8ff, #ffffff);
+  border-radius: 15px;
+  padding: 35px;
+  text-align: center;
+  font-size: 55px;
+  margin: 20px 0;
+}
 
-      .steps {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.feedback {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.progress {
+  background: #d9e6f0;
+  height: 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  background: #36a269;
+  height: 14px;
+  width: 0%;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}
+
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🧪 Science Lab</h1>
-    <p>Earth & Universe Science</p>
-  </header>
+<header>
 
-  <div class="container">
+<h1>🧪 Science Lab</h1>
 
-    <div class="welcome">
-      <h2>Welcome, Scientist! 👩‍🔬👨‍🔬</h2>
+<p>Earth & Universe Science • Grade 9</p>
 
-      <p>
-        Today you will investigate a science question,
-        collect evidence, and explain what you discovered.
-      </p>
+</header>
 
-      <div class="lab-card">
-        <h2>🔎 Week 1 Investigation</h2>
+<div class="container">
 
-        <h3>Observation vs. Inference</h3>
+<div class="progress">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
 
-        <p>
-          <strong>Essential Question:</strong><br>
-          How do scientists use observations and evidence
-          to learn about the world?
-        </p>
+<div id="app"></div>
 
-        <div class="steps">
+</div>
 
-          <div class="step read">
-            📖<br>
-            READ
-          </div>
+<script>
 
-          <div class="step investigate">
-            🔬<br>
-            INVESTIGATE
-          </div>
+let currentStep = 0;
 
-          <div class="step evidence">
-            🟩<br>
-            FIND EVIDENCE
-          </div>
+const steps = [
+  "welcome",
+  "reading",
+  "questions",
+  "observation",
+  "inference",
+  "evidence",
+  "cer",
+  "reflection",
+  "complete"
+];
 
-          <div class="step cer">
-            ✍️<br>
-            WRITE CER
-          </div>
+function progress() {
 
-        </div>
+  const percent =
+    (currentStep / (steps.length - 1)) * 100;
 
-        <button class="start-button" onclick="startLab()">
-          Start Investigation
-        </button>
+  document.getElementById("progressBar").style.width =
+    percent + "%";
+}
 
-      </div>
-    </div>
+function show(step) {
 
-  </div>
+  currentStep = steps.indexOf(step);
 
-  <footer>
-    Science Lab • Earth & Universe
-  </footer>
+  progress();
 
-  <script>
-    function startLab() {
-      alert("Welcome, Scientist! Your first investigation is coming next.");
-    }
-  </script>
+  if (step === "welcome") welcome();
+
+  if (step === "reading") reading();
+
+  if (step === "questions") questions();
+
+  if (step === "observation") observation();
+
+  if (step === "inference") inference();
+
+  if (step === "evidence") evidence();
+
+  if (step === "cer") cer();
+
+  if (step === "reflection") reflection();
+
+  if (step === "complete") complete();
+}
+
+function welcome() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card center">
+
+<h2>🔬 Week 1 • Monday</h2>
+
+<h1>What Is Science?</h1>
+
+<p>
+<strong>Essential Question:</strong>
+</p>
+
+<p>
+How do scientists learn about the world?
+</p>
+
+<p>
+Today you will read, investigate,
+collect evidence, and write a CER.
+</p>
+
+<button onclick="show('reading')">
+Start Investigation →
+</button>
+
+</div>
+
+`;
+
+}
+
+function reading() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card">
+
+<h2>📖 Step 1 — Read</h2>
+
+<h3>What Is Science?</h3>
+
+<p>
+
+Science is a way of learning about the natural world
+through observation, investigation, and evidence.
+Scientists study questions about Earth, space,
+living things, matter, energy, and many other parts
+of the universe.
+
+</p>
+
+<p>
+
+Scientists do not rely only on opinions or guesses.
+Instead, they collect information and use evidence
+to develop explanations.
+
+</p>
+
+<p>
+
+Scientists often begin with an observation or question.
+They may use tools to collect measurements or conduct
+an investigation. The information they collect can help
+them identify patterns and determine whether an
+explanation is supported by evidence.
+
+</p>
+
+<p>
+
+Science is an ongoing process. New evidence can cause
+scientists to change or improve an explanation.
+Scientists must be willing to ask questions, examine
+evidence, and revise their thinking when new
+information becomes available.
+
+</p>
+
+<button onclick="speakReading()">
+🔊 Listen
+</button>
+
+<h3>📚 Vocabulary</h3>
+
+<div class="vocab">
+<strong>Observation</strong> — information collected
+using senses or scientific tools.
+</div>
+
+<div class="vocab">
+<strong>Evidence</strong> — information used to support
+or evaluate an explanation.
+</div>
+
+<div class="vocab">
+<strong>Explanation</strong> — an idea that describes
+why or how something happens.
+</div>
+
+<div class="vocab">
+<strong>Revise</strong> — to change or improve an idea
+using new information.
+</div>
+
+<button onclick="show('questions')">
+Continue →
+</button>
+
+</div>
+
+`;
+
+}
+
+function speakReading() {
+
+const text =
+document.querySelector(".card").innerText;
+
+const speech = new SpeechSynthesisUtterance(text);
+
+speech.rate = 0.85;
+
+speech.pitch = 1;
+
+window.speechSynthesis.cancel();
+
+window.speechSynthesis.speak(speech);
+
+}
+
+function questions() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card">
+
+<h2>🧠 Step 2 — Show What You Understand</h2>
+
+<h3>
+1. What is the central idea of the reading?
+</h3>
+
+<button class="option"
+onclick="answer(this,false)">
+A. Scientists only study Earth.
+</button>
+
+<button class="option"
+onclick="answer(this,true)">
+B. Scientists use observations, investigations,
+and evidence to learn about the natural world.
+</button>
+
+<button class="option"
+onclick="answer(this,false)">
+C. Scientists always know the correct answer.
+</button>
+
+<button class="option"
+onclick="answer(this,false)">
+D. Scientists do not need tools.
+</button>
+
+<div id="feedback1" class="feedback"></div>
+
+<h3>
+2. What does the word "revise" mean?
+</h3>
+
+<button class="option"
+onclick="answer2(this,false)">
+A. Forget
+</button>
+
+<button class="option"
+onclick="answer2(this,true)">
+B. Change or improve
+</button>
+
+<button class="option"
+onclick="answer2(this,false)">
+C. Measure
+</button>
+
+<button class="option"
+onclick="answer2(this,false)">
+D. Predict
+</button>
+
+<div id="feedback2" class="feedback"></div>
+
+<button onclick="show('observation')">
+Continue to Investigation →
+</button>
+
+</div>
+
+`;
+
+}
+
+function answer(button, correct) {
+
+if (correct) {
+
+button.classList.add("correct");
+
+document.getElementById("feedback1").innerText =
+"✅ Correct! You identified the central idea.";
+
+} else {
+
+button.classList.add("incorrect");
+
+document.getElementById("feedback1").innerText =
+"Try again. Look for the idea that describes the whole passage.";
+
+}
+
+}
+
+function answer2(button, correct) {
+
+if (correct) {
+
+button.classList.add("correct");
+
+document.getElementById("feedback2").innerText =
+"✅ Correct! Revise means to change or improve.";
+
+} else {
+
+button.classList.add("incorrect");
+
+document.getElementById("feedback2").innerText =
+"Look back at the vocabulary.";
+
+}
+
+}
+
+function observation() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card">
+
+<h2>👀 Step 3 — Observe</h2>
+
+<p>
+Scientists begin investigations by making observations.
+</p>
+
+<div class="visual">
+
+☁️ ☁️ ☁️
+
+<br>
+
+🌧️
+
+<br>
+
+🌳 🏠 🌳
+
+<br>
+
+💧 💧 💧
+
+</div>
+
+<h3>
+What can you directly observe?
+</h3>
+
+<button class="option"
+onclick="observationAnswer(this,true)">
+A. The ground is wet.
+</button>
+
+<button class="option"
+onclick="observationAnswer(this,false)">
+B. It definitely rained last night.
+</button>
+
+<button class="option"
+onclick="observationAnswer(this,false)">
+C. Someone caused the rain.
+</button>
+
+<div id="observationFeedback"
+class="feedback">
+</div>
+
+<button onclick="show('inference')">
+Continue →
+</button>
+
+</div>
+
+`;
+
+}
+
+function observationAnswer(button, correct) {
+
+if (correct) {
+
+button.classList.add("correct");
+
+document.getElementById("observationFeedback").innerText =
+"✅ Correct! That is an observation.";
+
+} else {
+
+button.classList.add("incorrect");
+
+document.getElementById("observationFeedback").innerText =
+"Try again. An observation is something you can directly notice.";
+
+}
+
+}
+
+function inference() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card">
+
+<h2>💭 Step 4 — Make an Inference</h2>
+
+<p>
+You observed that the ground is wet.
+</p>
+
+<h3>
+What might you infer?
+</h3>
+
+<button class="option"
+onclick="inferenceAnswer(this,true)">
+A. It may have rained.
+</button>
+
+<button class="option"
+onclick="inferenceAnswer(this,false)">
+B. The ground is wet.
+</button>
+
+<button class="option"
+onclick="inferenceAnswer(this,false)">
+C. There is water on the ground.
+</button>
+
+<div id="inferenceFeedback"
+class="feedback">
+</div>
+
+<button onclick="show('evidence')">
+Continue →
+</button>
+
+</div>
+
+`;
+
+}
+
+function inferenceAnswer(button, correct) {
+
+if (correct) {
+
+button.classList.add("correct");
+
+document.getElementById("inferenceFeedback").innerText =
+"✅ Correct! An inference is an idea based on evidence.";
+
+} else {
+
+button.classList.add("incorrect");
+
+document.getElementById("inferenceFeedback").innerText =
+"Remember: an inference is an explanation or idea based on observations.";
+
+}
+
+}
+
+function evidence() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card">
+
+<h2>🟩 Step 5 — Find Evidence</h2>
+
+<p>
+Your inference is:
+</p>
+
+<p>
+<strong>
+"It may have rained."
+</strong>
+</p>
+
+<h3>
+Which observation supports your inference?
+</h3>
+
+<button class="option"
+onclick="evidenceAnswer(this,true)">
+A. The ground is wet.
+</button>
+
+<button class="option"
+onclick="evidenceAnswer(this,false)">
+B. Scientists study Earth.
+</button>
+
+<button class="option"
+onclick="evidenceAnswer(this,false)">
+C. Science is an ongoing process.
+</button>
+
+<div id="evidenceFeedback"
+class="feedback">
+</div>
+
+<button onclick="show('cer')">
+Write CER →
+</button>
+
+</div>
+
+`;
+
+}
+
+function evidenceAnswer(button, correct) {
+
+if (correct) {
+
+button.classList.add("correct");
+
+document.getElementById("evidenceFeedback").innerText =
+"✅ Correct! The wet ground is evidence that supports the inference.";
+
+} else {
+
+button.classList.add("incorrect");
+
+document.getElementById("evidenceFeedback").innerText =
+"Look at the observation that could support the idea that it rained.";
+
+}
+
+}
+
+function cer() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card">
+
+<h2>✍️ Step 6 — Write Your CER</h2>
+
+<p>
+<strong>
+Question: How do scientists learn about the natural world?
+</strong>
+</p>
+
+<h3 style="color:#1769aa;">
+🟦 CLAIM
+</h3>
+
+<p>
+Answer the question in one clear sentence.
+</p>
+
+<textarea
+id="claim"
+placeholder="Scientists learn about the natural world by..."
+></textarea>
+
+<h3 style="color:#2e8b57;">
+🟩 EVIDENCE
+</h3>
+
+<p>
+Use information from today's reading or investigation.
+</p>
+
+<textarea
+id="evidence"
+placeholder="My evidence is..."
+></textarea>
+
+<h3 style="color:#c28a00;">
+🟨 REASONING
+</h3>
+
+<p>
+Explain how your evidence supports your claim.
+</p>
+
+<textarea
+id="reasoning"
+placeholder="This evidence supports my claim because..."
+></textarea>
+
+<p>
+<strong>Helpful words:</strong>
+evidence • observation • investigation • explanation
+</p>
+
+<button onclick="show('reflection')">
+Continue →
+</button>
+
+</div>
+
+`;
+
+}
+
+function reflection() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card">
+
+<h2>💡 Step 7 — Reflection</h2>
+
+<p>
+Why is evidence more useful than a guess when
+scientists are trying to explain something?
+</p>
+
+<textarea
+id="reflection"
+placeholder="Evidence is useful because..."
+></textarea>
+
+<button onclick="show('complete')">
+Submit Investigation ⭐
+</button>
+
+</div>
+
+`;
+
+}
+
+function complete() {
+
+document.getElementById("app").innerHTML = `
+
+<div class="card center">
+
+<h1>🎉 Great Work, Scientist!</h1>
+
+<p>
+You completed Week 1, Monday.
+</p>
+
+<h2>Today you practiced:</h2>
+
+<p>📖 Reading</p>
+
+<p>🔬 Scientific thinking</p>
+
+<p>👀 Observation</p>
+
+<p>💭 Inference</p>
+
+<p>🟩 Evidence</p>
+
+<p>✍️ CER writing</p>
+
+<h3>
+Next Mission:
+</h3>
+
+<p>
+❓ How do scientists ask good questions?
+</p>
+
+</div>
+
+`;
+
+}
+
+show("welcome");
+
+</script>
 
 </body>
 </html>
