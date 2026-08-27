@@ -1,0 +1,2562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Science Lab | Week 2</title>
+
+<style>
+
+:root{
+  --red:#b91c1c;
+  --dark-red:#7f1d1d;
+  --bright-red:#dc2626;
+  --light-red:#fee2e2;
+  --pale-red:#fff7f7;
+  --white:#ffffff;
+  --black:#1f2937;
+  --gray:#6b7280;
+  --light-gray:#f3f4f6;
+  --border:#e5e7eb;
+  --green:#15803d;
+  --light-green:#dcfce7;
+  --blue:#1d4ed8;
+  --light-blue:#dbeafe;
+  --purple:#7c3aed;
+  --light-purple:#ede9fe;
+  --yellow:#d97706;
+  --light-yellow:#fef3c7;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f6f6f6;
+  color:var(--black);
+  line-height:1.6;
+}
+
+header{
+  background:var(--red);
+  color:white;
+  padding:15px 20px;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-icon{
+  width:45px;
+  height:45px;
+  background:white;
+  color:var(--red);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+}
+
+.logo h1{
+  margin:0;
+  font-size:23px;
+}
+
+.logo p{
+  margin:0;
+  font-size:13px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 18px 50px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#991b1b,#dc2626);
+  color:white;
+  border-radius:18px;
+  padding:32px;
+  margin-bottom:20px;
+}
+
+.hero h2{
+  margin:5px 0;
+  font-size:34px;
+}
+
+.badge{
+  background:white;
+  color:var(--red);
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.progress-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:17px;
+  margin-bottom:20px;
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+}
+
+.progress-track{
+  height:10px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.progress-fill{
+  height:100%;
+  width:0;
+  background:var(--red);
+  transition:.3s;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:20px;
+  box-shadow:0 2px 7px rgba(0,0,0,.04);
+}
+
+.card h2{
+  margin-top:0;
+  color:var(--dark-red);
+}
+
+.card h3{
+  color:var(--dark-red);
+}
+
+.visual{
+  background:var(--pale-red);
+  border:1px solid #fecaca;
+  border-radius:14px;
+  padding:25px;
+  text-align:center;
+  margin:18px 0;
+}
+
+button{
+  border:0;
+  border-radius:9px;
+  padding:11px 17px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.92;
+  transform:translateY(-1px);
+}
+
+button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.red{
+  background:var(--red);
+  color:white;
+}
+
+.dark{
+  background:#374151;
+  color:white;
+}
+
+.green{
+  background:var(--green);
+  color:white;
+}
+
+.yellow{
+  background:var(--yellow);
+  color:white;
+}
+
+.purple{
+  background:var(--purple);
+  color:white;
+}
+
+.blue{
+  background:var(--blue);
+  color:white;
+}
+
+.info{
+  background:var(--light-red);
+  border-left:5px solid var(--red);
+  padding:13px 16px;
+  border-radius:6px;
+  margin:15px 0;
+}
+
+.help{
+  background:var(--light-yellow);
+  border-left:5px solid var(--yellow);
+  padding:15px;
+  border-radius:6px;
+  margin-top:15px;
+}
+
+.challenge{
+  background:var(--light-purple);
+  border-left:5px solid var(--purple);
+  padding:15px;
+  border-radius:6px;
+  margin-top:15px;
+}
+
+.success{
+  background:var(--light-green);
+  border-left:5px solid var(--green);
+  padding:15px;
+  border-radius:6px;
+  margin:15px 0;
+}
+
+.bluebox{
+  background:var(--light-blue);
+  border-left:5px solid var(--blue);
+  padding:15px;
+  border-radius:6px;
+  margin:15px 0;
+}
+
+label{
+  display:block;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+textarea,
+input,
+select{
+  width:100%;
+  padding:11px;
+  margin-top:6px;
+  border:1px solid #cbd5e1;
+  border-radius:8px;
+  font-size:16px;
+  font-family:inherit;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  outline:3px solid var(--light-red);
+  border-color:var(--red);
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:15px 0;
+}
+
+th{
+  background:var(--red);
+  color:white;
+  padding:10px;
+}
+
+td{
+  border:1px solid #d1d5db;
+  padding:10px;
+  text-align:center;
+}
+
+td input{
+  margin:0;
+  text-align:center;
+}
+
+.choice{
+  border:2px solid #e5e7eb;
+  background:#fafafa;
+  border-radius:9px;
+  padding:12px;
+  margin:8px 0;
+  cursor:pointer;
+}
+
+.choice:hover{
+  border-color:var(--red);
+}
+
+.choice.correct{
+  background:var(--light-green);
+  border-color:var(--green);
+}
+
+.choice.incorrect{
+  background:var(--light-red);
+  border-color:var(--red);
+}
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  margin-top:20px;
+}
+
+.tool{
+  border:2px solid #e5e7eb;
+  border-radius:14px;
+  padding:18px;
+  text-align:center;
+  background:white;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.tool:hover{
+  border-color:var(--red);
+  transform:translateY(-2px);
+}
+
+.tool-icon{
+  font-size:50px;
+}
+
+.tool-name{
+  font-weight:bold;
+  font-size:18px;
+  color:var(--dark-red);
+}
+
+.station{
+  display:none;
+}
+
+.station.active{
+  display:block;
+}
+
+.scale{
+  background:#f3f4f6;
+  border-radius:12px;
+  padding:25px;
+  margin:20px 0;
+}
+
+.ruler{
+  height:65px;
+  background:#fef3c7;
+  border:3px solid #92400e;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+}
+
+.tick{
+  height:30px;
+  width:1px;
+  background:#111827;
+  position:absolute;
+  bottom:0;
+}
+
+.tick.major{
+  height:45px;
+}
+
+.measure-object{
+  width:73px;
+  height:25px;
+  background:#dc2626;
+  margin-top:20px;
+  border-radius:5px;
+}
+
+.thermometer{
+  width:50px;
+  height:180px;
+  border:5px solid #374151;
+  border-radius:30px;
+  margin:20px auto;
+  position:relative;
+  background:white;
+}
+
+.thermo-liquid{
+  position:absolute;
+  bottom:0;
+  left:10px;
+  right:10px;
+  height:55%;
+  background:#ef4444;
+  border-radius:20px;
+}
+
+.balance{
+  background:#e5e7eb;
+  border-radius:12px;
+  padding:30px;
+  text-align:center;
+  font-size:35px;
+}
+
+.cylinder{
+  width:100px;
+  height:190px;
+  border:5px solid #6b7280;
+  border-radius:0 0 18px 18px;
+  margin:20px auto;
+  position:relative;
+  overflow:hidden;
+  background:#eff6ff;
+}
+
+.cylinder-water{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:47%;
+  background:#60a5fa;
+}
+
+.notebook{
+  border:3px solid var(--red);
+  border-radius:12px;
+  padding:18px;
+  background:#fffdfd;
+}
+
+.notebook-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.navigation{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:20px;
+}
+
+.skill{
+  background:var(--light-gray);
+  border:1px solid var(--border);
+  padding:6px 10px;
+  border-radius:30px;
+  font-size:13px;
+  display:inline-block;
+  margin:3px;
+}
+
+footer{
+  background:#111827;
+  color:#d1d5db;
+  text-align:center;
+  padding:25px;
+  font-size:13px;
+}
+
+@media(max-width:700px){
+
+  .header-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero{
+    padding:24px 19px;
+  }
+
+  .hero h2{
+    font-size:27px;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .navigation{
+    flex-direction:column-reverse;
+  }
+
+  .navigation button{
+    width:100%;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<div class="header-inner">
+
+<div class="logo">
+
+<div class="logo-icon">
+🔬
+</div>
+
+<div>
+
+<h1>Science Lab</h1>
+
+<p>
+Grade 9 Earth & Universe Science
+</p>
+
+</div>
+
+</div>
+
+<strong>
+WEEK 2
+</strong>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<div class="hero">
+
+<span class="badge">
+WEEK 2 • SCIENTIFIC TOOLS & MEASUREMENT
+</span>
+
+<h2>
+How Can We Trust a Measurement?
+</h2>
+
+<p>
+Scientists need measurements that are accurate,
+consistent, and useful. This week you will practice
+choosing tools, reading measurements, and using data.
+</p>
+
+</div>
+
+
+<div class="progress-card">
+
+<div class="progress-top">
+
+<span id="progressText">
+Step 1 of 8
+</span>
+
+<span id="progressPercent">
+0%
+</span>
+
+</div>
+
+<div class="progress-track">
+
+<div
+id="progressFill"
+class="progress-fill">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PAGE 1 -->
+
+<section id="page1" class="page active">
+
+<div class="card">
+
+<h2>
+🎯 Engage: Which Measurement Can You Trust?
+</h2>
+
+<div class="visual">
+
+<div style="font-size:65px;">
+📏 ⚖️ 🌡️ 🧪
+</div>
+
+<h3>
+Three students measured the same object.
+</h3>
+
+<p>
+Student A: <strong>12.4 cm</strong>
+</p>
+
+<p>
+Student B: <strong>12.5 cm</strong>
+</p>
+
+<p>
+Student C: <strong>18.9 cm</strong>
+</p>
+
+</div>
+
+<h3>
+Think Like a Scientist
+</h3>
+
+<p>
+Student C's measurement is very different from the
+other two. Does that automatically mean Student C
+did something wrong?
+</p>
+
+<p>
+Scientists don't simply throw away data because it
+looks unusual. They investigate possible reasons.
+</p>
+
+<label>
+What would you want to check before deciding whether
+Student C's measurement is reliable?
+</label>
+
+<textarea
+id="engageResponse"
+placeholder="I would check..."
+oninput="saveData()">
+</textarea>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Essential Question
+</h2>
+
+<p style="font-size:21px;">
+<strong>
+How do scientists make measurements that are
+accurate and useful?
+</strong>
+</p>
+
+<div class="info">
+
+<strong>This week you will practice:</strong>
+
+<br>
+
+Choosing scientific tools • Reading scales •
+Units • Accuracy • Precision • Data math
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" disabled>
+◀ Back
+</button>
+
+<button class="red" onclick="nextPage()">
+Explore Scientific Tools ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 2 -->
+
+<section id="page2" class="page">
+
+<div class="card">
+
+<h2>
+🧰 Explore: Scientific Tools
+</h2>
+
+<p>
+Scientists choose tools based on what they need to
+measure. Click each tool to learn what it measures.
+</p>
+
+<div class="tool-grid">
+
+<div class="tool" onclick="showTool('ruler')">
+
+<div class="tool-icon">
+📏
+</div>
+
+<div class="tool-name">
+Ruler
+</div>
+
+<p>
+Length
+</p>
+
+</div>
+
+
+<div class="tool" onclick="showTool('thermometer')">
+
+<div class="tool-icon">
+🌡️
+</div>
+
+<div class="tool-name">
+Thermometer
+</div>
+
+<p>
+Temperature
+</p>
+
+</div>
+
+
+<div class="tool" onclick="showTool('balance')">
+
+<div class="tool-icon">
+⚖️
+</div>
+
+<div class="tool-name">
+Balance
+</div>
+
+<p>
+Mass
+</p>
+
+</div>
+
+
+<div class="tool" onclick="showTool('cylinder')">
+
+<div class="tool-icon">
+🧪
+</div>
+
+<div class="tool-name">
+Graduated Cylinder
+</div>
+
+<p>
+Liquid Volume
+</p>
+
+</div>
+
+
+<div class="tool" onclick="showTool('stopwatch')">
+
+<div class="tool-icon">
+⏱️
+</div>
+
+<div class="tool-name">
+Stopwatch
+</div>
+
+<p>
+Time
+</p>
+
+</div>
+
+</div>
+
+
+<div id="toolInfo" class="bluebox">
+
+<strong>
+Select a scientific tool above.
+</strong>
+
+<p>
+Your job is to identify what it measures and an
+appropriate unit.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+📝 Tool Check
+</h2>
+
+<p>
+Which tool should a scientist use to measure the
+volume of 35 mL of water?
+</p>
+
+<div
+class="choice"
+onclick="toolQuestion(this,false)">
+A. Ruler
+</div>
+
+<div
+class="choice"
+onclick="toolQuestion(this,false)">
+B. Balance
+</div>
+
+<div
+class="choice"
+onclick="toolQuestion(this,true)">
+C. Graduated cylinder
+</div>
+
+<div
+class="choice"
+onclick="toolQuestion(this,false)">
+D. Stopwatch
+</div>
+
+<p id="toolFeedback"></p>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">
+◀ Back
+</button>
+
+<button class="red" onclick="nextPage()">
+Measurement Stations ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 3 -->
+
+<section id="page3" class="page">
+
+<div class="card">
+
+<h2>
+📏 Measurement Stations
+</h2>
+
+<p>
+Work through the stations below. At each station,
+read the measurement and record your answer.
+</p>
+
+<div class="tool-grid">
+
+<div class="tool" onclick="openStation('length')">
+📏
+<br>
+<strong>Length</strong>
+</div>
+
+<div class="tool" onclick="openStation('temperature')">
+🌡️
+<br>
+<strong>Temperature</strong>
+</div>
+
+<div class="tool" onclick="openStation('mass')">
+⚖️
+<br>
+<strong>Mass</strong>
+</div>
+
+<div class="tool" onclick="openStation('volume')">
+🧪
+<br>
+<strong>Volume</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="stationArea">
+
+
+<div id="length" class="station">
+
+<div class="card">
+
+<h2>
+📏 Station 1: Length
+</h2>
+
+<p>
+The red object is placed beside a ruler.
+</p>
+
+<div class="scale">
+
+<div class="ruler">
+
+<div class="tick major" style="left:0%"></div>
+<div class="tick" style="left:10%"></div>
+<div class="tick" style="left:20%"></div>
+<div class="tick" style="left:30%"></div>
+<div class="tick" style="left:40%"></div>
+<div class="tick" style="left:50%"></div>
+<div class="tick" style="left:60%"></div>
+<div class="tick" style="left:70%"></div>
+<div class="tick" style="left:80%"></div>
+<div class="tick" style="left:90%"></div>
+<div class="tick major" style="left:100%"></div>
+
+</div>
+
+<div class="measure-object"></div>
+
+</div>
+
+<p>
+<strong>
+What is the length of the object?
+</strong>
+</p>
+
+<input
+id="lengthAnswer"
+type="number"
+step="0.1"
+placeholder="cm">
+
+<button
+class="red"
+onclick="checkLength()">
+
+Check
+
+</button>
+
+<p id="lengthFeedback"></p>
+
+</div>
+
+</div>
+
+
+<div id="temperature" class="station">
+
+<div class="card">
+
+<h2>
+🌡️ Station 2: Temperature
+</h2>
+
+<div class="visual">
+
+<div class="thermometer">
+
+<div class="thermo-liquid"></div>
+
+</div>
+
+<p style="font-size:22px;">
+<strong>
+22°C
+</strong>
+</p>
+
+</div>
+
+<p>
+Record the temperature shown by the thermometer.
+</p>
+
+<input
+id="temperatureAnswer"
+type="number"
+placeholder="°C">
+
+<button
+class="red"
+onclick="checkTemperature()">
+
+Check
+
+</button>
+
+<p id="temperatureFeedback"></p>
+
+</div>
+
+</div>
+
+
+<div id="mass" class="station">
+
+<div class="card">
+
+<h2>
+⚖️ Station 3: Mass
+</h2>
+
+<div class="balance">
+
+⚖️
+<br>
+<span style="font-size:25px;">
+148.6 g
+</span>
+
+</div>
+
+<p>
+Record the mass shown by the balance.
+</p>
+
+<input
+id="massAnswer"
+type="number"
+step="0.1"
+placeholder="g">
+
+<button
+class="red"
+onclick="checkMass()">
+
+Check
+
+</button>
+
+<p id="massFeedback"></p>
+
+</div>
+
+</div>
+
+
+<div id="volume" class="station">
+
+<div class="card">
+
+<h2>
+🧪 Station 4: Liquid Volume
+</h2>
+
+<div class="visual">
+
+<div class="cylinder">
+
+<div class="cylinder-water"></div>
+
+</div>
+
+<p style="font-size:22px;">
+<strong>
+47 mL
+</strong>
+</p>
+
+</div>
+
+<p>
+Record the volume shown by the graduated cylinder.
+</p>
+
+<input
+id="volumeAnswer"
+type="number"
+placeholder="mL">
+
+<button
+class="red"
+onclick="checkVolume()">
+
+Check
+
+</button>
+
+<p id="volumeFeedback"></p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+📓 Scientific Notebook
+</h3>
+
+<label>
+What tool did you find easiest to use?
+</label>
+
+<textarea
+id="easyTool"
+placeholder="The easiest tool for me was..."
+oninput="saveData()">
+</textarea>
+
+<label>
+Which measurement was most challenging?
+Why?
+</label>
+
+<textarea
+id="hardTool"
+placeholder="The most challenging measurement was..."
+oninput="saveData()">
+</textarea>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">
+◀ Back
+</button>
+
+<button class="red" onclick="nextPage()">
+Accuracy & Precision ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 4 -->
+
+<section id="page4" class="page">
+
+<div class="card">
+
+<h2>
+🎯 Accuracy vs. Precision
+</h2>
+
+<div class="bluebox">
+
+<strong>Accuracy</strong>
+
+<p>
+How close a measurement is to the accepted or true value.
+</p>
+
+</div>
+
+<div class="info">
+
+<strong>Precision</strong>
+
+<p>
+How close repeated measurements are to one another.
+</p>
+
+</div>
+
+<div class="visual">
+
+<h3>
+Imagine the target below.
+</h3>
+
+<p style="font-size:70px;">
+🎯
+</p>
+
+<p>
+A group of measurements can be precise without being
+accurate.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+🧠 Check Your Understanding
+</h2>
+
+<p>
+A metal block has a true mass of <strong>50.0 g</strong>.
+A student measures it three times:
+
+</p>
+
+<p style="font-size:20px;">
+49.9 g &nbsp;&nbsp; 50.1 g &nbsp;&nbsp; 50.0 g
+</p>
+
+<p>
+These measurements are:
+</p>
+
+<div
+class="choice"
+onclick="accuracyAnswer(this,true)">
+A. Accurate and precise
+</div>
+
+<div
+class="choice"
+onclick="accuracyAnswer(this,false)">
+B. Accurate but not precise
+</div>
+
+<div
+class="choice"
+onclick="accuracyAnswer(this,false)">
+C. Precise but not accurate
+</div>
+
+<div
+class="choice"
+onclick="accuracyAnswer(this,false)">
+D. Neither accurate nor precise
+</div>
+
+<p id="accuracyFeedback"></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+🔎 Analyze the Data
+</h2>
+
+<p>
+Another student measures the same block:
+
+</p>
+
+<p style="font-size:20px;">
+42.1 g &nbsp;&nbsp; 42.0 g &nbsp;&nbsp; 42.1 g
+</p>
+
+<p>
+Are these measurements precise? Are they accurate?
+Explain.
+</p>
+
+<textarea
+id="precisionResponse"
+placeholder="These measurements are..."
+oninput="saveData()">
+</textarea>
+
+<button
+class="yellow"
+onclick="toggle('precisionHelp')">
+
+🧠 I Need Help
+
+</button>
+
+<div
+id="precisionHelp"
+class="help"
+style="display:none">
+
+<strong>Hint:</strong>
+
+<p>
+First compare the measurements to one another.
+Then compare them to the true value of 50.0 g.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">
+◀ Back
+</button>
+
+<button class="red" onclick="nextPage()">
+Measurement Math ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 5 -->
+
+<section id="page5" class="page">
+
+<div class="card">
+
+<h2>
+🧮 Measurement Math
+</h2>
+
+<p>
+Scientists use mathematics to compare measurements,
+find differences, and calculate averages.
+</p>
+
+<div class="bluebox">
+
+<strong>
+Example:
+</strong>
+
+<p>
+A graduated cylinder contains 47 mL of water.
+After water is added, it contains 68 mL.
+</p>
+
+<p style="font-size:21px;">
+68 mL − 47 mL = <strong>21 mL</strong>
+</p>
+
+<p>
+So, 21 mL of water was added.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Problem 1
+</h2>
+
+<p>
+A sample has a mass of 84.6 g.
+Another sample has a mass of 71.2 g.
+</p>
+
+<p>
+What is the difference in mass?
+</p>
+
+<input
+id="math1"
+type="number"
+step="0.1"
+placeholder="g"
+oninput="saveData()">
+
+<button
+class="red"
+onclick="checkMath1()">
+
+Check
+
+</button>
+
+<p id="math1Feedback"></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Problem 2
+</h2>
+
+<p>
+A student records these temperatures:
+
+</p>
+
+<p style="font-size:20px;">
+21°C, 23°C, 22°C
+</p>
+
+<p>
+What is the average temperature?
+</p>
+
+<input
+id="math2"
+type="number"
+step="0.1"
+placeholder="°C"
+oninput="saveData()">
+
+<button
+class="red"
+onclick="checkMath2()">
+
+Check
+
+</button>
+
+<p id="math2Feedback"></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+Problem 3 — Multi-Step
+</h2>
+
+<p>
+A graduated cylinder starts with <strong>35 mL</strong>.
+A student adds <strong>18 mL</strong>, then removes
+<strong>7 mL</strong>.
+</p>
+
+<p>
+How much liquid remains?
+</p>
+
+<input
+id="math3"
+type="number"
+placeholder="mL"
+oninput="saveData()">
+
+<button
+class="red"
+onclick="checkMath3()">
+
+Check
+
+</button>
+
+<p id="math3Feedback"></p>
+
+
+<button
+class="yellow"
+onclick="toggle('mathHelp')">
+
+🧠 I Need Help
+
+</button>
+
+<div
+id="mathHelp"
+class="help"
+style="display:none">
+
+<strong>Work it out in two steps:</strong>
+
+<p>
+35 + 18 = ?
+</p>
+
+<p>
+Then subtract 7 from your answer.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">
+◀ Back
+</button>
+
+<button class="red" onclick="nextPage()">
+Data Challenge ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 6 -->
+
+<section id="page6" class="page">
+
+<div class="card">
+
+<h2>
+📊 Data Challenge
+</h2>
+
+<p>
+A student measured the mass of a rock five times.
+</p>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Trial</th>
+<th>Mass</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td>124.2 g</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>124.5 g</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>124.3 g</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>124.4 g</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>124.1 g</td>
+</tr>
+
+</tbody>
+
+</table>
+
+<h3>
+Question 1
+</h3>
+
+<p>
+What is the range of the measurements?
+</p>
+
+<p>
+<strong>
+Range = highest value − lowest value
+</strong>
+</p>
+
+<input
+id="rangeAnswer"
+type="number"
+step="0.1"
+placeholder="g"
+oninput="saveData()">
+
+<button
+class="red"
+onclick="checkRange()">
+
+Check
+
+</button>
+
+<p id="rangeFeedback"></p>
+
+
+<h3>
+Question 2
+</h3>
+
+<p>
+Why might scientists take several measurements instead
+of relying on only one?
+</p>
+
+<textarea
+id="multipleMeasurements"
+placeholder="Scientists take several measurements because..."
+oninput="saveData()">
+</textarea>
+
+
+<button
+class="purple"
+onclick="toggle('dataChallenge')">
+
+⭐ I Got It! Give Me a Challenge
+
+</button>
+
+
+<div
+id="dataChallenge"
+class="challenge"
+style="display:none">
+
+<h3>
+⭐ Scientist Challenge
+</h3>
+
+<p>
+Suppose a sixth measurement was 137.8 g.
+Would you immediately delete it from the data?
+What should a scientist do first?
+</p>
+
+<textarea
+id="outlierResponse"
+placeholder="A scientist should first..."
+oninput="saveData()">
+</textarea>
+
+</div>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">
+◀ Back
+</button>
+
+<button class="red" onclick="nextPage()">
+Scientific Notebook ▶
+</button>
+
+</div>
+
+</section>
+
+
+<!-- PAGE 7 -->
+
+<section id="page7" class="page">
+
+<div class="card">
+
+<h2>
+📓 Scientific Notebook
+</h2>
+
+<div class="success">
+
+<strong>
+Your work is saved on this device.
+</strong>
+
+<p>
+Use your notebook to review your thinking before
+completing the final reflection.
+</p>
+
+</div>
+
+<div class="notebook">
+
+<h3>
+🎯 My Initial Thinking
+</h3>
+
+<p id="summaryEngage">
+—
+</p>
+
+
+<h3>
+🧰 Scientific Tools
+</h3>
+
+<p>
+<strong>Easiest tool:</strong>
+</p>
+
+<p id="summaryEasy">
+—
+</p>
+
+<p>
+<strong>Most challenging measurement:</strong>
+</p>
+
+<p id="summaryHard">
+—
+</p>
+
+
+<h3>
+🎯 Accuracy & Precision
+</h3>
+
+<p id="summaryPrecision">
+—
+</p>
+
+
+<h3>
+📊 Data Thinking
+</h3>
+
+<p>
+<strong>Why use multiple measurements?</strong>
+</p>
+
+<p id="summaryMultiple">
+—
+</p>
+
+
+<h3>
+⭐ Scientist Challenge
+</h3>
+
+<p id="summaryOutlier">
+—
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+🧠 Final Reflection
+</h2>
+
+<label>
+What is the difference between accuracy and precision?
+</label>
+
+<textarea
+id="finalAccuracy"
+placeholder="Accuracy means... Precision means..."
+oninput="saveData()">
+</textarea>
+
+
+<label>
+Why is choosing the correct scientific tool important?
+</label>
+
+<textarea
+id="finalTool"
+placeholder="Choosing the correct tool is important because..."
+oninput="saveData()">
+</textarea>
+
+
+<label>
+Why are mathematical skills important in science?
+</label>
+
+<textarea
+id="finalMath"
+placeholder="Math is important in science because..."
+oninput="saveData()">
+</textarea>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+🎫 Exit Ticket
+</h2>
+
+<p>
+A scientist says:
+
+</p>
+
+<div class="bluebox">
+
+"Good scientific measurements are not just numbers.
+Scientists need to know how the numbers were collected
+and what the numbers mean."
+
+</div>
+
+<p>
+Do you agree? Explain using something you learned this week.
+</p>
+
+<textarea
+id="exitTicket"
+placeholder="I agree/disagree because..."
+oninput="saveData()">
+</textarea>
+
+<br><br>
+
+<button
+class="green"
+onclick="saveData();alert('Your Week 2 work has been saved on this device!')">
+
+💾 Save My Work
+
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+🎯 Skills You Practiced
+</h2>
+
+<span class="skill">
+Scientific Tools
+</span>
+
+<span class="skill">
+Measurement
+</span>
+
+<span class="skill">
+Units
+</span>
+
+<span class="skill">
+Accuracy
+</span>
+
+<span class="skill">
+Precision
+</span>
+
+<span class="skill">
+Mathematics
+</span>
+
+<span class="skill">
+Data Analysis
+</span>
+
+<span class="skill">
+Scientific Reasoning
+</span>
+
+</div>
+
+
+<div class="navigation">
+
+<button class="dark" onclick="previousPage()">
+◀ Back
+</button>
+
+<button
+class="red"
+onclick="alert('Excellent work, scientist! Your Week 2 work is saved on this device.')">
+
+🏁 Finish Week 2
+
+</button>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<strong>
+Science Lab
+</strong>
+
+<br>
+
+Grade 9 Earth & Universe Science
+
+<br><br>
+
+Week 2 • Scientific Tools & Measurement
+
+</footer>
+
+
+<script>
+
+
+/* =========================
+PAGE NAVIGATION
+========================= */
+
+let currentPage = 1;
+
+const totalPages = 7;
+
+
+function showPage(page){
+
+document.querySelectorAll(".page").forEach(function(p){
+
+p.classList.remove("active");
+
+});
+
+document.getElementById("page"+page)
+.classList.add("active");
+
+currentPage = page;
+
+updateProgress();
+
+if(page === 7){
+
+updateNotebook();
+
+}
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+function nextPage(){
+
+if(currentPage < totalPages){
+
+showPage(currentPage + 1);
+
+}
+
+}
+
+
+function previousPage(){
+
+if(currentPage > 1){
+
+showPage(currentPage - 1);
+
+}
+
+}
+
+
+/* =========================
+PROGRESS
+========================= */
+
+function updateProgress(){
+
+const percent =
+Math.round(
+((currentPage-1)/(totalPages-1))*100
+);
+
+document.getElementById("progressFill")
+.style.width = percent+"%";
+
+document.getElementById("progressText")
+.textContent =
+"Step "+currentPage+" of "+totalPages;
+
+document.getElementById("progressPercent")
+.textContent =
+percent+"%";
+
+}
+
+
+/* =========================
+LOCAL STORAGE
+========================= */
+
+const fieldIDs = [
+
+"engageResponse",
+"easyTool",
+"hardTool",
+"precisionResponse",
+
+"math1",
+"math2",
+"math3",
+
+"rangeAnswer",
+"multipleMeasurements",
+"outlierResponse",
+
+"finalAccuracy",
+"finalTool",
+"finalMath",
+"exitTicket"
+
+];
+
+
+function saveData(){
+
+fieldIDs.forEach(function(id){
+
+const el =
+document.getElementById(id);
+
+if(el){
+
+localStorage.setItem(
+"week2_"+id,
+el.value
+);
+
+}
+
+});
+
+}
+
+
+function loadData(){
+
+fieldIDs.forEach(function(id){
+
+const saved =
+localStorage.getItem("week2_"+id);
+
+const el =
+document.getElementById(id);
+
+if(saved !== null && el){
+
+el.value = saved;
+
+}
+
+});
+
+}
+
+
+/* =========================
+TOOL INFORMATION
+========================= */
+
+function showTool(tool){
+
+const info =
+document.getElementById("toolInfo");
+
+
+const information = {
+
+ruler:`
+<strong>📏 Ruler</strong>
+<p>Measures length or distance.</p>
+<p>Common units: millimeters (mm), centimeters (cm), meters (m).</p>
+`,
+
+thermometer:`
+<strong>🌡️ Thermometer</strong>
+<p>Measures temperature.</p>
+<p>Common unit: degrees Celsius (°C).</p>
+`,
+
+balance:`
+<strong>⚖️ Balance</strong>
+<p>Measures mass.</p>
+<p>Common units: grams (g), kilograms (kg).</p>
+`,
+
+cylinder:`
+<strong>🧪 Graduated Cylinder</strong>
+<p>Measures liquid volume.</p>
+<p>Common units: milliliters (mL), liters (L).</p>
+`,
+
+stopwatch:`
+<strong>⏱️ Stopwatch</strong>
+<p>Measures time.</p>
+<p>Common units: seconds (s), minutes (min).</p>
+`
+
+};
+
+info.innerHTML =
+information[tool];
+
+}
+
+
+/* =========================
+TOOL QUESTION
+========================= */
+
+function toolQuestion(element,correct){
+
+document.querySelectorAll("#page2 .choice")
+.forEach(function(choice){
+
+choice.classList.remove("correct");
+choice.classList.remove("incorrect");
+
+});
+
+
+if(correct){
+
+element.classList.add("correct");
+
+document.getElementById("toolFeedback")
+.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! A graduated cylinder measures liquid volume.</span>';
+
+}else{
+
+element.classList.add("incorrect");
+
+document.getElementById("toolFeedback")
+.innerHTML =
+'<span style="color:#b91c1c;">Try again. Think about which tool measures liquid volume.</span>';
+
+}
+
+}
+
+
+/* =========================
+STATIONS
+========================= */
+
+function openStation(id){
+
+document.querySelectorAll(".station")
+.forEach(function(s){
+
+s.classList.remove("active");
+
+});
+
+document.getElementById(id)
+.classList.add("active");
+
+}
+
+
+/* =========================
+STATION ANSWERS
+========================= */
+
+function checkLength(){
+
+const answer =
+parseFloat(
+document.getElementById("lengthAnswer").value
+);
+
+const feedback =
+document.getElementById("lengthFeedback");
+
+
+if(Math.abs(answer-7.3)<0.11){
+
+feedback.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! The object measures 7.3 cm.</span>';
+
+}else{
+
+feedback.innerHTML =
+'<span style="color:#b91c1c;">Not quite. Look carefully at where the object begins and ends on the ruler.</span>';
+
+}
+
+}
+
+
+function checkTemperature(){
+
+const answer =
+parseFloat(
+document.getElementById("temperatureAnswer").value
+);
+
+const feedback =
+document.getElementById("temperatureFeedback");
+
+
+if(answer === 22){
+
+feedback.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! The temperature is 22°C.</span>';
+
+}else{
+
+feedback.innerHTML =
+'<span style="color:#b91c1c;">Look again at the thermometer.</span>';
+
+}
+
+}
+
+
+function checkMass(){
+
+const answer =
+parseFloat(
+document.getElementById("massAnswer").value
+);
+
+const feedback =
+document.getElementById("massFeedback");
+
+
+if(Math.abs(answer-148.6)<0.11){
+
+feedback.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! The mass is 148.6 g.</span>';
+
+}else{
+
+feedback.innerHTML =
+'<span style="color:#b91c1c;">Read the balance carefully. Include the decimal.</span>';
+
+}
+
+}
+
+
+function checkVolume(){
+
+const answer =
+parseFloat(
+document.getElementById("volumeAnswer").value
+);
+
+const feedback =
+document.getElementById("volumeFeedback");
+
+
+if(answer === 47){
+
+feedback.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! The volume is 47 mL.</span>';
+
+}else{
+
+feedback.innerHTML =
+'<span style="color:#b91c1c;">Look at the measurement shown beside the cylinder.</span>';
+
+}
+
+}
+
+
+/* =========================
+ACCURACY QUESTION
+========================= */
+
+function accuracyAnswer(element,correct){
+
+document.querySelectorAll("#page4 .choice")
+.forEach(function(choice){
+
+choice.classList.remove("correct");
+choice.classList.remove("incorrect");
+
+});
+
+
+if(correct){
+
+element.classList.add("correct");
+
+document.getElementById("accuracyFeedback")
+.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! The measurements are both close to the true value and close to one another.</span>';
+
+}else{
+
+element.classList.add("incorrect");
+
+document.getElementById("accuracyFeedback")
+.innerHTML =
+'<span style="color:#b91c1c;">Look at both ideas: Are the measurements close to 50.0 g? Are they close to one another?</span>';
+
+}
+
+}
+
+
+/* =========================
+MATH QUESTIONS
+========================= */
+
+function checkMath1(){
+
+const answer =
+parseFloat(
+document.getElementById("math1").value
+);
+
+const feedback =
+document.getElementById("math1Feedback");
+
+
+if(Math.abs(answer-13.4)<0.11){
+
+feedback.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! 84.6 − 71.2 = 13.4 g.</span>';
+
+}else{
+
+feedback.innerHTML =
+'<span style="color:#b91c1c;">Not quite. Subtract 71.2 from 84.6.</span>';
+
+}
+
+}
+
+
+function checkMath2(){
+
+const answer =
+parseFloat(
+document.getElementById("math2").value
+);
+
+const feedback =
+document.getElementById("math2Feedback");
+
+
+if(Math.abs(answer-22)<0.11){
+
+feedback.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! (21 + 23 + 22) ÷ 3 = 22°C.</span>';
+
+}else{
+
+feedback.innerHTML =
+'<span style="color:#b91c1c;">Add the three measurements, then divide by 3.</span>';
+
+}
+
+}
+
+
+function checkMath3(){
+
+const answer =
+parseFloat(
+document.getElementById("math3").value
+);
+
+const feedback =
+document.getElementById("math3Feedback");
+
+
+if(answer === 46){
+
+feedback.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! 35 + 18 = 53, and 53 − 7 = 46 mL.</span>';
+
+}else{
+
+feedback.innerHTML =
+'<span style="color:#b91c1c;">Remember to complete the problem in two steps.</span>';
+
+}
+
+}
+
+
+/* =========================
+RANGE
+========================= */
+
+function checkRange(){
+
+const answer =
+parseFloat(
+document.getElementById("rangeAnswer").value
+);
+
+const feedback =
+document.getElementById("rangeFeedback");
+
+
+if(Math.abs(answer-0.4)<0.11){
+
+feedback.innerHTML =
+'<span style="color:#15803d;font-weight:bold;">✓ Correct! 124.5 − 124.1 = 0.4 g.</span>';
+
+}else{
+
+feedback.innerHTML =
+'<span style="color:#b91c1c;">Find the highest measurement and subtract the lowest measurement.</span>';
+
+}
+
+}
+
+
+/* =========================
+HELP
+========================= */
+
+function toggle(id){
+
+const box =
+document.getElementById(id);
+
+if(box.style.display === "none"){
+
+box.style.display = "block";
+
+}else{
+
+box.style.display = "none";
+
+}
+
+}
+
+
+/* =========================
+NOTEBOOK SUMMARY
+========================= */
+
+function getSaved(id){
+
+return localStorage.getItem(
+"week2_"+id
+) || "—";
+
+}
+
+
+function updateNotebook(){
+
+document.getElementById("summaryEngage")
+.textContent =
+getSaved("engageResponse");
+
+document.getElementById("summaryEasy")
+.textContent =
+getSaved("easyTool");
+
+document.getElementById("summaryHard")
+.textContent =
+getSaved("hardTool");
+
+document.getElementById("summaryPrecision")
+.textContent =
+getSaved("precisionResponse");
+
+document.getElementById("summaryMultiple")
+.textContent =
+getSaved("multipleMeasurements");
+
+document.getElementById("summaryOutlier")
+.textContent =
+getSaved("outlierResponse");
+
+}
+
+
+/* =========================
+START
+========================= */
+
+window.addEventListener("load",function(){
+
+loadData();
+
+updateProgress();
+
+});
+
+</script>
+
+</body>
+</html>
