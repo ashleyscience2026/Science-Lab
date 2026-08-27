@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Science Lab | Grade 9</title>
+<title>Grade 9 Science Lab</title>
 
 <style>
 
@@ -19,10 +19,6 @@ body {
   color: #222;
   line-height: 1.6;
 }
-
-/* =========================
-   HEADER
-========================= */
 
 header {
   background: #a6192e;
@@ -41,10 +37,6 @@ header p {
   margin: 5px 0 0;
 }
 
-/* =========================
-   LAYOUT
-========================= */
-
 .container {
   max-width: 1000px;
   margin: auto;
@@ -60,15 +52,12 @@ header p {
   border-top: 5px solid #a6192e;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
-
 .navigation {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 25px;
+  flex-wrap: wrap;
 }
 
 button {
@@ -79,6 +68,7 @@ button {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+  margin: 4px;
 }
 
 button:hover {
@@ -98,10 +88,6 @@ button:disabled {
   background: #222;
 }
 
-/* =========================
-   PROGRESS
-========================= */
-
 .progress {
   height: 13px;
   background: #ddd;
@@ -116,10 +102,6 @@ button:disabled {
   background: #a6192e;
   transition: width .3s;
 }
-
-/* =========================
-   TEXT
-========================= */
 
 h2,
 h3 {
@@ -140,10 +122,6 @@ h3 {
   margin: 12px 0;
 }
 
-/* =========================
-   VISUAL
-========================= */
-
 .visual {
   background: #fff3f5;
   border: 2px solid #efc4cb;
@@ -153,10 +131,6 @@ h3 {
   font-size: 45px;
   margin: 20px 0;
 }
-
-/* =========================
-   INPUTS
-========================= */
 
 textarea,
 input {
@@ -178,10 +152,6 @@ input:focus {
   outline: none;
   border-color: #a6192e;
 }
-
-/* =========================
-   OPTIONS
-========================= */
 
 .option {
   width: 100%;
@@ -207,10 +177,6 @@ input:focus {
   border-color: #c62828 !important;
 }
 
-/* =========================
-   DATA TABLE
-========================= */
-
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -230,13 +196,9 @@ input:focus {
 }
 
 .data-table input {
-  width: 90px;
+  width: 100px;
   text-align: center;
 }
-
-/* =========================
-   CER
-========================= */
 
 .cer-box {
   padding: 20px;
@@ -259,10 +221,6 @@ input:focus {
   border-left: 7px solid #d29a00;
 }
 
-/* =========================
-   NOTEBOOK
-========================= */
-
 .notebook {
   background: white;
   border: 3px solid #a6192e;
@@ -275,10 +233,6 @@ input:focus {
   border-bottom: 2px solid #eee;
   padding-bottom: 5px;
 }
-
-/* =========================
-   HELP / EXTENSION
-========================= */
 
 .help {
   background: #fff4e5;
@@ -294,17 +248,14 @@ input:focus {
   margin-top: 15px;
 }
 
-/* =========================
-   CENTER
-========================= */
-
 .center {
   text-align: center;
 }
 
-/* =========================
-   MOBILE
-========================= */
+.success {
+  color: #26733a;
+  font-weight: bold;
+}
 
 @media(max-width:700px) {
 
@@ -318,6 +269,10 @@ input:focus {
 
   .navigation {
     flex-direction: column;
+  }
+
+  .data-table {
+    font-size: 13px;
   }
 
 }
@@ -348,26 +303,30 @@ input:focus {
 <script>
 
 /* =====================================================
-   STUDENT NOTEBOOK
-   Everything students type is saved automatically.
+   STUDENT WORK
 ===================================================== */
 
-const STORAGE_KEY = "scienceLabWeek1";
+const STORAGE_KEY = "grade9ScienceWeek1";
 
 let studentWork =
 JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
 
 prediction: "",
 readingAnswer: "",
+
 end15: "",
 lost15: "",
+
 end25: "",
 lost25: "",
+
 end35: "",
 lost35: "",
+
 pattern: "",
 causeEffect: "",
 comparison: "",
+
 claim: "",
 evidence: "",
 reasoning: ""
@@ -375,7 +334,9 @@ reasoning: ""
 };
 
 
-/* SAVE */
+/* =====================================================
+   SAVE WORK
+===================================================== */
 
 function saveWork() {
 
@@ -386,8 +347,6 @@ JSON.stringify(studentWork)
 
 }
 
-
-/* UPDATE A RESPONSE */
 
 function updateWork(field, value) {
 
@@ -419,7 +378,7 @@ let currentStep = 0;
 
 
 /* =====================================================
-   NAVIGATION
+   SHOW SCREEN
 ===================================================== */
 
 function show(step) {
@@ -440,7 +399,9 @@ if(step === "notebook") notebook();
 }
 
 
-/* PROGRESS */
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
 
 function updateProgress() {
 
@@ -455,17 +416,23 @@ document.getElementById(
 
 
 /* =====================================================
-   NAVIGATION BUTTONS
+   NAVIGATION
 ===================================================== */
 
 function navigation(previous, next) {
 
 let backButton = previous
-? `<button class="secondary" onclick="show('${previous}')">← Back</button>`
+? `<button class="secondary"
+onclick="show('${previous}')">
+← Back
+</button>`
 : `<button disabled>← Back</button>`;
 
 let nextButton = next
-? `<button onclick="show('${next}')">Continue →</button>`
+? `<button
+onclick="show('${next}')">
+Continue →
+</button>`
 : "";
 
 return `
@@ -516,18 +483,17 @@ document.getElementById("app").innerHTML = `
 <p>
 
 <strong>
-
 How do scientists use evidence
 to explain changes in the natural world?
-
 </strong>
 
 </p>
 
 <p>
 
-Today you will read, investigate data,
-practice math, and write a scientific explanation.
+Today you will read, investigate,
+practice math, analyze data,
+and write a scientific explanation.
 
 </p>
 
@@ -594,10 +560,8 @@ the scientist measures the water again.
 <div class="callout">
 
 <strong>
-
 23 mL of water is no longer
 in the container.
-
 </strong>
 
 </div>
@@ -605,7 +569,6 @@ in the container.
 <h2>🤔 Where did the water go?</h2>
 
 <textarea
-id="prediction"
 placeholder="I think the water..."
 oninput="updateWork('prediction',this.value)"
 >${studentWork.prediction}</textarea>
@@ -634,30 +597,22 @@ document.getElementById("app").innerHTML = `
 <p>
 
 Your teacher will provide a printed
-scientific reading about evaporation
-and the water cycle.
+grade-level scientific reading about
+<strong>evaporation and the water cycle</strong>.
 
 </p>
 
 <div class="callout">
 
-<strong>Reading strategy:</strong>
+<strong>Reading Strategy</strong>
 
-<br>
+<p>
+As you read, look for:
+</p>
 
-As you read, underline:
-
-<br><br>
-
-🟥 The main idea
-
-<br>
-
-🟦 An important detail
-
-<br>
-
-🟩 Evidence that explains evaporation
+<p>🟥 Main idea</p>
+<p>🟦 Important details</p>
+<p>🟩 Evidence explaining evaporation</p>
 
 </div>
 
@@ -669,8 +624,8 @@ As you read, underline:
 
 <br>
 
-The process in which a liquid changes
-into a gas.
+The process in which a liquid
+changes into a gas.
 
 </div>
 
@@ -690,7 +645,7 @@ Water in its gas state.
 
 <br>
 
-Information that helps support
+Information that supports
 a scientific explanation.
 
 </div>
@@ -708,6 +663,19 @@ placeholder="During evaporation..."
 oninput="updateWork('readingAnswer',this.value)"
 >${studentWork.readingAnswer}</textarea>
 
+<div class="callout">
+
+<strong>Writing Frame:</strong>
+
+<p>
+
+During evaporation, water __________
+because __________.
+
+</p>
+
+</div>
+
 ${navigation("engage","explore")}
 
 </div>
@@ -718,10 +686,10 @@ ${navigation("engage","explore")}
 
 
 /* =====================================================
-   EXPLORE
+   TRIAL RESULTS
 ===================================================== */
 
-let trialResults = {
+const trialResults = {
 
 15: 96,
 25: 87,
@@ -729,14 +697,10 @@ let trialResults = {
 
 };
 
-let completedTrials = {
 
-15: false,
-25: false,
-35: false
-
-};
-
+/* =====================================================
+   EXPLORE
+===================================================== */
 
 function explore() {
 
@@ -751,45 +715,59 @@ document.getElementById("app").innerHTML = `
 <p>
 
 <strong>
-
 How does temperature affect
 the amount of water that evaporates?
-
 </strong>
 
 </p>
 
 <div class="callout">
 
-Run all three trials.
+<strong>Your job:</strong>
 
-<strong>
+<p>1. Run all three trials.</p>
 
-Record the ending water yourself.
+<p>2. Record the ending water.</p>
 
-</strong>
+<p>3. Calculate water lost.</p>
 
-Then calculate the water lost.
+<p>4. Analyze the data.</p>
 
 </div>
 
 <div class="visual">
 
-☀️ 🧪 💧
+🌡️ &nbsp; 🧪 &nbsp; 💧
 
 </div>
 
-<h3>Choose a Temperature</h3>
+<h3>Step 1 — Run the Trials</h3>
 
-<button onclick="runTrial(15)">15°C</button>
+<p>
 
-<button onclick="runTrial(25)">25°C</button>
+Click each temperature.
+Record the ending water
+in the table.
 
-<button onclick="runTrial(35)">35°C</button>
+</p>
+
+<button onclick="runTrial(15)">
+15°C
+</button>
+
+<button onclick="runTrial(25)">
+25°C
+</button>
+
+<button onclick="runTrial(35)">
+35°C
+</button>
 
 <div id="trialResult"></div>
 
-<h3>📊 Record Your Data</h3>
+<hr>
+
+<h3>Step 2 — Record Your Data</h3>
 
 <table class="data-table">
 
@@ -807,7 +785,7 @@ Then calculate the water lost.
 
 <tr>
 
-<td>15°C</td>
+<td><strong>15°C</strong></td>
 
 <td>100 mL</td>
 
@@ -816,6 +794,7 @@ Then calculate the water lost.
 <input
 type="number"
 value="${studentWork.end15}"
+placeholder="mL"
 oninput="updateWork('end15',this.value)"
 >
 
@@ -826,6 +805,7 @@ oninput="updateWork('end15',this.value)"
 <input
 type="number"
 value="${studentWork.lost15}"
+placeholder="mL"
 oninput="updateWork('lost15',this.value)"
 >
 
@@ -835,7 +815,7 @@ oninput="updateWork('lost15',this.value)"
 
 <tr>
 
-<td>25°C</td>
+<td><strong>25°C</strong></td>
 
 <td>100 mL</td>
 
@@ -844,6 +824,7 @@ oninput="updateWork('lost15',this.value)"
 <input
 type="number"
 value="${studentWork.end25}"
+placeholder="mL"
 oninput="updateWork('end25',this.value)"
 >
 
@@ -854,6 +835,7 @@ oninput="updateWork('end25',this.value)"
 <input
 type="number"
 value="${studentWork.lost25}"
+placeholder="mL"
 oninput="updateWork('lost25',this.value)"
 >
 
@@ -863,7 +845,7 @@ oninput="updateWork('lost25',this.value)"
 
 <tr>
 
-<td>35°C</td>
+<td><strong>35°C</strong></td>
 
 <td>100 mL</td>
 
@@ -872,6 +854,7 @@ oninput="updateWork('lost25',this.value)"
 <input
 type="number"
 value="${studentWork.end35}"
+placeholder="mL"
 oninput="updateWork('end35',this.value)"
 >
 
@@ -882,6 +865,7 @@ oninput="updateWork('end35',this.value)"
 <input
 type="number"
 value="${studentWork.lost35}"
+placeholder="mL"
 oninput="updateWork('lost35',this.value)"
 >
 
@@ -893,44 +877,144 @@ oninput="updateWork('lost35',this.value)"
 
 <div class="callout">
 
-<strong>Math Formula</strong>
+<h3>➖ Math Formula</h3>
 
-<br><br>
+<p>
+
+<strong>
 
 Starting Water − Ending Water
 = Water Lost
 
-<br><br>
+</strong>
+
+</p>
+
+<p>
 
 Example:
 
-<br>
+</p>
 
-100 − 90 = 10 mL
+<p>
+
+100 mL − 90 mL = <strong>10 mL</strong>
+
+</p>
 
 </div>
 
 <button onclick="checkData()">
 
-Check My Data ✓
+✓ Check My Data
 
 </button>
 
 <div id="dataFeedback"></div>
 
-<h3>📈 Data Analysis</h3>
+<hr>
+
+<h3>📊 Step 3 — Compare the Data</h3>
 
 <p>
 
-What pattern do you notice as
-temperature increases?
+How many more milliliters of water
+were lost at 35°C than at 15°C?
+
+</p>
+
+<input
+type="number"
+id="comparisonMath"
+placeholder="Answer in mL"
+>
+
+<button onclick="checkComparison()">
+
+Check Answer
+
+</button>
+
+<div id="comparisonFeedback"></div>
+
+<hr>
+
+<h3>📈 Step 4 — Analyze the Graph</h3>
+
+<p>
+
+The graph shows the amount of
+water lost at each temperature.
+
+</p>
+
+<div id="graph">
+
+${createGraph()}
+
+</div>
+
+<p>
+
+<strong>
+
+What pattern do you notice?
+
+</strong>
 
 </p>
 
 <textarea
-placeholder="As temperature increased..."
+placeholder="The data show that..."
 oninput="updateWork('pattern',this.value)"
 >${studentWork.pattern}</textarea>
+
+<div class="callout">
+
+<strong>Writing Frame:</strong>
+
+<p>
+
+As temperature increased,
+the amount of water lost __________.
+
+</p>
+
+</div>
+
+<hr>
+
+<h3>💯 Step 5 — Percentage Challenge</h3>
+
+<p>
+
+The container started with
+100 mL of water.
+
+At 35°C, 25 mL was lost.
+
+</p>
+
+<p>
+
+What percentage of the original
+water was lost?
+
+</p>
+
+<input
+type="number"
+id="percentageAnswer"
+placeholder="%"
+>
+
+<button onclick="checkPercentage()">
+
+Check Challenge
+
+</button>
+
+<div id="percentageFeedback"></div>
 
 ${navigation("reading","explain")}
 
@@ -941,11 +1025,11 @@ ${navigation("reading","explain")}
 }
 
 
-/* RUN TRIAL */
+/* =====================================================
+   RUN TRIAL
+===================================================== */
 
 function runTrial(temp) {
-
-completedTrials[temp] = true;
 
 let ending = trialResults[temp];
 
@@ -959,7 +1043,7 @@ document.getElementById(
 
 <p>
 
-Ending water:
+The ending water is:
 
 <strong>${ending} mL</strong>
 
@@ -967,8 +1051,8 @@ Ending water:
 
 <p>
 
-📝 Record this number
-in your data table.
+📝 Record <strong>${ending} mL</strong>
+in your table.
 
 </p>
 
@@ -976,9 +1060,15 @@ in your data table.
 
 Now calculate:
 
-<br>
+</p>
+
+<p>
+
+<strong>
 
 100 − ${ending} = ?
+
+</strong>
 
 </p>
 
@@ -989,7 +1079,9 @@ Now calculate:
 }
 
 
-/* CHECK DATA */
+/* =====================================================
+   CHECK DATA
+===================================================== */
 
 function checkData() {
 
@@ -1031,30 +1123,14 @@ feedback.innerHTML = `
 
 <p>
 
-Your data and calculations are correct.
+Your ending-water measurements
+and calculations are correct.
 
 </p>
 
 <p>
 
-Now try this challenge:
-
-</p>
-
-<p>
-
-<strong>
-
-How many more milliliters of water
-were lost at 35°C than at 15°C?
-
-</strong>
-
-</p>
-
-<p>
-
-25 − 4 = ?
+You are ready to analyze the data.
 
 </p>
 
@@ -1091,7 +1167,7 @@ Starting Water − Ending Water
 
 <p>
 
-Try the 15°C trial first:
+Start with 15°C:
 
 </p>
 
@@ -1103,7 +1179,286 @@ Try the 15°C trial first:
 
 <p>
 
-Then check your other calculations.
+Check your calculation and try again.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =====================================================
+   GRAPH
+===================================================== */
+
+function createGraph() {
+
+return `
+
+<div style="
+height:280px;
+display:flex;
+align-items:flex-end;
+justify-content:space-around;
+border-left:3px solid #333;
+border-bottom:3px solid #333;
+padding:10px;
+margin:20px 10px;
+">
+
+<div style="text-align:center">
+
+<div style="
+height:40px;
+width:60px;
+background:#a6192e;
+margin:auto;
+"></div>
+
+<strong>4 mL</strong>
+
+<br>
+
+15°C
+
+</div>
+
+<div style="text-align:center">
+
+<div style="
+height:120px;
+width:60px;
+background:#a6192e;
+margin:auto;
+"></div>
+
+<strong>13 mL</strong>
+
+<br>
+
+25°C
+
+</div>
+
+<div style="text-align:center">
+
+<div style="
+height:220px;
+width:60px;
+background:#a6192e;
+margin:auto;
+"></div>
+
+<strong>25 mL</strong>
+
+<br>
+
+35°C
+
+</div>
+
+</div>
+
+<p class="center">
+
+<strong>Temperature → Water Lost</strong>
+
+</p>
+
+`;
+
+}
+
+
+/* =====================================================
+   COMPARE DATA
+===================================================== */
+
+function checkComparison() {
+
+let answer =
+Number(
+document.getElementById("comparisonMath").value
+);
+
+let feedback =
+document.getElementById("comparisonFeedback");
+
+if(answer === 21) {
+
+feedback.innerHTML = `
+
+<div class="extension">
+
+<strong>⭐ Correct!</strong>
+
+<p>
+
+25 − 4 = <strong>21 mL</strong>
+
+</p>
+
+<p>
+
+At 35°C, 21 more milliliters
+of water were lost than at 15°C.
+
+</p>
+
+<h4>Extension Question</h4>
+
+<p>
+
+Why do you think more water
+was lost at the higher temperature?
+
+</p>
+
+<textarea></textarea>
+
+</div>
+
+`;
+
+}
+
+else {
+
+feedback.innerHTML = `
+
+<div class="help">
+
+<strong>🧠 Let's Practice</strong>
+
+<p>
+
+Find the two values:
+
+</p>
+
+<p>
+
+35°C → 25 mL lost
+
+</p>
+
+<p>
+
+15°C → 4 mL lost
+
+</p>
+
+<p>
+
+Subtract:
+
+</p>
+
+<p>
+
+<strong>
+
+25 − 4 = ?
+
+</strong>
+
+</p>
+
+<p>
+
+Try again.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =====================================================
+   PERCENTAGE
+===================================================== */
+
+function checkPercentage() {
+
+let answer =
+Number(
+document.getElementById("percentageAnswer").value
+);
+
+let feedback =
+document.getElementById("percentageFeedback");
+
+if(answer === 25) {
+
+feedback.innerHTML = `
+
+<div class="extension">
+
+<strong>⭐ Challenge Complete!</strong>
+
+<p>
+
+25 mL out of 100 mL is
+<strong>25%</strong>.
+
+</p>
+
+<p>
+
+You used scientific data
+to solve a percentage problem.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+else {
+
+feedback.innerHTML = `
+
+<div class="help">
+
+<strong>🧠 Percentage Hint</strong>
+
+<p>
+
+Use:
+
+</p>
+
+<p>
+
+<strong>
+
+Part ÷ Whole × 100
+
+</strong>
+
+</p>
+
+<p>
+
+Try:
+
+</p>
+
+<p>
+
+25 ÷ 100 × 100
 
 </p>
 
@@ -1147,8 +1502,8 @@ measure, or record.
 
 <br>
 
-An explanation based on observations
-and evidence.
+An explanation based on
+observations and evidence.
 
 </div>
 
@@ -1211,6 +1566,10 @@ ${navigation("explore","elaborate")}
 }
 
 
+/* =====================================================
+   EXPLAIN QUESTION
+===================================================== */
+
 function answerExplain(button, correct) {
 
 if(correct) {
@@ -1227,10 +1586,18 @@ document.getElementById(
 
 <p>
 
-Challenge:
+A thermometer reading is something
+we can directly measure.
+
+</p>
+
+<h4>Challenge Question</h4>
+
+<p>
 
 Why is the statement
-“the water evaporated” an inference?
+“the water evaporated”
+an inference rather than a direct observation?
 
 </p>
 
@@ -1256,14 +1623,18 @@ document.getElementById(
 
 <p>
 
-An observation is something you can
-directly measure or see.
+An observation is something
+you can directly see or measure.
 
 </p>
 
 <p>
 
 A thermometer reading is a measurement.
+
+</p>
+
+<p>
 
 Try again.
 
@@ -1313,7 +1684,7 @@ Two containers each begin with
 
 <tr>
 
-<td>Sunny Window</td>
+<td>☀️ Sunny Window</td>
 
 <td>100 mL</td>
 
@@ -1325,7 +1696,7 @@ Two containers each begin with
 
 <tr>
 
-<td>Cabinet</td>
+<td>🗄️ Cabinet</td>
 
 <td>100 mL</td>
 
@@ -1337,7 +1708,7 @@ Two containers each begin with
 
 </table>
 
-<h3>Math Challenge</h3>
+<h3>➖ Math Challenge</h3>
 
 <p>
 
@@ -1370,7 +1741,7 @@ Check Answer
 
 <div id="mathFeedback"></div>
 
-<h3>Writing</h3>
+<h3>✍️ Writing</h3>
 
 <p>
 
@@ -1384,6 +1755,19 @@ placeholder="The sunny window..."
 oninput="updateWork('comparison',this.value)"
 >${studentWork.comparison}</textarea>
 
+<div class="callout">
+
+<strong>Writing Frame:</strong>
+
+<p>
+
+More water was lost in the __________
+because the data show __________.
+
+</p>
+
+</div>
+
 ${navigation("explain","cer")}
 
 </div>
@@ -1393,10 +1777,16 @@ ${navigation("explain","cer")}
 }
 
 
+/* =====================================================
+   ELABORATE MATH
+===================================================== */
+
 function checkMath() {
 
 let answer =
-Number(document.getElementById("mathChallenge").value);
+Number(
+document.getElementById("mathChallenge").value
+);
 
 let feedback =
 document.getElementById("mathFeedback");
@@ -1411,16 +1801,22 @@ feedback.innerHTML = `
 
 <p>
 
-28 − 9 = 19 mL
+28 − 9 = <strong>19 mL</strong>
+
+</p>
+
+<h4>Challenge</h4>
+
+<p>
+
+What percentage of the original
+100 mL was lost in the sunny window?
 
 </p>
 
 <p>
 
-Challenge:
-
-What percentage of the original
-100 mL was lost in the sunny window?
+Hint: 28 ÷ 100 × 100
 
 </p>
 
@@ -1440,20 +1836,35 @@ feedback.innerHTML = `
 
 <p>
 
-Look at the two amounts:
+Look at the two water-loss values:
 
 </p>
 
 <p>
 
-28 mL and 9 mL
+Sunny Window = 28 mL
 
 </p>
 
 <p>
 
-Subtract the smaller number
-from the larger number.
+Cabinet = 9 mL
+
+</p>
+
+<p>
+
+Subtract:
+
+</p>
+
+<p>
+
+<strong>
+
+28 − 9 = ?
+
+</strong>
 
 </p>
 
@@ -1478,18 +1889,30 @@ document.getElementById("app").innerHTML = `
 
 <h2>✍️ CER — Scientific Writing</h2>
 
+<div class="callout">
+
+<h3>Use Your Science Notebook!</h3>
+
 <p>
 
-Use your reading, observations,
-math, and data to explain:
+You can click
+
+<strong>
+📓 My Science Notebook
+</strong>
+
+to look back at your data,
+reading response, and analysis.
 
 </p>
 
-<h3>
+</div>
+
+<h2>
 
 Where did the missing water go?
 
-</h3>
+</h2>
 
 <div class="cer-box claim">
 
@@ -1497,7 +1920,7 @@ Where did the missing water go?
 
 <p>
 
-Answer the question in one sentence.
+Make a clear one-sentence answer.
 
 </p>
 
@@ -1505,6 +1928,18 @@ Answer the question in one sentence.
 placeholder="The missing water..."
 oninput="updateWork('claim',this.value)"
 >${studentWork.claim}</textarea>
+
+<div class="callout">
+
+<strong>Claim Frame:</strong>
+
+<p>
+
+The missing water __________ because __________.
+
+</p>
+
+</div>
 
 </div>
 
@@ -1514,9 +1949,9 @@ oninput="updateWork('claim',this.value)"
 
 <p>
 
-Give at least <strong>two pieces of evidence</strong>.
+Use at least <strong>two pieces of evidence</strong>.
 
-Use a number from your data.
+Include numbers from your data.
 
 </p>
 
@@ -1524,6 +1959,19 @@ Use a number from your data.
 placeholder="My evidence is..."
 oninput="updateWork('evidence',this.value)"
 >${studentWork.evidence}</textarea>
+
+<div class="callout">
+
+<strong>Evidence Frame:</strong>
+
+<p>
+
+For example, at ______°C,
+______ mL of water was lost.
+
+</p>
+
+</div>
 
 </div>
 
@@ -1543,6 +1991,18 @@ placeholder="This evidence supports my claim because..."
 oninput="updateWork('reasoning',this.value)"
 >${studentWork.reasoning}</textarea>
 
+<div class="callout">
+
+<strong>Reasoning Frame:</strong>
+
+<p>
+
+This evidence supports my claim because __________.
+
+</p>
+
+</div>
+
 </div>
 
 <h3>✅ CER Checklist</h3>
@@ -1553,7 +2013,9 @@ oninput="updateWork('reasoning',this.value)"
 
 <p>☐ I included scientific data.</p>
 
-<p>☐ I explained how my evidence supports my claim.</p>
+<p>☐ I explained my evidence.</p>
+
+<p>☐ I used complete sentences.</p>
 
 ${navigation("elaborate","notebook")}
 
@@ -1585,23 +2047,19 @@ on this device.
 
 <div class="notebook">
 
-<h3>🔎 My Prediction</h3>
+<h3>🔎 Prediction</h3>
 
 <p>
-
 ${studentWork.prediction || "No response yet."}
-
 </p>
 
-<h3>📖 My Reading Response</h3>
+<h3>📖 Reading Response</h3>
 
 <p>
-
 ${studentWork.readingAnswer || "No response yet."}
-
 </p>
 
-<h3>📊 My Data</h3>
+<h3>📊 Data Table</h3>
 
 <table class="data-table">
 
@@ -1647,51 +2105,54 @@ ${studentWork.readingAnswer || "No response yet."}
 
 </table>
 
-<h3>📈 My Data Analysis</h3>
+<h3>📈 Data Analysis</h3>
 
 <p>
-
 ${studentWork.pattern || "No response yet."}
-
 </p>
 
 <h3>🧠 Cause & Effect</h3>
 
 <p>
-
 ${studentWork.causeEffect || "No response yet."}
-
 </p>
 
-<h3>🌎 My Comparison</h3>
+<h3>🌎 Comparison</h3>
 
 <p>
-
 ${studentWork.comparison || "No response yet."}
-
 </p>
 
-<h3>🟥 My Claim</h3>
+<h3>🟥 Claim</h3>
 
 <p>
-
 ${studentWork.claim || "No response yet."}
-
 </p>
 
-<h3>⬜ My Evidence</h3>
+<h3>⬜ Evidence</h3>
 
 <p>
-
 ${studentWork.evidence || "No response yet."}
-
 </p>
 
-<h3>🟨 My Reasoning</h3>
+<h3>🟨 Reasoning</h3>
+
+<p>
+${studentWork.reasoning || "No response yet."}
+</p>
+
+</div>
+
+<div class="callout">
+
+<strong>💡 Remember:</strong>
 
 <p>
 
-${studentWork.reasoning || "No response yet."}
+Your data is evidence.
+
+Your explanation connects
+the evidence to your claim.
 
 </p>
 
@@ -1707,6 +2168,13 @@ onclick="show('cer')">
 
 </button>
 
+<button
+onclick="show('welcome')">
+
+🏠 Start Over
+
+</button>
+
 </div>
 
 </div>
@@ -1717,7 +2185,7 @@ onclick="show('cer')">
 
 
 /* =====================================================
-   START APP
+   START
 ===================================================== */
 
 show("welcome");
